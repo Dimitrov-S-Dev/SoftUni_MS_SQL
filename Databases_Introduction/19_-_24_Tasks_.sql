@@ -55,3 +55,22 @@ UPDATE Employees
 SET Salary *= 1.1
 
 SELECT Salary FROM Employees
+
+-- Task 23 => Decrease Tax Rate
+-- Use Hotel database and decrease tax rate by 3% to all payments.
+--Then select only TaxRate column from the Payments table.
+--Submit your query statements as Prepare DB & Run queries.
+
+UPDATE Payments
+SET TaxRate *= 0.97
+
+SELECT TaxRate
+FROM
+Payments
+
+-- Task 24 => Delete All Records
+--Use Hotel database and delete all records from the Occupancies table.
+--Use SQL query.
+--Submit your query statements as Run skeleton, run queries & check DB
+
+TRUNCATE TABLE Occupancies
