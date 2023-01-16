@@ -1,4 +1,4 @@
--- Task 15
+-- Task 15 => Hotel Database
 -- create Hotel database with the following entities:
 --· Employees (Id, FirstName, LastName, Title, Notes)
 --· Customers (AccountNumber, FirstName, LastName, PhoneNumber,
@@ -127,7 +127,7 @@ INSERT INTO Occupancies(EmployeeId, DateOccupied, AccountNumber, RoomNumber, Rat
 (2, '2017-01-02', 3, 112, 40.0, 11.22),
 (3, '2018-01-03', 1, 132, 110.0, 10.05)
 
--- Task 16
+-- Task 16 => Create SoftUni Database
 --create bigger database called SoftUni.
 --You will use the same database in the future tasks.
 --It should hold information about
@@ -171,3 +171,10 @@ HireDate DATE,
 Salary DECIMAL(8,2),
 AddressId INT FOREIGN KEY REFERENCES Addresses(Id)
 )
+
+-- Task 17 => Backup Database
+--Backup the database SoftUni from the previous task into a file named "softuni-backup.bak".
+--Delete you database from SQL Server Management Studio.
+--Then restore the database from the created backup.
+
+BACKUP DATABASE SoftUni TO DISK = 'C:\Users........
