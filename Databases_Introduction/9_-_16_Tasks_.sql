@@ -1,4 +1,4 @@
--- Task 9
+-- Task 9 => Change Primary Key
 -- Using SQL queries modify table Users from the previous task.
 --First remove the current primary key and then create a new primary key
 --that would be a combination of fields Id and Username.
@@ -6,21 +6,21 @@
 ALTER Table [Users]
 ADD CONSTRAINT PK_IdUsername PRIMARY KEY (Id, Username)
 
--- Task 10
+-- Task 10 => Add Check Constraint
 -- Add check constraint to ensure that the values in
 --the Password field are at least 5 symbols long.
 
 ALTER TABLE [Users]
 ADD CONSTRAINT CH_Pass_Is_More_Then_Five CHECK (LEN([Password]) >= 5)
 
--- Task 11
+-- Task 11 => Set Default Value of a Field
 -- Make the default value of
 --LastLoginTime field to be the current time.
 
 ALTER TABLE [Users]
 ADD CONSTRAINT DF_LastLoginTime DEFAULT GETDATE() FOR [LastLoginTime]
 
--- Task 12
+-- Task 12 => Set Unique Field
 --Remove Username field from the primary key so only the field Id would be primary key.
 --Now add unique constraint to the Username field to ensure that the values there are at least 3 symbols long.
 
@@ -33,3 +33,4 @@ ADD CONSTRAINT PK_UserName PRIMARY KEY (Id)
 ALTER TABLE [Users]
 ADD CONSTRAINT CH_UserName_Length CHECK(LEN(Username) >= 3)
 
+-- Task 13 => Movies Database
