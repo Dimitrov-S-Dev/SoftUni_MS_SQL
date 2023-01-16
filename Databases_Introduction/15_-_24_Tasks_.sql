@@ -127,3 +127,47 @@ INSERT INTO Occupancies(EmployeeId, DateOccupied, AccountNumber, RoomNumber, Rat
 (2, '2017-01-02', 3, 112, 40.0, 11.22),
 (3, '2018-01-03', 1, 132, 110.0, 10.05)
 
+-- Task 16
+--create bigger database called SoftUni.
+--You will use the same database in the future tasks.
+--It should hold information about
+--· Towns (Id, Name)
+--· Addresses (Id, AddressText, TownId)
+--· Departments (Id, Name)
+--· Employees (Id, FirstName, MiddleName, LastName, JobTitle, DepartmentId,\
+--HireDate, Salary, AddressId)
+--The Id columns are auto incremented, starting from 1 and increased by 1
+--(1, 2, 3, 4…). Make sure you use appropriate data types for each column.
+--Add primary and foreign keys as constraints for each table.
+--Use only SQL queries.
+--Consider which fields are always required and which are optional.
+
+CREATE DATABASE SoftUni
+
+CREATE TABLE Towns (
+Id INT PRIMARY KEY IDENTITY,
+[Name] NVARCHAR(50) NOT NULL
+)
+
+CREATE TABLE Addresses (
+Id INT PRIMARY KEY IDENTITY,
+AddressText NVARCHAR(120) NOT NULL,
+TownId INT FOREIGN KEY REFERENCES Towns(Id) NOT NULL
+)
+
+CREATE TABLE Departments(
+Id INT PRIMARY KEY IDENTITY,
+[Name] NVARCHAR(50) NOT NULL
+)
+
+CREATE TABLE Employees(
+Id INT PRIMARY KEY IDENTITY,
+FirstName NVARCHAR(50) NOT NULL,
+MiddleName NVARCHAR(50) NOT NULL,
+LastName NVARCHAR(50) NOT NULL,
+JobTitle NVARCHAR(50) NOT NULL,
+DepartmentId INT FOREIGN KEY REFERENCES Departments(Id) NOT NULL,
+HireDate DATE,
+Salary DECIMAL(8,2),
+AddressId INT FOREIGN KEY REFERENCES Addresses(Id)
+)
