@@ -15,3 +15,9 @@ CREATE Table [Towns] (
 	[Name] NVARCHAR(50) NOT NULL
 
 )
+
+-- Task 3
+
+ALTER Table [Minion]
+ADD [TownId] INT FOREIGN KEY REFERENCES [Towns](Id) NOT NULL
+
