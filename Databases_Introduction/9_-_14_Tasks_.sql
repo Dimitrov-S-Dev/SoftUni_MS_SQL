@@ -103,7 +103,7 @@ INSERT INTO MOVIES VALUES
 ('Joe', 4, 2019, '2:12:21', 4, 2, 5.8, 'Whiskey'),
 ('Carabas', 3, 2018, '1:30:01', 5, 1, 2.9, 'Rating')
 
--- Task 14
+-- Task 14 => Car Rental Database
 -- Using SQL queries create CarRental database with the following entities:
 --· Categories (Id, CategoryName, DailyRate, WeeklyRate, MonthlyRate, WeekendRate)
 --· Cars (Id, PlateNumber, Manufacturer, Model, CarYear, CategoryId, Doors, Picture, Condition, Available)
