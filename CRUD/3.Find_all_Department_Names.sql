@@ -3,4 +3,4 @@
 
 SELECT
 [Name]
-FROM Departments
+    FROM Departments

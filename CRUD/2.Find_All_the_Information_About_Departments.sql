@@ -3,4 +3,4 @@
 USE [SoftUni]
 
 SELECT *
-FROM Departments
+    FROM Departments
