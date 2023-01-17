@@ -1,0 +1,5 @@
+-- Task 1
+-- Download and get familiar with the
+--SoftUni, Diablo and Geography database schemas and tables.
+--You will use them in the current and the following exercises
+--to write queries.
