@@ -4,6 +4,6 @@
 --Emails should look like "John.Doe@softuni.bg".
 --The produced column should be named "Full Email Address".
 
-SELECT CONCAT([FirstName], + '.', + [LastName], + '@', + 'softuni.bg')
+SELECT CONCAT(FirstName, '.', LastName, '@',  'softuni.bg')
 		AS [Full Email Address]
 	FROM Employees
