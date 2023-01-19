@@ -24,7 +24,6 @@ INSERT INTO [Passports] ([PassportNumber])
 ('K65LO4R7'),
 ('ZE657QP2')
 
-
 INSERT INTO [Persons]([FirstName], [Salary], [PassportID])
 	VALUES
 ('Roberto', 43300.00, 102),
