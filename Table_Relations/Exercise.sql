@@ -118,7 +118,6 @@ INSERT INTO [StudentsExams] ([StudentID], [ExamID])
 
 -- Task 4
 
-
 CREATE TABLE [Teachers]
 (
 [TeacherID] INT PRIMARY KEY IDENTITY(101,1),
@@ -135,9 +134,7 @@ INSERT INTO [Teachers]([Name], [ManagerID])
 ('Mark', 101),
 ('Greta',101)
 
-
 -- Task 5
-
 
 CREATE TABLE [Cities]
 (
@@ -216,8 +213,6 @@ CREATE TABLE [Payments]
 [PaymentAmount] DECIMAL(8,2),
 [StudentID] INT REFERENCES [Students]([StudentID]) NOT NULL
 )
-
-
 
 -- Task 9
 
