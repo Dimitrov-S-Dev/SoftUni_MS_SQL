@@ -115,6 +115,11 @@ CREATE VIEW V_EmployeeNameJobTitle AS
 			JobTitle
 		FROM Employees
 
+--CREATE VIEW V_EmployeeNameJobTitle AS
+	--SELECT CONCAT_WS(' ',FirstName,MiddleName,LastName) AS [Full Name],
+			JobTitle
+		FROM Employees
+
 -- Task 18
 
 SELECT
