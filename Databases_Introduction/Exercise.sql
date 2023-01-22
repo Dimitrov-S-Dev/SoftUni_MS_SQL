@@ -52,7 +52,7 @@ VALUES
  CREATE TABLE People(
  Id INT PRIMARY KEY IDENTITY,
  [Name] NVARCHAR(200) NOT NULL,
- Picture VARBINARY(MAX) CHECK (DATALENGTH(Picture) > 1024 * 1024 *2 ),
+ Picture VARBINARY(MAX) CHECK (DATALENGTH(Picture) <= 2000000 ),
  Height DECIMAL(3,2),
  [Weight] DECIMAL (5,2),
  Gender CHAR(1) CHECK(Gender ='m' OR Gender = 'f') NOT NULL,
@@ -60,42 +60,42 @@ VALUES
  Biography NVARCHAR(MAX)
  )
 
- INSERT INTO People (Name, Picture, Height, [Weight], Gender, Birthdate, Biography)
+ INSERT INTO People ([Name],Height, [Weight], Gender, Birthdate, Biography)
  VALUES
- ('Ivan O', NULL, 1.24, 55.00, 'm', CONVERT(DateTime, '20000525', 112),'Mamuna'),
- ('Ivan X', NULL, 1.44, 55.00, 'm', CONVERT(DateTime, '20000515', 112),'Kosmos'),
- ('Ivan Y', NULL, 1.54, 55.00, 'm', CONVERT(DateTime, '20000512', 112),'Shklyokavitsa'),
- ('Ivan Z', NULL, 1.64, 55.00, 'm', CONVERT(DateTime, '20000522', 112),'????????????'),
- ('Ivan F', NULL, 1.74, 55.00, 'm', CONVERT(DateTime, '20000523', 112),'?????????')
+ ('A', 'link', 1.24, 55.00, 'm','1999-05-25' ,'A'),
+ ('B', 'link', 1.44, 55.00, 'm','1999-05-26' ,'B'),
+ ('C', 'link', 1.54, 55.00, 'm','1999-05-27' ,'C'),
+ ('D', 'link', 1.64, 55.00, 'm','1999-05-28' ,'D'),
+ ('F', 'link', 1.74, 55.00, 'm','1999-05-29' ,'F')
 
 
  -- Problem 8
 
-CREATE TABLE Users(
-Id BIGINT IDENTITY,
-Username VARCHAR(30) UNIQUE NOT NULL,
-[Password] VARCHAR(26) NOT NULL,
-ProfilePicture VARBINARY(MAX) CHECK(DATALENGTH(ProfilePicture) <= 900 * 1024),
-LastLoginTime DATETIME,
-IsDeleted BIT
-CONSTRAINT PK_Users PRIMARY KEY(Id)
+CREATE TABLE Users
+(
+id INT PRIMARY KEY IDENTITY,
+Username VARCHAR(30) NOT NULL UNIQUE,
+Password VARCHAR(26) NOT NULL CHECK(LEN(Password) <= 26),
+ProfilePicture VARBINARY(MAX) CHECK(DATALENGTH(ProfilePicture) <= 900000),
+LastLoginTime DATETIME2,
+IsDelited BIT
 )
 
-INSERT INTO Users VALUES
-('Gosho', '21512', NULL, NULL, 0),
-('Ivan', '21513', NULL, NULL, 1),
-('Ivgo', '21514', NULL, NULL, 0),
-('Goiv', '21515', NULL, NULL, 1),
-('Ogvi', '21516', NULL, NULL, 0)
+INSERT INTO Users(UserName, Password)
+	VALUES
+('A', 1234),
+('B', 1234),
+('C', 1234),
+('D', 1234),
+('E', 1234)
 
 -- PROBLEM 9
 
 ALTER TABLE Users
-DROP CONSTRAINT PK_Users
+DROP CONSTRAINT id
 
 ALTER TABLE Users
-ADD CONSTRAINT PK_Users PRIMARY KEY (Id, Username)\
-
+ADD CONSTRAINT PK_IdUsers PRIMARY KEY (Id, Username)
 -- PROBLEM 10
 
 ALTER TABLE Users
@@ -104,16 +104,16 @@ ADD CONSTRAINT PasswordCheck CHECK(LEN([Password]) >=5)
 -- PROBLEM 11
 
 ALTER TABLE Users
-ADD CONSTRAINT Default_Users_LastLoginTime
+ADD CONSTRAINT DF_LastLoginTime
 DEFAULT GETDATE() FOR LastLoginTime
 
 -- PROBLEM 12
 
 ALTER TABLE Users
-DROP CONSTRAINT PK_Users
+DROP CONSTRAINT PK_IdUsers
 
 ALTER TABLE Users
-ADD CONSTRAINT PK_UserId PRIMARY KEY (Id)
+ADD CONSTRAINT PK_Id PRIMARY KEY (Id)
 
 ALTER TABLE Users
 ADD CONSTRAINT DF_UsernameLength CHECK(LEN(Username) >=3)
@@ -123,48 +123,45 @@ DROP DATABASE Minions
 
 CREATE DATABASE Movies
 
-CREATE TABLE Directors(
-Id INT PRIMARY KEY IDENTITY,
-DirectorName NVARCHAR(30) NOT NULL,
-Notes NVARCHAR(200)
+CCREATE TABLE [Directors] (
+    [Id] INT PRIMARY KEY IDENTITY,
+    [DirectorName] NVARCHAR(50) NOT NULL,
+    [Notes] NVARCHAR(50)
 )
-
-CREATE TABLE Genres(
-Id INT PRIMARY KEY IDENTITY,
-GenreName NVARCHAR (30) NOT NULL,
-Notes NVARCHAR(200)
+CREATE TABLE [Genres] (
+    [Id] INT PRIMARY KEY IDENTITY,
+    [GenreName] NVARCHAR(30) NOT NULL,
+    [Notes] NVARCHAR(50)
 )
-
-CREATE TABLE Categories(
-Id INT PRIMARY KEY IDENTITY,
-CategoryName NVARCHAR(30) NOT NULL,
-Notes NVARCHAR(150)
+CREATE TABLE [Categories](
+    [Id] INT PRIMARY KEY IDENTITY,
+    [CategoryName] NVARCHAR(30) NOT NULL,
+    [Notes] NVARCHAR(50)
 )
-
-CREATE TABLE Movies(
-Id INT PRIMARY KEY IDENTITY,
-Title NVARCHAR(30) NOT NULL,
-DirectorId INT FOREIGN KEY REFERENCES Directors(Id),
-CopyrightYear INT NOT NULL,
-[Length] TIME,
-GenreId INT FOREIGN KEY REFERENCES Genres(Id),
-CategoryId INT FOREIGN KEY REFERENCES Categories(Id),
-Rating DECIMAL(2,1),
-Notes NVARCHAR(MAX)
+CREATE TABLE [Movies] (
+    [Id] INT PRIMARY KEY IDENTITY,
+    [Title] NVARCHAR(50) NOT NULL,
+    [DirectorName] INT FOREIGN KEY REFERENCES Directors(Id),
+    [CopyrightYear] INT NOT NULL,
+    [Length] TIME,
+    [GenreId] INT FOREIGN KEY REFERENCES Genres(Id),
+    [CategoryId] INT FOREIGN KEY REFERENCES Categories(Id),
+    [Rating] DECIMAL (2,1),
+    [Notes] NVARCHAR(50)
 )
 
 INSERT INTO Directors VALUES
-('Ivan Ivanov', 'Golden boot Winner'),
-('Stan Petrov', 'Multiple international awards'),
-('James Cameron', 'FC Liverpool legend'),
-('Sam Mayor', 'MK3 World Champion'),
-('Dany De La Hoya', 'Very talented')
+('Ivan Ivanov', 'Barcelona'),
+('Stan Petrov', 'Real'),
+('Bat Sancho', 'Liverpool legend'),
+('Krali Marko', 'World Champion'),
+('Daniel Dinev', 'Very Talented')
 
 INSERT INTO Genres VALUES
-('Comedy', 'Very funny...'),
-('Action', 'Weapons mepons'),
-('Horror', 'Not for children'),
-('SciFi', 'Space and aliens'),
+('Comedy', 'Funny...'),
+('Action', 'Weapons'),
+('Horror', 'Scary'),
+('SciFi', 'Aliens'),
 ('Drama', 'OMG')
 
 INSERT INTO Categories VALUES
@@ -175,14 +172,11 @@ INSERT INTO Categories VALUES
 ('5', NULL)
 
 INSERT INTO MOVIES VALUES
-('Gosho and the others', 1, 2020, '1:25:00', 1, 1, 9.9, 'Must watch it with popcorns and wiskey')
-
-INSERT INTO Movies VALUES
-('Hmm part 2', 1, 1999, '1:40:00', 2, 4, 5.0, 'SAW'),
-('The naked cat', 2, 2999, '1:11:21', 3, 3, 5.3, 'WAS'),
-('Joe and his women', 4, 2999, '2:12:21', 4, 2, 5.8, 'Whiskey in the Jar'),
-('Mad cat', 3, 2098, '1:30:01', 5, 1, 2.9, 'Rating 10 not supported')
-
+('Gosho', 1, 2020, '1:25:00', 1, 1, 9.9, 'Must Watch'),
+('Sancho', 1, 1999, '1:40:00', 2, 4, 5.0, 'It is OK'),
+('Naked', 2, 2099, '1:11:21', 3, 3, 5.3, 'WAS'),
+('Joe', 4, 2019, '2:12:21', 4, 2, 5.8, 'Whiskey'),
+('Carabas', 3, 2018, '1:30:01', 5, 1, 2.9, 'Rating')
 --PROBLEM 14
 
 CREATE DATABASE CarRental
@@ -214,17 +208,17 @@ CREATE TABLE Employees (
 	FirstName NVARCHAR(30) NOT NULL,
 	LastName NVARCHAR(30) NOT NULL,
 	Title NVARCHAR(30),
-	Notes NVARCHAR(500)
+	Notes NVARCHAR(50)
 )
 
 CREATE TABLE Customers (
 	Id INT PRIMARY KEY IDENTITY,
 	DriverLicenceNumber NVARCHAR(20) NOT NULL UNIQUE,
-	FullName NVARCHAR(100) NOT NULL,
-	Address NVARCHAR(250) NOT NULL,
+	FullName NVARCHAR(50) NOT NULL,
+	Address NVARCHAR(100) NOT NULL,
 	City NVARCHAR(50) NOT NULL,
 	ZIPCode NVARCHAR(30),
-	Notes NVARCHAR(1000)
+	Notes NVARCHAR(100)
 )
 
 CREATE TABLE RentalOrders (
@@ -242,7 +236,7 @@ CREATE TABLE RentalOrders (
 	RateApplied INT NOT NULL,
 	TaxRate AS RateApplied * 0.2,
 	OrderStatus BIT NOT NULL,
-	Notes NVARCHAR(1000)
+	Notes NVARCHAR(100)
 )
 
 INSERT INTO Categories VALUES
@@ -251,26 +245,25 @@ INSERT INTO Categories VALUES
 ('Economic', 40, 230, 850, 70)
 
 INSERT INTO Cars VALUES
-('B8877PP', 'Audi', 'A6', 2001, 1, 4, NULL, 'Good', 1),
-('GH17GH78', 'Opel', 'Corsa', 2014, 3, 5, NULL, 'Very good', 0),
-('CT17754GT', 'VW', 'Touareg', 2008, 2, 5, NULL, 'Zufrieden', 1)
+('A8877BB', 'Audi', 'A6', 2018, 1, 4, NULL, 'Good', 1),
+('A8877CC', 'Lexus', 'IS', 2018, 3, 5, NULL, 'Very good', 0),
+('A8877DD', 'BMW', 'X1', 2018, 2, 5, NULL, 'OK', 1)
 
 INSERT INTO Employees VALUES
-('Stancho', 'Mihaylov', NULL, NULL),
-('Doncho', 'Petkov', NULL, NULL),
-('Stamat', 'Jelev', 'DevOps', 'Employee of the year')
+('Sancho', 'Pansa', NULL, NULL),
+('Krali', 'Marko', NULL, NULL),
+('Simbad', 'Carabas', 'DevOps', 'Employee of the year')
 
 INSERT INTO Customers(DriverLicenceNumber, FullName, Address, City) VALUES
-('AZ18555PO', 'Michael Smith', 'Medley str. 25', 'Chikago'),
-('LJ785554478', 'Sergey Ivankov', 'Shtaigich 37', 'Perm'),
-('LK8555478', 'Franc Joshua', 'Dorcel str. 56', 'Paris')
+('AA11111BB', 'Michael Jackson', 'Jako str. 5', 'New York'),
+('AA111111CC', 'Sergey Bubka', 'Bubka 7', 'Moskow'),
+('AA111111DD', 'Franc Lampard', 'Franc str. 6', 'London')
 
 INSERT INTO RentalOrders(EmployeeId, CustomerId, CarId, TankLevel, KilometrageStart, KilometrageEnd,
 StartDate, EndDate, RateApplied, OrderStatus) VALUES
 (1, 2, 3, 45, 18005, 19855, '2007-08-08', '2007-08-10', 250, 1),
 (3, 2, 1, 50, 55524, 56984, '2009-09-06', '2009-09-28', 1500, 0),
 (2, 2, 1, 18, 36005, 38547, '2017-05-08', '2017-06-09', 850, 0)
-
 
 --PROBLEM 15
 
@@ -281,7 +274,7 @@ CREATE TABLE Employees (
 	FirstName NVARCHAR(30) NOT NULL,
 	LastName NVARCHAR(30) NOT NULL,
 	Title NVARCHAR(50),
-	Notes NVARCHAR(500)
+	Notes NVARCHAR(50)
 )
 
 CREATE TABLE Customers (
@@ -291,22 +284,22 @@ CREATE TABLE Customers (
 	PhoneNumber NVARCHAR(30),
 	EmergencyName NVARCHAR(30),
 	EmergencyNumber NVARCHAR(30),
-	Notes NVARCHAR(500)
+	Notes NVARCHAR(50)
 )
 
 CREATE TABLE RoomStatus (
 	RoomStatus NVARCHAR(50) PRIMARY KEY NOT NULL,
-	Notes NVARCHAR(500)
+	Notes NVARCHAR(50)
 )
 
 CREATE TABLE RoomTypes (
 	RoomType NVARCHAR(50) PRIMARY KEY NOT NULL,
-	Notes NVARCHAR(500)
+	Notes NVARCHAR(50)
 )
 
 CREATE TABLE BedTypes (
 	BedType NVARCHAR(50) PRIMARY KEY NOT NULL,
-	Notes NVARCHAR(500)
+	Notes NVARCHAR(50)
 )
 
 CREATE TABLE Rooms (
@@ -315,7 +308,7 @@ CREATE TABLE Rooms (
 	BedType NVARCHAR(50) FOREIGN KEY REFERENCES BedTypes(BedType) NOT NULL,
 	Rate DECIMAL(6,2) NOT NULL,
 	RoomStatus BIT NOT NULL,
-	Notes NVARCHAR(1000)
+	Notes NVARCHAR(50)
 )
 
 CREATE TABLE Payments (
@@ -330,7 +323,7 @@ CREATE TABLE Payments (
 	TaxRate DECIMAL(6,2) NOT NULL,
 	TaxAmount AS AmountCharged * TaxRate,
 	PaymentTotal AS AmountCharged + AmountCharged * TaxRate,
-	Notes NVARCHAR(1500)
+	Notes NVARCHAR(50)
 )
 
 CREATE TABLE Occupancies (
@@ -341,7 +334,7 @@ CREATE TABLE Occupancies (
 	RoomNumber INT FOREIGN KEY REFERENCES Rooms(RoomNumber) NOT NULL,
 	RateApplied DECIMAL(7, 2) NOT NULL,
 	PhoneCharge DECIMAL(8, 2) NOT NULL,
-	Notes NVARCHAR(1000)
+	Notes NVARCHAR(50)
 )
 
 INSERT INTO Employees(FirstName, LastNAme) VALUES
@@ -362,7 +355,7 @@ INSERT INTO RoomStatus(RoomStatus) VALUES
 INSERT INTO RoomTypes(RoomType) VALUES
 ('single'),
 ('double'),
-('appartment')
+('apartment')
 
 INSERT INTO BedTypes(BedType) VALUES
 ('single'),
@@ -372,7 +365,7 @@ INSERT INTO BedTypes(BedType) VALUES
 INSERT INTO Rooms(RoomNumber, RoomType, BedType, Rate, RoomStatus) VALUES
 (111, 'single', 'single', 20.0, 1),
 (112, 'double', 'double', 30.0, 0),
-(132, 'appartment', 'double', 10.0, 1)
+(132, 'apartment', 'double', 10.0, 1)
 
 INSERT INTO Payments(EmployeeId, PaymentDate, AccountNumber, FirstDateOccupied, LastDateOccupied, AmountCharged, TaxRate) VALUES
 (3, '2011-11-25', 2, '2017-11-30', '2017-12-04', 250.0, 0.2),
@@ -442,7 +435,7 @@ VALUES
 ('Ivan', 'Ivanov', 'Ivanov', '.NET Developer', 4, '2013-02-01', 3500.00),
 ('Petar', 'Petrov', 'Petrov', 'Senior Engineer', 1, '2004-03-02', 4000.00),
 ('Maria', 'Petrova', 'Ivanova', 'Intern', 5, '2016-08-28', 525.25),
-('Georgi', 'Teziev', 'Ivanov', 'CEO', 2, '2007-12-09', 4000.00),
+('Georgi', 'Teziev', 'Ivanov', 'CEO', 2, '2007-12-09', 3000.00),
 ('Peter', 'Pan', 'Pan', 'Intern', 3, '2016-08-28', 599.88)
 
 -- Problem 19
@@ -455,15 +448,26 @@ SELECT * FROM Employees
 
 -- Problem 20
 
-SELECT * FROM Towns ORDER BY [Name]
-SELECT * FROM Departments ORDER BY [Name]
-SELECT * FROM Employees ORDER BY Salary DESC
+SELECT * FROM Towns
+ORDER BY [Name]
+
+SELECT * FROM Departments
+ORDER BY [Name]
+
+SELECT * FROM Employees
+ORDER BY Salary DESC
 
 -- Problem 21
 
-SELECT [Name] FROM Towns ORDER BY [Name]
-SELECT [Name] FROM Departments ORDER BY [Name]
-SELECT FirstName, LastName, JobTitle, Salary FROM Employees ORDER BY Salary DESC
+SELECT [Name] FROM Towns
+ORDER BY [Name]
+
+SELECT [Name] FROM Departments
+ORDER BY [Name]
+
+SELECT FirstName, LastName, JobTitle, Salary
+FROM Employees
+ORDER BY Salary DESC
 
 -- Problem 22
 
@@ -480,5 +484,4 @@ SET TaxRate -= TaxRate*0.03
 SELECT TaxRate FROM Payments
 
 --Problem 24
-
 TRUNCATE TABLE Occupancies
