@@ -1,4 +1,4 @@
--- Task 1
+-- Task 1 One-To-One Relationship
 
 CREATE DATABASE [One_To_One]
 
@@ -33,7 +33,7 @@ INSERT INTO [Persons]([FirstName], [Salary], [PassportID])
 ('Tom', 56100.00, 103),
 ('Yana', 60200.00, 101)
 
--- Task 2
+-- Task 2 One-To-Many Relationship
 
 CREATE TABLE [Manufacturers]
 (
@@ -67,7 +67,7 @@ INSERT INTO [Models] ([Name], [ManufacturerID])
 ('Model3', 2),
 ('Nova', 3)
 
--- Task 3
+-- Task 3 Many-To-Many Relationship
 
 CREATE TABLE [Students]
 (
@@ -116,7 +116,7 @@ INSERT INTO [StudentsExams] ([StudentID], [ExamID])
 (2, 103)
 
 
--- Task 4
+-- Task 4 Self-Referencing
 
 CREATE TABLE [Teachers]
 (
@@ -134,7 +134,7 @@ INSERT INTO [Teachers]([Name], [ManagerID])
 ('Mark', 101),
 ('Greta',101)
 
--- Task 5
+-- Task 5 Online Store Database
 
 CREATE TABLE [Cities]
 (
@@ -176,7 +176,7 @@ CREATE TABLE [OrderItems]
 PRIMARY KEY ([OrderID],[ItemID])
 )
 
--- Task 6
+-- Task 6 University Database
 
 CREATE TABLE [Majors]
 (
@@ -214,7 +214,7 @@ CREATE TABLE [Payments]
 [StudentID] INT REFERENCES [Students]([StudentID]) NOT NULL
 )
 
--- Task 9
+-- Task 9 Peaks in Rila
 
    SELECT [m].[MountainRange], [p].[PeakName], [p].[Elevation]
 	FROM  [Mountains] AS [m]
