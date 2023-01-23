@@ -2,11 +2,29 @@
 
 SELECT
 	TOP 5
-	EmployeeID,
-	JobTitle,
+	e.EmployeeID,
+	e.JobTitle,
 	e.AddressID,
 	a.AddressText
 	FROM Employees AS e
 	LEFT JOIN Addresses AS a
 	ON e.AddressID = a.AddressID
-	ORDER BY AddressID
+	ORDER BY e.AddressID
+
+-- Task 2 Addresses with Towns
+
+SELECT
+	TOP 50
+	e.FirstName,
+	e.LastName,
+	t.Name AS Town,
+	a.AddressText
+	FROM Employees AS e
+	JOIN Addresses AS a
+	ON e.AddressID = a.AddressID
+	JOIN Towns AS t
+	ON t.TownID = a.TownID
+	ORDER BY e.FirstName,
+	e.LastName
+
+
