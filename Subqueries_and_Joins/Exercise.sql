@@ -111,3 +111,16 @@ SELECT
 	FROM Employees AS e
 	JOIN Employees AS e2 ON e.ManagerID = e2.EmployeeID
 	WHERE e.ManagerID = 3 OR e.ManagerID = 7
+
+--Task 10 Employee summary
+
+SELECT
+	TOP 50
+	e.EmployeeID,
+	CONCAT_WS(' ',e.Firstname,e.LastName) AS EmployeeName,
+	CONCAT_WS(' ', e2.FirstName, e2.LastName) AS ManagerName,
+	d.Name AS DepartmentName
+	FROM Employees AS e
+	JOIN Employees AS e2 ON e.ManagerID = e2.EmployeeID
+	JOIN Departments AS d ON e.DepartmentID = d.DepartmentID
+	ORDER BY e.EmployeeID
