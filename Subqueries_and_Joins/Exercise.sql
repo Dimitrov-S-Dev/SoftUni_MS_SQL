@@ -53,7 +53,7 @@ SELECT
 	WHERE e.Salary > 15000
 	ORDER BY e.DepartmentID
 
---Task 5 Employees without project
+--Task 5 Employees without Project
 
 SELECT
 	TOP 3 e.EmployeeID, e.FirstName
@@ -62,7 +62,7 @@ SELECT
 	WHERE ep.ProjectID IS NOT NULL
 	ORDER BY e.EmployeeID
 
--- Task 6 Employees hired after
+-- Task 6 Employees Hired After
 
 SELECT
 	e.FirstName,
@@ -74,7 +74,7 @@ SELECT
 	WHERE e.HireDate > '1999-01-01' AND d.Name IN('Sales','Finance')
 	ORDER BY e.HireDate
 
--- Task 7 Employee with project
+-- Task 7 Employee with Project
 
 SELECT
 	TOP 5
@@ -101,7 +101,7 @@ SELECT
 	JOIN Projects AS p ON ep.ProjectID = p.ProjectID
 	WHERE e.EmployeeID = 24
 
--- Task 9 Employee manager
+-- Task 9 Employee Manager
 
 SELECT
 	e.EmployeeID,
@@ -112,7 +112,7 @@ SELECT
 	JOIN Employees AS e2 ON e.ManagerID = e2.EmployeeID
 	WHERE e.ManagerID IN(3,7)
 
---Task 10 Employee summary
+--Task 10 Employee Summary
 
 SELECT
 	TOP 50
@@ -127,7 +127,7 @@ SELECT
 
 
 
---Task 11 Min average salary
+--Task 11 Min Average Salary
 
 SELECT TOP 1 MinAverageSalary FROM
 	(SELECT
@@ -137,7 +137,7 @@ SELECT TOP 1 MinAverageSalary FROM
 	ORDER BY MinAverageSalary
 
 
---Task 12 Highest picks in Bulgaria
+--Task 12 Highest Picks in Bulgaria
 
 SELECT
 	c.CountryCode,
@@ -152,7 +152,7 @@ SELECT
 	ORDER BY p.Elevation DESC
 
 
---Task 13 Count mountain ranges
+--Task 13 Count Mountain Ranges
 
 SELECT
 	CountryCode,
@@ -174,7 +174,7 @@ SELECT
 	ORDER BY c.CountryName
 
 
--- Task 16 Country without any mountains
+-- Task 16 Country without any Mountains
 
 SELECT
 	COUNT(c.CountryCode) AS COUNT
@@ -182,7 +182,7 @@ SELECT
 	LEFT JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
 	WHERE mc.MountainId IS NULL
 
---Task 17 Highest peak and longest river by country
+--Task 17 Highest Peak and Longest River by Country
 	SELECT TOP(5)
 		 c.CountryName,
 		 MAX(p.Elevation) AS HighestPeakElevation,
