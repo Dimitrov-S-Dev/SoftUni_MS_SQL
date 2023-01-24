@@ -53,3 +53,11 @@ SELECT
 	WHERE e.Salary > 15000
 	ORDER BY e.DepartmentID
 
+--Task 5 Employees without project
+
+SELECT
+	TOP 3 e.EmployeeID, e.FirstName
+	FROM Employees AS e
+	LEFT JOIN EmployeesProjects AS ep ON e.EmployeeID = ep.EmployeeID
+	WHERE ep.ProjectID IS NOT NULL
+	ORDER BY e.EmployeeID
