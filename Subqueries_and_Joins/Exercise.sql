@@ -182,7 +182,6 @@ SELECT
 	LEFT JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
 	WHERE mc.MountainId IS NULL
 
-
 --Task 17 Highest peak and longest river by country
 	SELECT TOP(5)
 		 c.CountryName,
