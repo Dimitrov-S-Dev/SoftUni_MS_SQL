@@ -151,3 +151,12 @@ SELECT
 	WHERE p.Elevation > 2835 AND c.CountryCode = 'BG'
 	ORDER BY p.Elevation DESC
 
+--Task 13 Count mountain ranges
+
+SELECT
+	CountryCode,
+	COUNT(MountainId) AS MountainRanges
+	FROM MountainsCountries
+	WHERE CountryCode IN ('BG','RU','US')
+	GROUP BY CountryCode
+
