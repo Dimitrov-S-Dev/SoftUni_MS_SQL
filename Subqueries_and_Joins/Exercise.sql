@@ -110,7 +110,7 @@ SELECT
 	e2.FirstName AS ManagerName
 	FROM Employees AS e
 	JOIN Employees AS e2 ON e.ManagerID = e2.EmployeeID
-	WHERE e.ManagerID = 3 OR e.ManagerID = 7
+	WHERE e.ManagerID IN(3,7)
 
 --Task 10 Employee summary
 
@@ -124,3 +124,30 @@ SELECT
 	JOIN Employees AS e2 ON e.ManagerID = e2.EmployeeID
 	JOIN Departments AS d ON e.DepartmentID = d.DepartmentID
 	ORDER BY e.EmployeeID
+
+
+
+--Task 11 Min average salary
+
+SELECT TOP 1 MinAverageSalary FROM
+	(SELECT
+	AVG(Salary) AS MinAverageSalary
+	FROM Employees
+	GROUP BY DepartmentID) AS AvgSalaries
+	ORDER BY MinAverageSalary
+
+
+--Task 12 Highest picks in Bulgaria
+
+SELECT
+	c.CountryCode,
+	m.MountainRange,
+	p.PeakName,
+	p.Elevation
+	FROM Countries AS c
+	JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
+	JOIN Mountains AS m ON mc.MountainId = m.Id
+	JOIN Peaks AS p ON m.Id = p.MountainId
+	WHERE p.Elevation > 2835 AND c.CountryCode = 'BG'
+	ORDER BY p.Elevation DESC
+
