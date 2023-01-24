@@ -71,7 +71,7 @@ SELECT
 	d.Name AS DeptName
 	FROM Employees AS e
 	JOIN Departments AS d ON e.DepartmentID = d.DepartmentID
-	WHERE e.HireDate > 1999/01/01 AND d.Name IN('Sales','Finance')
+	WHERE e.HireDate > '1999-01-01' AND d.Name IN('Sales','Finance')
 	ORDER BY e.HireDate
 
 -- Task 7 Employee with project
@@ -84,7 +84,20 @@ SELECT
 	FROM Employees AS e
 	JOIN EmployeesProjects AS ep ON e.EmployeeID = ep.EmployeeID
 	JOIN Projects AS p ON ep.ProjectID = p.ProjectID
-	WHERE p.StartDate > 2002/08/13 AND p.EndDate IS NULL
+	WHERE p.StartDate > '2002-01-13' AND p.EndDate IS NULL
 	ORDER BY e.EmployeeID
 
+--Task 8 Employee 24
+
+SELECT
+	e.EmployeeID,
+	e.FirstName,
+	CASE
+		WHEN p.StartDate >= '2005-01-01' THEN NULL
+		ELSE p.Name
+	END AS ProjectName
+	FROM Employees AS e
+	JOIN EmployeesProjects AS ep ON e.EmployeeID = ep.EmployeeID
+	JOIN Projects AS p ON ep.ProjectID = p.ProjectID
+	WHERE e.EmployeeID = 24
 
