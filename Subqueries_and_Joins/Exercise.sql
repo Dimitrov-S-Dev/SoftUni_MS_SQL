@@ -101,3 +101,13 @@ SELECT
 	JOIN Projects AS p ON ep.ProjectID = p.ProjectID
 	WHERE e.EmployeeID = 24
 
+-- Task 9 Employee manager
+
+SELECT
+	e.EmployeeID,
+	e.FirstName,
+	e.ManagerID,
+	e2.FirstName AS ManagerName
+	FROM Employees AS e
+	JOIN Employees AS e2 ON e.ManagerID = e2.EmployeeID
+	WHERE e.ManagerID = 3 OR e.ManagerID = 7
