@@ -26,4 +26,13 @@ SELECT
 	FROM WizzardDeposits
 	GROUP BY DepositGroup
 	ORDER BY AVG(MagicWandSize)
-	
+
+--Task 5 Deposit Sum
+
+SELECT
+	TOP 5
+	DepositGroup,
+	SUM(DepositAmount)
+	FROM WizzardDeposits
+	GROUP BY DepositGroup
+
