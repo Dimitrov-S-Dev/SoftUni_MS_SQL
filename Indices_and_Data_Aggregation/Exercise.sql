@@ -56,3 +56,14 @@ SELECT
 	HAVING SUM(DepositAmount) < 150000
 	ORDER BY TotalSum DESC
 
+--Task 8 Deposite Charge
+
+SELECT
+	DepositGroup,
+	MagicWandCreator,
+	MIN(DepositCharge) AS MinDepositCharge
+	FROM WizzardDeposits
+	GROUP BY DepositGroup, MagicWandCreator
+	ORDER BY MagicWandCreator,
+	DepositGroup
+
