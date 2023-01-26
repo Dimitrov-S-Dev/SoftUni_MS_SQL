@@ -152,7 +152,7 @@ SELECT
 	GROUP BY DepartmentID
 	HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
 
---Task 17
+--Task 17 Employees Count Salaries
 
 SELECT
 	COUNT(*) AS Count
