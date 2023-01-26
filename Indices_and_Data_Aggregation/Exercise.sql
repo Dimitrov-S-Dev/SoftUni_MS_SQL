@@ -122,3 +122,24 @@ SELECT
 	WHERE DepartmentID IN(2, 5, 7) AND HireDate > '2000-01-01'
 	GROUP BY DepartmentID
 	ORDER BY DepartmentID
+
+--Task 15 Employees Average Salaries
+
+SELECT *
+	INTO NewT
+	FROM Employees
+	WHERE Salary > 3000
+
+DELETE FROM NewT
+WHERE ManagerID = 42
+
+UPDATE NewT
+SET Salary += 5000
+WHERE DepartmentID = 1
+
+SELECT
+	DepartmentID,
+	AVG(Salary) AS AverageSalary
+	FROM NewT
+	GROUP BY DepartmentID
+
