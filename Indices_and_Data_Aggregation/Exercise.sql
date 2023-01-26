@@ -151,3 +151,11 @@ SELECT
 	FROM Employees
 	GROUP BY DepartmentID
 	HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
+
+--Task 17
+
+SELECT
+	COUNT(*) AS Count
+	FROM Employees
+	WHERE ManagerID IS NULL
+
