@@ -65,4 +65,7 @@ GO
 -- Task 5 Salary Level Function
 
 CREATE FUNCTION ufn_GetSalaryLevel(@salary DECIMAL(18,4)
-RETURNS VARCHAR
+RETURNS VARCHAR(10)
+BEGIN
+
+END
