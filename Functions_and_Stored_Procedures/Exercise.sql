@@ -47,4 +47,19 @@ GO
 --Do not paste this in Judge. It's for testing purpose only.
 EXEC dbo.usp_GetTownsStartingWit b
 
+--Task 4 Employees from Town
+GO
+CREATE OR ALTER PROCEDURE usp_GetEmployeesFromTown @townName VARCHAR(50)
+AS
+BEGIN
+	SELECT
+	FirstName,
+	LastName
+	FROM Employees AS E
+	JOIN Addresses AS A ON E.AddressID = A.AddressID
+	JOIN Towns AS T ON A.TownID = T.TownID
+	WHERE T.Name = @townName
+END
+GO
+
 
