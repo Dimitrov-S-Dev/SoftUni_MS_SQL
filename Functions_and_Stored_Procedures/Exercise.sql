@@ -66,6 +66,7 @@ GO
 
 CREATE FUNCTION ufn_GetSalaryLevel(@salary DECIMAL(18,4)
 RETURNS VARCHAR(10)
+AS
 BEGIN
 	DECLARE @salaryLevel VARCHAR(10)
 
@@ -81,4 +82,5 @@ BEGIN
 	BEGIN
 	SET @salaryLevel = 'High'
 	END
+	RETURN @salaryLevel
 END
