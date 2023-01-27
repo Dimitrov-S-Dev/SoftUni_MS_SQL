@@ -11,4 +11,6 @@ BEGIN
 END
 
 GO
+-- EXEC dbo.usp_GetEmployeesSalaryAbove35000
+
 
