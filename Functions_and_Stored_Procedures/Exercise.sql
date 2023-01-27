@@ -77,4 +77,8 @@ BEGIN
 	BEGIN
 		SET @salaryLevel = 'Average'
 	END
+	IF @salary > 50000
+	BEGIN
+	SET @salaryLevel = 'High'
+	END
 END
