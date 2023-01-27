@@ -1,6 +1,6 @@
 -- Task 1 Employees with Salary Above 35000
 GO
-CREATE PROCEDURE usp_GetEmployeesSalaryAbove35000
+CREATE OR ALTER PROCEDURE usp_GetEmployeesSalaryAbove35000
 AS
 BEGIN
 	SELECT
@@ -11,6 +11,9 @@ BEGIN
 END
 
 GO
--- EXEC dbo.usp_GetEmployeesSalaryAbove35000
+
+--EXEC dbo.usp_GetEmployeesSalaryAbove35000
+
+-- Task 2 Employees with Salary Above Number
 
 
