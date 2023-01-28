@@ -64,10 +64,10 @@ GO
 -- Task 5 Salary Level Function
 
 CREATE FUNCTION ufn_GetSalaryLevel(@salary DECIMAL(18,4)
-RETURNS VARCHAR(10)
+RETURNS VARCHAR(8)
 AS
 BEGIN
-	DECLARE @salaryLevel VARCHAR(10)
+	DECLARE @salaryLevel VARCHAR(8)
 
 	IF @salary < 30000
 	BEGIN
