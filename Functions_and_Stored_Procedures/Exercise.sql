@@ -17,7 +17,7 @@ EXEC dbo.usp_GetEmployeesSalaryAbove35000
 -- Task 2 Employees with Salary Above Number
 
 GO
-CREATE OR ALTER PROCEDURE usp_GetEmployeesSalaryAboveNumber @minSalary DECIMAL(18, 4)
+CREATE OR ALTER PROCEDURE usp_GetEmployeesSalaryAboveNumber @aboveSalary DECIMAL(18, 4)
 AS
 BEGIN
 	SELECT
