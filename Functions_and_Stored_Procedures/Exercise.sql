@@ -123,7 +123,7 @@ BEGIN
 END
 
 
---Task 8
+--Task 8 Delete Employees and Departments
 
 CREATE PROC usp_DeleteEmployeesFromDepartment (@DepartmentId INT)
 AS
