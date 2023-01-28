@@ -27,8 +27,8 @@ BEGIN
 	FROM Employees
 	WHERE Salary >= @minSalary
 END
-
 GO
+
 --Do not paste this in Judge. It's for testing purpose only.
 EXEC dbo.usp_GetEmployeesSalaryAboveNumber 48100
 
