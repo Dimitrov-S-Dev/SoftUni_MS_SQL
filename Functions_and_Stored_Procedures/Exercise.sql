@@ -48,6 +48,7 @@ GO
 EXEC dbo.usp_GetTownsStartingWit b
 
 --Task 4 Employees from Town
+
 GO
 CREATE OR ALTER PROCEDURE usp_GetEmployeesFromTown @townName VARCHAR(50)
 AS
