@@ -1,4 +1,5 @@
 -- Task 1 Employees with Salary Above 35000
+
 GO
 CREATE OR ALTER PROCEDURE usp_GetEmployeesSalaryAbove35000
 AS
