@@ -73,11 +73,11 @@ BEGIN
 	BEGIN
 		SET @salaryLevel = 'Low'
 	END
-	IF @salary BETWEEN 30000 AND 50000
+	ELSE IF @salary BETWEEN 30000 AND 50000
 	BEGIN
 		SET @salaryLevel = 'Average'
 	END
-	IF @salary > 50000
+	ELSE IF @salary > 50000
 	BEGIN
 	SET @salaryLevel = 'High'
 	END
