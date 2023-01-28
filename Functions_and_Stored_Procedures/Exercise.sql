@@ -10,7 +10,6 @@ BEGIN
 		FROM Employees
 		WHERE Salary > 35000
 END
-
 GO
 
 --Do not paste this in Judge. It's for testing purpose only.
