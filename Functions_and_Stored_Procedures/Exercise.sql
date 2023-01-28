@@ -24,7 +24,7 @@ BEGIN
 	FirstName,
 	LastName
 	FROM Employees
-	WHERE Salary >= @minSalary
+	WHERE Salary >= @aboveSalary
 END
 GO
 --Do not paste this in Judge. It's for testing purpose only.
