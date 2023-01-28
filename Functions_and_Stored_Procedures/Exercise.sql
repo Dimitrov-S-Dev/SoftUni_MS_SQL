@@ -90,4 +90,4 @@ SELECT
 	dbo.ufn_GetSalaryLevel(Salary) AS [Salary Level]
 	FROM Employees
 
--- Task 6 Employees
+-- Task 6 Employees by Salary Level
