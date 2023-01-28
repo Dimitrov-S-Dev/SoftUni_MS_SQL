@@ -160,3 +160,13 @@ BEGIN
             ON d.DepartmentID = e.DepartmentID
          WHERE e.DepartmentID = @DepartmentId
 END
+
+--Task 9 Find Full Name
+
+CREATE PROC usp_GetHoldersFullName
+AS
+BEGIN
+    SELECT ah.FirstName + ' ' + ah.LastName AS [Full Name]
+      FROM AccountHolders ah
+END
+
