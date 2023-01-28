@@ -33,19 +33,18 @@ EXEC dbo.usp_GetEmployeesSalaryAboveNumber 48100
 --Task 3 Town Names Starting With
 
 GO
-CREATE OR ALTER PROCEDURE usp_GetTownsStartingWit @townNames VARCHAR(20)
+CREATE OR ALTER PROCEDURE usp_GetTownsStartingWit @word VARCHAR(20)
 AS
 BEGIN
 	SELECT
 	Name AS Town
-	FROM Towns
-	WHERE Name LIKE @townNames + '%'
+	FROM Towns as T
+	WHERE LEFT(T.Name,LEN(@word)) = @word
 
 END
 GO
 --Do not paste this in Judge. It's for testing purpose only.
 EXEC dbo.usp_GetTownsStartingWit b
-
 --Task 4 Employees from Town
 
 GO
