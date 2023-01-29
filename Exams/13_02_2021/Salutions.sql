@@ -175,3 +175,13 @@ SELECT
 	ORDER BY i.Id DESC,
 	i.AssigneeId
 
+--Task 8 Single Files
+
+SELECT f.Id, f.[Name], CONCAT(f.Size, 'KB') AS Size
+	FROM Files f
+	WHERE f.Id  NOT IN
+    (SELECT f1.ParentId
+    FROM Files f1
+    WHERE f1.ParentId IS NOT NULL)
+	ORDER BY f.Id, f.[Name], Size DESC
+
