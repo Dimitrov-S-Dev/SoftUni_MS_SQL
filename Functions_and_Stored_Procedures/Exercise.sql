@@ -170,3 +170,17 @@ BEGIN
       FROM AccountHolders ah
 END
 
+--Task 10 People with Balance Higher Than
+
+CREATE OR ALTER PROCEDURE usp_GetHoldersWithBalanceHigherThan @amount DECIMAL(18, 4)
+AS
+BEGIN
+	SELECT
+	ah.FirstName,
+	ah.LastName
+	FROM AccountHolders AS ah
+	JOIN Accounts AS a ON ah.ID = a.AccountHolderID
+	GROUP BY ah.FirstName, ah.LastName
+	HAVING SUM(a.Balance) > @amount
+	WHERE
+END
