@@ -82,3 +82,9 @@ INSERT INTO Issues(Title, IssueStatus, RepositoryId, AssigneeId)
 ('Unreachable code in Index.cs', 'open', 9, 8)
 
 GO
+
+--Task 3 Update
+
+Update Issues
+SET IssueStatus = 'closed'
+WHERE AssigneeId = 6
