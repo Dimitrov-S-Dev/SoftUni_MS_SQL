@@ -185,3 +185,29 @@ SELECT f.Id, f.[Name], CONCAT(f.Size, 'KB') AS Size
     WHERE f1.ParentId IS NOT NULL)
 	ORDER BY f.Id, f.[Name], Size DESC
 
+--Task 9
+
+
+SELECT TOP 5
+	r.Id,
+	r.[Name],
+	COUNT(*) AS Commits
+	FROM Repositories AS r
+	JOIN Commits AS c ON r.Id = c.RepositoryId
+	GROUP BY r.Id,r.[Name],c.RepositoryId
+	ORDER BY Commits DESC,
+	r.Id,
+	r.Name
+
+
+--Task 10 Average Size
+
+SELECT
+	u.Username,
+	AVG(f.Size) AS Size
+	FROM Users AS u
+	LEFT JOIN Commits AS c ON u.Id = c.ContributorId
+	LEFT JOIN Files AS f ON f.CommitId = c.Id
+	GROUP BY u.Username, c.ContributorId
+	ORDER BY Size DESC,
+		u.Username
