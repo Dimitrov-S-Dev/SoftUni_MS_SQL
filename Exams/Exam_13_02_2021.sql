@@ -1,5 +1,5 @@
 
---Section 1 DDL
+--Section 1 DDL 1.Database Design
 
 CREATE DATABASE BitBucket
 
@@ -56,3 +56,5 @@ Size DECIMAL(15, 2) NOT NULL,
 ParentId INT REFERENCES Files(Id),
 CommitId INT REFERENCES Commits(Id) NOT NULL
 )
+
+--2.Insert
