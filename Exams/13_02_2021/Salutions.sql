@@ -88,3 +88,55 @@ GO
 Update Issues
 SET IssueStatus = 'closed'
 WHERE AssigneeId = 6
+
+--Task 4 Delete
+-- Check what is refering what befero start Delete
+
+DELETE  FROM RepositoriesContributors
+WHERE RepositoryId = (SELECT
+						Id
+						FROM Repositories
+						WHERE Name = 'Softuni-Teamwork'
+						)
+
+
+
+
+DELETE  FROM Commits
+WHERE RepositoryId = (SELECT
+						Id
+						FROM Repositories
+						WHERE Name = 'Softuni-Teamwork'
+						)
+
+
+
+-- Take all Ids of Issues that Ineed to delete
+SELECT Id
+	FROM Issues
+	WHERE RepositoryId = (SELECT
+						Id
+						FROM Repositories
+						WHERE Name = 'Softuni-Teamwork'
+						)
+
+-- No such commits refering this Issue
+DELETE FROM Commits
+WHERE IssueId IN(
+			SELECT Id
+	FROM Issues
+	WHERE RepositoryId = (SELECT
+						Id
+						FROM Repositories
+						WHERE Name = 'Softuni-Teamwork'
+						)
+)
+
+
+DELETE FROM Issues
+WHERE RepositoryId = (
+					SELECT
+					Id
+					FROM Repositories
+					WHERE Name = 'Softuni-Teamwork')
+
