@@ -234,3 +234,23 @@ BEGIN
 END
 GO
 
+--Task 12 Search for Files
+
+CREATE OR ALTER PROCEDURE usp_SearchForFiles @fileExtension VARCHAR(98)
+AS
+BEGIN
+		SELECT
+		f.Id,
+		f.[Name],
+		CONCAT(f.Size, 'KB') AS Size
+		FROM [Files] AS f
+		WHERE [Name] LIKE CONCAT('%[.]', @fileExtension)
+		ORDER BY f.Id,
+		f.[Name],
+		f.Size DESC
+END
+
+END
+GO
+
+EXEC usp_SearchForFiles 'txt'
