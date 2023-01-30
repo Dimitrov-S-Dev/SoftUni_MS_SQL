@@ -220,3 +220,5 @@ SELECT
 		LEFT JOIN Peaks AS p ON mc.MountainId = p.MountainId
 		 GROUP BY c.CountryName
 		 ORDER BY HighestPeakElevation DESC, LongestRiverLength DESC, CountryName
+
+--Task 18
