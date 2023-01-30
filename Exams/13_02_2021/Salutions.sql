@@ -214,3 +214,23 @@ SELECT
 	ORDER BY Size DESC,
 		u.Username
 
+--Task 11 All User Commits
+GO
+CREATE OR ALTER FUNCTION udf_AllUserCommits(@username VARCHAR(30))
+RETURNS INT
+AS
+BEGIN
+	DECLARE @userId INT = (
+		SELECT Id
+		FROM Users
+		WHERE Username = @username
+	)
+	DECLARE @commitsCnt INT = (
+		SELECT COUNT(Id)
+		FROM Commits
+		WHERE ContributorId = @userId
+	)
+	RETURN @commitsCnt
+END
+GO
+
