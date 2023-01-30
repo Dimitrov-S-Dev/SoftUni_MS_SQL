@@ -185,19 +185,21 @@ SELECT f.Id, f.[Name], CONCAT(f.Size, 'KB') AS Size
     WHERE f1.ParentId IS NOT NULL)
 	ORDER BY f.Id, f.[Name], Size DESC
 
---Task 9
+--Task 9 Commits in Repositories
 
 
-SELECT TOP 5
+SELECT
+	TOP 5
 	r.Id,
 	r.[Name],
-	COUNT(*) AS Commits
+	COUNT(c.Id) AS Commits
 	FROM Repositories AS r
-	JOIN Commits AS c ON r.Id = c.RepositoryId
-	GROUP BY r.Id,r.[Name],c.RepositoryId
+LEFT JOIN Commits AS c ON c.RepositoryId = r.Id
+LEFT JOIN RepositoriesContributors AS rc ON rc.RepositoryId = r.Id
+	GROUP BY r.Id, r.[Name]
 	ORDER BY Commits DESC,
 	r.Id,
-	r.Name
+	r.[Name]
 
 
 --Task 10 Average Size
