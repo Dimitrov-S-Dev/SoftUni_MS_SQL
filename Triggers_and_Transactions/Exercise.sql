@@ -66,6 +66,16 @@ END
 
 --Task 4 Withdraw Money
 
+CREATE PROC usp_WithdrawMoney (@AccountId INT, @MoneyAmount DECIMAL(15, 4))
+AS
+BEGIN
+    BEGIN TRANSACTION
+        UPDATE Accounts
+           SET Balance -= @MoneyAmount
+         WHERE Id = @AccountId
+    COMMIT
+END
+
 --Task 5 Money Transfer
 
 --Task 6 Trigger
