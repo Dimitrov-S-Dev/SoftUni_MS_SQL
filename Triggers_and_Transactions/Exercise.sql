@@ -53,6 +53,16 @@ END
 
 --Task 3 Deposit Money
 
+CREATE PROC usp_DepositMoney (@AccountId INT, @MoneyAmount DECIMAL(15, 4))
+AS
+BEGIN
+    BEGIN TRANSACTION
+        UPDATE Accounts
+           SET Balance += @MoneyAmount
+         WHERE Id = @AccountId
+    COMMIT
+END
+
 --Task 4 Withdraw Money
 
 --Task 5 Money Transfer
