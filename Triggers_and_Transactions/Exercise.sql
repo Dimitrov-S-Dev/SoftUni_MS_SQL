@@ -12,5 +12,7 @@
 
 --Task 6 Trigger
 
+--Task 7 Massive Shopping
+
 
 
