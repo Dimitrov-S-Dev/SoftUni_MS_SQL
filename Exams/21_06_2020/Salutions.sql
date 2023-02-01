@@ -11,6 +11,8 @@ Name NVARCHAR(20) NOT NULL,
 CountryCode CHAR(2) NOT NULL
 )
 
+GO
+
 CREATE TABLE Hotels
 
 (
@@ -21,6 +23,8 @@ EmployeeCount INT NOT NULL,
 BaseRate DECIMAL(18,2)
 )
 
+GO
+
 CREATE TABLE Rooms
 (
 Id INT PRIMARY KEY IDENTITY,
@@ -29,6 +33,7 @@ Type NVARCHAR(20) NOT NULL,
 Beds INT NOT NULL,
 HotelId INT REFERENCES Hotels(Id) NOT NULL
 )
+GO
 
 CREATE TABLE Trips
 (
@@ -41,6 +46,7 @@ CancelDate Date,
 CHECK('ArrivalDate' <'ReturnDate' ),
 CHECK('ReturnDate' > 'ArrivalDate')
 )
+GO
 
 CREATE TABLE Accounts
 (
@@ -52,6 +58,7 @@ CityId INT REFERENCES Cities(Id) NOT NULL,
 BirthDate DATE NOT NULL,
 Email VARCHAR(100) NOT NULL UNIQUE
 )
+GO
 
 CREATE TABLE AccountsTrips
 (
@@ -60,5 +67,5 @@ TripId INT REFERENCES Trips(Id),
 Luggage INT NOT NULL,
 PRIMARY KEY(AccountId, TripId),
 CHECK(Luggage >= 0)
-
 )
+
