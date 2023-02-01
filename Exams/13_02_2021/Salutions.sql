@@ -1,5 +1,5 @@
 
---Section 1 DDL 1.Database Design
+--Task 1 DDL Database Design
 
 CREATE DATABASE BitBucket
 
@@ -57,7 +57,7 @@ ParentId INT REFERENCES Files(Id),
 CommitId INT REFERENCES Commits(Id) NOT NULL
 )
 
---2.Insert
+--Task 2 Insert
 
 GO
 
