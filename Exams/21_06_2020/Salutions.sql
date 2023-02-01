@@ -65,4 +65,4 @@ PRIMARY KEY(AccountId, TripId),
 CHECK(Luggage >= 0)
 )
 
-
+--Task 2 Insert
