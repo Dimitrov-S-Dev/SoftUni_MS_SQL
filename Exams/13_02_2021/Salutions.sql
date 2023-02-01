@@ -215,6 +215,7 @@ SELECT
 		u.Username
 
 --Task 11 All User Commits
+
 GO
 CREATE OR ALTER FUNCTION udf_AllUserCommits(@username VARCHAR(30))
 RETURNS INT
