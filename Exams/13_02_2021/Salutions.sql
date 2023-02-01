@@ -111,7 +111,7 @@ WHERE RepositoryId = (SELECT
 
 
 
--- Take all Ids of Issues that Ineed to delete
+-- Take all Ids of Issues that I need to delete
 SELECT Id
 	FROM Issues
 	WHERE RepositoryId = (SELECT
