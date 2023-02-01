@@ -7,7 +7,7 @@ USE TripService
 CREATE TABLE Cities
 (
 Id INT PRIMARY KEY IDENTITY,
-Name NVARCHAR(20) NOT NULL,
+[Name] NVARCHAR(20) NOT NULL,
 CountryCode CHAR(2) NOT NULL
 )
 
@@ -17,7 +17,7 @@ CREATE TABLE Hotels
 
 (
 Id INT PRIMARY KEY IDENTITY,
-Name NVARCHAR(20) NOT NULL,
+[Name] NVARCHAR(20) NOT NULL,
 CityId INT REFERENCES Cities(Id) NOT NULL,
 EmployeeCount INT NOT NULL,
 BaseRate DECIMAL(18,2)
@@ -43,8 +43,8 @@ BookDate DATE NOT NULL,
 ArrivalDate DATE NOT NULL,
 ReturnDate DATE NOT NULL,
 CancelDate Date,
-CHECK('ArrivalDate' <'ReturnDate' ),
-CHECK('ReturnDate' > 'ArrivalDate')
+CHECK(BookDate < ReturnDate ),
+CHECK(ReturnDate > ArrivalDate)
 )
 GO
 
