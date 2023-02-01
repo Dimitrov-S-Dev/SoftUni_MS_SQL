@@ -8,7 +8,7 @@ CREATE TABLE Cities
 (
 Id INT PRIMARY KEY IDENTITY,
 Name NVARCHAR(20) NOT NULL,
-CountryCode VARCHAR(2) NOT NULL
+CountryCode CHAR(2) NOT NULL
 )
 
 CREATE TABLE Hotels
@@ -18,16 +18,16 @@ Id INT PRIMARY KEY IDENTITY,
 Name NVARCHAR(20) NOT NULL,
 CityId INT REFERENCES Cities(Id) NOT NULL,
 EmployeeCount INT NOT NULL,
-BaseRate DECIMAL(4,2)
+BaseRate DECIMAL(18,2)
 )
 
 CREATE TABLE Rooms
 (
 Id INT PRIMARY KEY IDENTITY,
-Price DECIMAL (5,2) NOT NULL,
+Price DECIMAL (18,2) NOT NULL,
 Type NVARCHAR(20) NOT NULL,
 Beds INT NOT NULL,
-HotelId INT REFERENCES Hotels(Id)
+HotelId INT REFERENCES Hotels(Id) NOT NULL
 )
 
 CREATE TABLE Trips
@@ -35,9 +35,11 @@ CREATE TABLE Trips
 Id INT PRIMARY KEY IDENTITY,
 RoomId INT REFERENCES Rooms (ID) NOT NULL,
 BookDate DATE NOT NULL,
-ArrivalDate DATE NOT NULL CHECK('ArrivalDate' <'ReturnDate' ),
-ReturnDate DATE NOT NULL CHECK('ReturnDate' > 'ArrivalDate'),
-CancelDate Date
+ArrivalDate DATE NOT NULL,
+ReturnDate DATE NOT NULL,
+CancelDate Date,
+CHECK('ArrivalDate' <'ReturnDate' ),
+CHECK('ReturnDate' > 'ArrivalDate')
 )
 
 CREATE TABLE Accounts
@@ -55,6 +57,8 @@ CREATE TABLE AccountsTrips
 (
 AccountId INT REFERENCES Accounts(Id),
 TripId INT REFERENCES Trips(Id),
-Luggage INT NOT NULL CHECK(Luggage > 0)
-PRIMARY KEY(AccountId, TripId)
+Luggage INT NOT NULL,
+PRIMARY KEY(AccountId, TripId),
+CHECK(Luggage >= 0)
+
 )
