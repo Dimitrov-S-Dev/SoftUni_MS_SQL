@@ -120,7 +120,7 @@ SELECT Id
 						WHERE Name = 'Softuni-Teamwork'
 						)
 
--- No such commits refering this Issue
+-- No such commits referring this Issue
 DELETE FROM Commits
 WHERE IssueId IN(
 			SELECT Id
@@ -186,7 +186,6 @@ SELECT f.Id, f.[Name], CONCAT(f.Size, 'KB') AS Size
 	ORDER BY f.Id, f.[Name], Size DESC
 
 --Task 9 Commits in Repositories
-
 
 SELECT
 	TOP 5
