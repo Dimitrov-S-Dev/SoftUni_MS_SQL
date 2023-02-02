@@ -133,3 +133,17 @@ SELECT
 	GROUP BY a.Id, FirstName,LastName
 	ORDER BY LongestTrip DESC,
 				ShortestTrip ASC
+
+--Task 8 Metropolis
+
+SELECT
+	TOP 10
+	c.Id,
+	C.Name AS City,
+	c.CountryCode,
+	COUNT(*) AS Accounts
+	FROM Cities AS c
+	JOIN Accounts AS a ON c.Id = a.CityId
+	GROUP BY c.Id, c.Name, c.CountryCode
+	ORDER BY Accounts DESC
+
