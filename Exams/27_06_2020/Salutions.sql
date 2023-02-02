@@ -21,7 +21,7 @@ CREATE TABLE Mechanics
 MechanicId INT PRIMARY KEY IDENTITY,
 FirstName VARCHAR(50) NOT NULL,
 LastName VARCHAR(50) NOT NULL,
-Address VARCHAR(255) NOT NULL
+[Address] VARCHAR(255) NOT NULL
 )
 
 GO
@@ -30,7 +30,7 @@ GO
 CREATE TABLE Models
 (
 ModelId INT PRIMARY KEY IDENTITY,
-Name VARCHAR(50) UNIQUE NOT NULL
+[Name] VARCHAR(50) UNIQUE NOT NULL
 )
 
 GO
@@ -39,9 +39,9 @@ CREATE TABLE Jobs
 (
 JobId INT PRIMARY KEY IDENTITY,
 ModelId INT REFERENCES Models(ModelId) NOT NULL,
-Status VARCHAR(11) DEFAULT 'Pending' CHECK(Status IN('Pending', 'In Progress','Finished')) NOT NULL,
-ClienId INT REFERENCES Clients(ClientId) NOT NULL,
-MechaicId INT REFERENCES Mechanics(MechanicId),
+[Status] VARCHAR(11) DEFAULT 'Pending' CHECK([Status] IN('Pending', 'In Progress','Finished')) NOT NULL,
+ClientId INT REFERENCES Clients(ClientId) NOT NULL,
+MechanicId INT REFERENCES Mechanics(MechanicId),
 IssueDate DATE NOT NULL,
 FinishDate DATE
 )
@@ -60,7 +60,7 @@ GO
 CREATE TABLE Vendors
 (
 VendorId INT PRIMARY KEY IDENTITY,
-Name VARCHAR(50) UNIQUE NOT NULL
+[Name] VARCHAR(50) UNIQUE NOT NULL
 )
 GO
 
