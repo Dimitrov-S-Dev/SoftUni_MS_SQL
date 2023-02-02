@@ -79,8 +79,8 @@ CREATE TABLE OrderParts
 (
 OrderId INT REFERENCES Orders(OrderId),
 PartId INT REFERENCES Parts(PartId),
-PRIMARY KEY(OrderId, PartId),
-Quantity INT DEFAULT 1 CHECK(Quantity > 0)
+Quantity INT DEFAULT 1 CHECK(Quantity > 0),
+PRIMARY KEY(OrderId, PartId)
 )
 GO
 
@@ -88,6 +88,7 @@ CREATE TABLE PartsNeeded
 (
 JobId INT REFERENCES Jobs(JobId),
 PartId INT REFERENCES Parts(PartId),
-PRIMARY KEY(JobId, PartId),
-Quantity INT DEFAULT 1 CHECK(Quantity > 0)
+Quantity INT DEFAULT 1 CHECK(Quantity > 0),
+PRIMARY KEY(JobId, PartId)
 )
+
