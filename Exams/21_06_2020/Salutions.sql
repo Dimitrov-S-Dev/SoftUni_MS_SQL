@@ -100,7 +100,7 @@ DELETE
 SELECT
 	a.FirstName,
 	a.LastName,
-	FORMAT(a.BirthDate, 'MM-dd-yyyy'),
+	FORMAT(a.BirthDate, 'MM-dd-yyyy') AS BirthDate,
 	c.Name AS Hometown,
 	a.Email
 	FROM Accounts AS a
