@@ -119,4 +119,15 @@ SELECT
 	ORDER BY Hotels DESC,
 		City
 
-
+SELECT
+	a.Id AS AccountId,
+	FirstName + ' ' + LastName AS FullName,
+	MAX(DATEDIFF(DAY, ArrivalDate, ReturnDate)) AS LongestTrip,
+	MIN(DATEDIFF(DAY, ArrivalDate, ReturnDate)) AS ShortestTrip
+	FROM AccountsTrips AS at
+	JOIN Accounts AS a ON at.AccountId = a.Id
+	JOIN Trips AS t ON at.TripId = t.Id
+	WHERE CancelDate IS NULL AND MiddleName IS NULL
+	GROUP BY a.Id, FirstName,LastName
+	ORDER BY LongestTrip DESC,
+				ShortestTrip ASC
