@@ -45,6 +45,7 @@ END
 GO
 --Do not paste this in Judge. It's for testing purpose only.
 EXEC dbo.usp_GetTownsStartingWit b
+
 --Task 4 Employees from Town
 
 GO
