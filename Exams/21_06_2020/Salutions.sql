@@ -108,4 +108,15 @@ SELECT
 	WHERE a.Email LIKE 'e%'
 	ORDER BY c.Name
 
+--Task 6 City Statistics
+
+SELECT
+	c.Name AS City,
+	COUNT(*) AS Hotels
+	FROM Cities AS c
+	JOIN Hotels AS h ON c.Id = h.CityId
+	GROUP BY c.Name
+	ORDER BY Hotels DESC,
+		City
+
 
