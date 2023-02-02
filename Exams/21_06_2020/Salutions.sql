@@ -119,6 +119,8 @@ SELECT
 	ORDER BY Hotels DESC,
 		City
 
+--Task 7 Longest and Shortest Trips
+
 SELECT
 	a.Id AS AccountId,
 	FirstName + ' ' + LastName AS FullName,
