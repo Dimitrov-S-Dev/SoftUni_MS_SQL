@@ -165,13 +165,15 @@ SELECT
 	ORDER BY Trips DESC,
 	a.Id
 
+--Task 10 GDPR Violation
+
 SELECT
 	at.TripId,
 	CONCAT_WS(' ', a.FirstName, a.MiddleName, a.LastName) AS [Full Name],
 	c.Name AS [From],
 	hc.Name AS [To],
 	CASE
-		WHEN CancelDate IS NULL THEN CONVERT(NVARCHAR(MAX), DATEDIFF(DAY, t.ArrivalDate, t.ReturnDate))
+		WHEN CancelDate IS NULL THEN CONVERT(NVARCHAR(MAX), DATEDIFF(DAY, t.ArrivalDate, t.ReturnDate)) + ' days'
 		ELSE 'Canceled'
 		END
 		AS Duration
@@ -184,4 +186,6 @@ SELECT
 	JOIN Cities AS hc ON h.CityId = hc.Id
 	ORDER BY [Full Name],
 	at.TripId
+
+
 
