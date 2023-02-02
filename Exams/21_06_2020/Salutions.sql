@@ -165,3 +165,23 @@ SELECT
 	ORDER BY Trips DESC,
 	a.Id
 
+SELECT
+	at.TripId,
+	CONCAT_WS(' ', a.FirstName, a.MiddleName, a.LastName) AS [Full Name],
+	c.Name AS [From],
+	hc.Name AS [To],
+	CASE
+		WHEN CancelDate IS NULL THEN CONVERT(NVARCHAR(MAX), DATEDIFF(DAY, t.ArrivalDate, t.ReturnDate))
+		ELSE 'Canceled'
+		END
+		AS Duration
+	FROM AccountsTrips AS at
+	JOIN Accounts AS a ON at.AccountId = a.Id
+	JOIN Cities AS c ON a.CityId = c.Id
+	JOIN Trips AS t ON at.TripId = t.Id
+	JOIN Rooms AS r ON t.RoomId = r.Id
+	Join Hotels AS h ON r.HotelId = h.Id
+	JOIN Cities AS hc ON h.CityId = hc.Id
+	ORDER BY [Full Name],
+	at.TripId
+
