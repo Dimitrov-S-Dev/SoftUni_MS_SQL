@@ -179,21 +179,18 @@ ORDER BY mId
 
 --Task 8 Available Mechanics
 
-SELECT
-	CONCAT_WS(' ', m.FirstName, m.LastName) AS [Available]
-FROM Mechanics AS m
-  JOIN (
-    SELECT
-	MechanicId
-    FROM Mechanics
-    WHERE MechanicId NOT IN (
-      SELECT Jobs.MechanicId
-      FROM Jobs
-      WHERE Status != 'Finished'
-            AND Jobs.MechanicId IS NOT NULL
-    )
-    ) AS m2 ON m2.MechanicId = m.MechanicId
-
+SELECT FirstName + ' ' + LastName AS Available
+	FROM
+	Mechanics
+	WHERE MechanicId NOT IN
+(
+	SELECT
+	DISTINCT m.MechanicId
+	FROM
+	Mechanics AS m
+	LEFT JOIN Jobs AS j ON m.MechanicId = j.MechanicId
+	WHERE J.Status != 'Finished'
+)
 --Task 9 Past Expenses
 
 SELECT
