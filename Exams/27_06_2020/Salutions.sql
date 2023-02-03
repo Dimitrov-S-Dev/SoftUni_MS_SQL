@@ -161,3 +161,20 @@ SELECT
 		m.MechanicId
 	ORDER BY m.MechanicId
 
+--Task 8 Available Mechanics
+
+SELECT
+	CONCAT_WS(' ', m.FirstName, m.LastName) AS [Available]
+FROM Mechanics AS m
+  JOIN (
+    SELECT
+	MechanicId
+    FROM Mechanics
+    WHERE MechanicId NOT IN (
+      SELECT Jobs.MechanicId
+      FROM Jobs
+      WHERE Status != 'Finished'
+            AND Jobs.MechanicId IS NOT NULL
+    )
+    ) AS m2 ON m2.MechanicId = m.MechanicId
+
