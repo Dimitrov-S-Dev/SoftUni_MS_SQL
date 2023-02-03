@@ -161,6 +161,22 @@ SELECT
 		m.MechanicId
 	ORDER BY m.MechanicId
 
+
+-- ***
+SELECT Mechanic,
+		AVG(D) AS [Average Days]
+	FROM
+(
+SELECT
+	m.MechanicId AS mId,
+	m.FirstName + ' ' + M.LastName AS Mechanic,
+	DATEDIFF(DAY,IssueDate,FinishDate) AS D
+	FROM Mechanics AS m
+	JOIN Jobs AS j ON m.MechanicId = j.MechanicId
+) AS SubQ
+GROUP BY mId,Mechanic
+ORDER BY mId
+
 --Task 8 Available Mechanics
 
 SELECT
