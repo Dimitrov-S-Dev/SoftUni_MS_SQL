@@ -126,4 +126,14 @@ DELETE FROM OrderParts
 DELETE FROM Orders
 	WHERE OrderId = 19
 
+--Task 5 Mechanic Assignments
 
+SELECT
+	CONCAT_WS(' ', m.FirstName, m.LastName) AS Mechanic,
+	j.Status,
+	J.IssueDate
+	FROM Mechanics AS m
+	JOIN Jobs AS j ON m.MechanicId = J.MechanicId
+	ORDER BY m.MechanicId,
+	j.IssueDate,
+	j.JobId
