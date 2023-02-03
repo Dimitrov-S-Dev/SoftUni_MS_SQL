@@ -178,3 +178,16 @@ FROM Mechanics AS m
     )
     ) AS m2 ON m2.MechanicId = m.MechanicId
 
+--Task 9 Past Expenses
+
+SELECT
+	j.JobId,
+	ISNULL(SUM(p.Price *op.Quantity), 0) AS Total
+	FROM Parts AS p
+	JOIN OrderParts AS op ON p.PartId = op.PartId
+	JOIN Orders AS o ON op.OrderId = o.OrderId
+	JOIN Jobs AS j ON o.JobId = j.JobId
+	WHERE j.Status = 'Finished'
+	GROUP BY j.JobId
+	ORDER BY Total DESC,
+	j.JobId
