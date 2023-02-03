@@ -118,4 +118,12 @@ UPDATE Jobs
 		Status = 'In Progress'
 	WHERE Status = 'Pending'
 
+--Task 4 Delete
+
+DELETE FROM OrderParts
+	WHERE OrderId = 19
+
+DELETE FROM Orders
+	WHERE OrderId = 19
+
 
