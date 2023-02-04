@@ -356,3 +356,16 @@ JOIN Accounts AS a ON a.AccountHolderId=ah.Id AND a.Id = @AccID
 
 -----------------------------------------------
 
+--Task 13 Cash in User Games Odd Rows
+
+CREATE FUNCTION ufn_CashInUsersGames(@GameName NVARCHAR(155))
+RETURNS TABLE AS
+	RETURN SELECT SUM(Cash) AS SumCash FROM
+
+		(SELECT ug.Cash, ROW_NUMBER() OVER(ORDER BY Cash DESC) AS RowNumber FROM UsersGames AS ug
+		JOIN Games AS g ON ug.GameId = g.Id
+		WHERE g.Name = @GameName
+		) AS AllGames
+		WHERE RowNumber % 2 = 1
+
+	--SELECT * FROM dbo.ufn_CashInUsersGames('Love in a mist')
