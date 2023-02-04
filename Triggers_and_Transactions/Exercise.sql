@@ -329,3 +329,30 @@ BEGIN
 END
 
 ----------------------------------------------------
+
+-- Task 11 Future Value Function
+
+CREATE FUNCTION ufn_CalculateFutureValue (@Sum DECIMAL(20,2), @YearlyInterest FLOAT, @Years INT)
+RETURNS DECIMAL(20,4) AS
+BEGIN
+	DECLARE @Result DECIMAL(20,4) = @Sum * POWER((1+@YearlyInterest), @Years)
+	RETURN @Result
+END
+
+-----------------------------------------------
+
+--Task 12 Calculating Interest
+
+CREATE PROC usp_CalculateFutureValueForAccount (@AccID INT, @InterestRate FLOAT)
+AS
+SELECT
+	a.Id AS [Account Id],
+	ah.FirstName AS [First Name],
+	ah.LastName AS [Last Name],
+	a.Balance AS [Current Balance],
+	dbo.ufn_CalculateFutureValue(a.Balance, @InterestRate, 5) AS [Balance in 5 years]
+FROM AccountHolders AS ah
+JOIN Accounts AS a ON a.AccountHolderId=ah.Id AND a.Id = @AccID
+
+-----------------------------------------------
+
