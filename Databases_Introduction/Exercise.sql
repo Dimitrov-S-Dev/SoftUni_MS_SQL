@@ -4,6 +4,8 @@ CREATE DATABASE [Minions]
 
 USE [Minions]
 
+----------------------------------------------------
+
 -- Problem 2
 
 CREATE TABLE [Minions] (
@@ -16,6 +18,8 @@ CREATE TABLE [Towns](
 Id INT PRIMARY KEY NOT NULL,
 [Name] NVARCHAR(50) NOT NULL
 )
+
+----------------------------------------------------
 
 -- Problem 3
 
