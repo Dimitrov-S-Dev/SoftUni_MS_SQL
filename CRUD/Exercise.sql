@@ -155,6 +155,7 @@ SELECT
 	DISTINCT JobTitle
 	FROM Employees
 
+-----------------------------------------------
 
 -- Task 19 Find First 10 Started Projects
 
