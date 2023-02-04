@@ -78,7 +78,7 @@ VALUES
  ('F', 'link', 1.74, 55.00, 'm','1999-05-29' ,'F')
 
 
- -- Problem 8
+ --Task 8
 
 CREATE TABLE Users
 (
