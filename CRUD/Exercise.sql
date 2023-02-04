@@ -27,6 +27,8 @@ SELECT [FirstName],
 	   [LastName]
 	FROM Employees
 
+-----------------------------------------------
+
 -- Task 6 Find Email Address of Each Employee
 
 SELECT CONCAT([FirstName], '.', [LastName], '@', 'softuni.bg')
