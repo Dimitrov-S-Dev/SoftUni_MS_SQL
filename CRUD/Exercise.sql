@@ -35,11 +35,15 @@ SELECT CONCAT([FirstName], '.', [LastName], '@', 'softuni.bg')
 		AS [Full Email Address]
 	FROM Employees
 
+-----------------------------------------------
+
 -- Task 7 Find All Different Employees’ Salaries
 
 SELECT
 	DISTINCT Salary
 	FROM Employees
+
+-----------------------------------------------
 
 -- Task 8 Find All Information About Employees
 
