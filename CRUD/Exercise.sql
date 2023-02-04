@@ -18,6 +18,8 @@ SELECT [FirstName],
 	   [Salary]
 	FROM Employees
 
+-----------------------------------------------
+
 -- Task 5 Find Full Name of Each Employee
 
 SELECT [FirstName],
