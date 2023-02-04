@@ -4,13 +4,16 @@ SELECT FirstName, LastName
 	FROM Employees
 	--WHERE FirstName LIKE 'Sa%'
 	WHERE LEFT(FirstName, 2) = 'Sa'
+
 ----------------------------------------------------
+
 -- Task 2 Find Names of All employees by Last Name
 
 SELECT FirstName, LastName
 	FROM Employees
 	--WHERE LastName LIKE '%ei%'
 	WHERE CHARINDEX('ei', LastName) <> 0
+
 ----------------------------------------------------
 
 -- Task 3 Find First Names of All Employees
@@ -18,6 +21,7 @@ SELECT FirstName, LastName
 SELECT FirstName
 	FROM Employees
 	WHERE DepartmentID IN (3, 10) AND DATEPART(YEAR,HireDate) BETWEEN 1995 AND 2005
+
 ----------------------------------------------------
 
 -- Task 4 Find All Employees Except Engineers
@@ -25,6 +29,7 @@ SELECT FirstName
 SELECT FirstName, LastName
 	FROM Employees
 	WHERE JobTitle NOT LIKE '%engineer%'
+
 ----------------------------------------------------
 
 -- Task 5 Find Towns with Name Length
@@ -33,6 +38,7 @@ SELECT Name
 	FROM Towns
 	WHERE LEN(Name) IN (5, 6)
 	ORDER BY Name
+
 ----------------------------------------------------
 
 -- Task 6 Find Towns Starting With
@@ -70,6 +76,7 @@ SELECT FirstName, LastName
 SELECT FirstName, LastName
 	FROM Employees
 	WHERE LEN(LastName) = 5
+
 ----------------------------------------------------
 
 -- Task 10 Rank Employees by Salary
@@ -95,6 +102,7 @@ SELECT *
 		) AS RankingSubquary
 		WHERE [Rank] = 2
 		ORDER BY Salary DESC
+
 ----------------------------------------------------
 
 -- Task 12 Countries Holding 'A' 3 or More Times
@@ -103,6 +111,7 @@ SELECT CountryName, IsoCode
 	FROM Countries
 	WHERE LOWER(CountryName) LIKE '%a%a%a%'
 	ORDER BY IsoCode
+
 ----------------------------------------------------
 
 -- Task 13 Mix of Peak and River Names
@@ -113,6 +122,7 @@ LOWER(PeakName + SUBSTRING(RiverName, 2, LEN(RiverName) - 1)) AS Mix
 	JOIN Rivers as r
 	ON RIGHT (PeakName,1) = LEFT(RiverName, 1)
 	ORDER BY Mix
+
 ----------------------------------------------------
 
 -- Task 14 Games from 2011 and 2012 year
@@ -121,7 +131,9 @@ SELECT TOP(50) [Name], FORMAT([Start],'yyyy-MM-dd') AS [Start]
 	FROM Games
 	WHERE DATEPART(YEAR, Start) IN (2011, 2012)
 	ORDER BY [Start], [Name]
+
 ----------------------------------------------------
+
 -- Task 15 User Email Providers
 
 SELECT
@@ -130,6 +142,7 @@ SELECT
 	AS [Email Provider]
 	FROM Users
 	ORDER BY [Email Provider], Username
+
 ----------------------------------------------------
 
 -- Task 16 Get Users with IPAdress Like Pattern
@@ -173,6 +186,7 @@ FROM Orders
 ----------------------------------------------------
 
 --Task 19 People Table
+
 CREATE TABLE People (
 	Id INT PRIMARY KEY IDENTITY,
 	Name NVARCHAR(50) NOT NULL,
