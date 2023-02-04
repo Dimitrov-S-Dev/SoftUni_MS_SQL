@@ -52,6 +52,8 @@ SELECT
 	FROM Employees
 	WHERE JobTitle = 'Sales Representative'
 
+-----------------------------------------------
+
 -- Task 9 Find Names of All Employees by Salary in Range
 
 SELECT
@@ -61,6 +63,8 @@ SELECT
 	FROM Employees
 	WHERE Salary BETWEEN 20000 AND 30000
 
+-----------------------------------------------
+
 -- Task 10 Find Names of All Employees
 
 SELECT
@@ -69,12 +73,16 @@ SELECT
 	FROM Employees
 	WHERE Salary = 25000 OR Salary = 14000 OR Salary = 12500 OR Salary = 23600
 
+-----------------------------------------------
+
 -- Task 11 Find All Employees Without a Manager
 
 SELECT FirstName,
 	   LastName
 	FROM Employees
 	WHERE ManagerID IS NULL
+
+-----------------------------------------------
 
 -- Task 12 Find All Employees with a Salary More Than 50000
 
