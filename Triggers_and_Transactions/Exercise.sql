@@ -24,6 +24,7 @@ BEGIN
              ON d.AccountHolderId = i.AccountHolderId
 END
 
+----------------------------------------------------
 
 --Task 2 Create Table Emails
 
@@ -50,6 +51,7 @@ BEGIN
            FROM INSERTED i
 END
 
+----------------------------------------------------
 
 --Task 3 Deposit Money
 
@@ -63,6 +65,7 @@ BEGIN
     COMMIT
 END
 
+----------------------------------------------------
 
 --Task 4 Withdraw Money
 
@@ -75,6 +78,8 @@ BEGIN
          WHERE Id = @AccountId
     COMMIT
 END
+
+----------------------------------------------------
 
 --Task 5 Money Transfer
 
@@ -93,6 +98,7 @@ BEGIN
         COMMIT
 END
 
+----------------------------------------------------
 
 --Task 6 Trigger
 
@@ -160,6 +166,7 @@ BEGIN
     END
 END
 
+----------------------------------------------------
 
 --Task 7 Massive Shopping
 
@@ -249,6 +256,7 @@ BEGIN TRANSACTION
                )
 ORDER BY [Item Name]
 
+----------------------------------------------------
 
 --Task 8 Employees with Three Projects
 
@@ -272,6 +280,7 @@ BEGIN
     COMMIT
 END
 
+----------------------------------------------------
 
 --Task 9 Delete Employees
 
@@ -302,3 +311,21 @@ BEGIN
            FROM DELETED d
 END
 
+----------------------------------------------------
+
+--Task 10 People with Balance Higher Than
+
+CREATE PROC usp_GetHoldersWithBalanceHigherThan @TotalMoney DECIMAL(18, 4)
+AS
+BEGIN
+	SELECT
+		ah.FirstName, ah.LastName
+	FROM Accounts AS a
+	JOIN AccountHolders AS ah ON a.AccountHolderId = ah.Id
+	GROUP BY ah.FirstName, ah.LastName
+	HAVING SUM(a.Balance) > @TotalMoney
+	ORDER BY ah.FirstName,
+	ah.LastName
+END
+
+----------------------------------------------------
