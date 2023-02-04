@@ -93,6 +93,8 @@ SELECT FirstName,
 	WHERE Salary > 50000
 	ORDER BY Salary DESC
 
+-----------------------------------------------
+
 -- Task 13 Find 5 Best Paid Employees
 
 SELECT TOP(5)
@@ -100,6 +102,8 @@ SELECT TOP(5)
 	   LastName
 	FROM Employees
 	ORDER BY Salary DESC
+
+-----------------------------------------------
 
 -- Task 14 Find All Employees Except Marketing
 
