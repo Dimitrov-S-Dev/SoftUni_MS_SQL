@@ -1,4 +1,4 @@
--- Problem 1
+-- Task 1
 
 CREATE DATABASE [Minions]
 
@@ -21,12 +21,12 @@ Id INT PRIMARY KEY NOT NULL,
 
 ----------------------------------------------------
 
--- Problem 3
+-- Task 3
 
 ALTER TABLE [Minions]
 ADD TownId INT FOREIGN KEY REFERENCES Towns(Id)
 
--- Problem 4
+-- Task 4
 
 INSERT INTO Towns(Id, [Name])
 VALUES
@@ -41,17 +41,22 @@ VALUES
  (2, 'Bob', 15, 3),
  (3, 'Steward', NULL, 2)
 
- -- Problem 5
+-----------------------------------------------
+
+ -- Task  5
 
  TRUNCATE TABLE [Minions]
 
- -- Problem 6
+-----------------------------------------------
+
+ -- Task 6
 
  DROP TABLE [Minions]
  DROP TABLE [Towns]
 
+-----------------------------------------------
 
- -- PROBLEM 7
+ --Task 7
 
  CREATE TABLE People(
  Id INT PRIMARY KEY IDENTITY,
