@@ -165,6 +165,8 @@ SELECT
 	ORDER BY StartDate,
 			 [Name]
 
+-----------------------------------------------
+
 -- Task 20 Last 7 Hired Employees
 
 SELECT TOP(7)
@@ -174,6 +176,8 @@ SELECT TOP(7)
 	FROM Employees
 	ORDER BY HireDate DESC
 
+-----------------------------------------------
+
 -- Task 21 Increase Salaries
 
 UPDATE Employees
@@ -182,6 +186,8 @@ UPDATE Employees
 
 SELECT Salary
 	FROM Employees
+
+-----------------------------------------------
 
 -- Task 22 All Mountain Peaks
 
