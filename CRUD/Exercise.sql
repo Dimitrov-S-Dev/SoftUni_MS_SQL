@@ -195,6 +195,8 @@ SELECT PeakName
 	FROM Peaks
 	ORDER BY PeakName ASC
 
+-----------------------------------------------
+
 -- Task 23 Biggest Countries by Population
 
 SELECT TOP(30)
@@ -204,6 +206,8 @@ SELECT TOP(30)
 	WHERE ContinentCode = 'EU'
 	ORDER BY [Population] DESC,
 			CountryName
+
+-----------------------------------------------
 
 -- Task 24 Countries and Currency (Euro / Not Euro)
 
@@ -215,6 +219,7 @@ END
 FROM Countries
 ORDER BY CountryName
 
+-----------------------------------------------
 
 -- Task 25 All Diablo Characters
 USE Diablo
