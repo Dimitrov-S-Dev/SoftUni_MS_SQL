@@ -112,6 +112,8 @@ SELECT FirstName,
 	FROM Employees
 	WHERE DepartmentID != 4
 
+-----------------------------------------------
+
 -- Task 15 Sort Employees Table
 
 SELECT *
@@ -120,6 +122,8 @@ SELECT *
 			FirstName,
 			LastName DESC,
 			MiddleName
+
+-----------------------------------------------
 
 -- Task 16 Create View Employees with Salaries
 
