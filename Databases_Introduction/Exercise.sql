@@ -509,19 +509,25 @@ SELECT FirstName, LastName, JobTitle, Salary
 FROM Employees
 ORDER BY Salary DESC
 
--- Problem 22
+-----------------------------------------------
+
+--Task 22 Increase Employees Salary
 
 UPDATE Employees
 SET Salary *= 1.1
 
 SELECT Salary FROM Employees
 
---Problem 23
+-----------------------------------------------
+
+--Task 23 Decrease Tax Rate
 
 USE Hotel
 UPDATE Payments
 SET TaxRate -= TaxRate*0.03
 SELECT TaxRate FROM Payments
 
---Problem 24
+-----------------------------------------------
+
+--Task 24 Delete All Records
 TRUNCATE TABLE Occupancies
