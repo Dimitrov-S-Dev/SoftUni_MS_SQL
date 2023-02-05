@@ -103,7 +103,7 @@ INSERT INTO Users(UserName, Password)
 
 -----------------------------------------------
 
--- PROBLEM 9 Change Primary Key
+--Task 9 Change Primary Key
 
 ALTER TABLE Users
 DROP CONSTRAINT id
@@ -113,14 +113,14 @@ ADD CONSTRAINT PK_IdUsers PRIMARY KEY (Id, Username)
 
 ------------------------------------------------
 
--- PROBLEM 10 Add Check Constraint
+--Task 10 Add Check Constraint
 
 ALTER TABLE Users
 ADD CONSTRAINT PasswordCheck CHECK(LEN([Password]) >=5)
 
 -----------------------------------------------
 
--- PROBLEM 11 Set Default Value of a Field
+--Task 11 Set Default Value of a Field
 
 ALTER TABLE Users
 ADD CONSTRAINT DF_LastLoginTime
