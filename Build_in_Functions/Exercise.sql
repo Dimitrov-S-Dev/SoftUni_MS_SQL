@@ -1,4 +1,4 @@
--- Task 1 Find Names of All Employees by First Name
+--Task 1 Find Names of All Employees by First Name
 
 SELECT FirstName, LastName
 	FROM Employees
@@ -7,7 +7,7 @@ SELECT FirstName, LastName
 
 ----------------------------------------------------
 
--- Task 2 Find Names of All employees by Last Name
+--Task 2 Find Names of All employees by Last Name
 
 SELECT FirstName, LastName
 	FROM Employees
@@ -16,7 +16,7 @@ SELECT FirstName, LastName
 
 ----------------------------------------------------
 
--- Task 3 Find First Names of All Employees
+--Task 3 Find First Names of All Employees
 
 SELECT FirstName
 	FROM Employees
@@ -24,7 +24,7 @@ SELECT FirstName
 
 ----------------------------------------------------
 
--- Task 4 Find All Employees Except Engineers
+--Task 4 Find All Employees Except Engineers
 
 SELECT FirstName, LastName
 	FROM Employees
@@ -32,7 +32,7 @@ SELECT FirstName, LastName
 
 ----------------------------------------------------
 
--- Task 5 Find Towns with Name Length
+--Task 5 Find Towns with Name Length
 
 SELECT Name
 	FROM Towns
@@ -41,7 +41,7 @@ SELECT Name
 
 ----------------------------------------------------
 
--- Task 6 Find Towns Starting With
+--Task 6 Find Towns Starting With
 
 SELECT TownID, Name
 	FROM Towns
@@ -50,7 +50,7 @@ SELECT TownID, Name
 
 ----------------------------------------------------
 
--- Task 7 Find Towns Not Starting With
+--Task 7 Find Towns Not Starting With
 
 SELECT TownID, [Name]
 	FROM Towns
@@ -59,7 +59,7 @@ SELECT TownID, [Name]
 
 ----------------------------------------------------
 
--- Task 8 Create View Employees Hired After 2000 Year
+--Task 8 Create View Employees Hired After 2000 Year
 
 CREATE VIEW V_EmployeesHiredAfter2000
 AS
