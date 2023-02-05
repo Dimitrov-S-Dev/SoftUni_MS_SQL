@@ -58,7 +58,7 @@ VALUES
 
 -----------------------------------------------
 
- --Task 7
+ --Task 7 Create Table People
 
  CREATE TABLE People(
  Id INT PRIMARY KEY IDENTITY,
@@ -79,8 +79,9 @@ VALUES
  ('D', 'link', 1.64, 55.00, 'm','1999-05-28' ,'D'),
  ('F', 'link', 1.74, 55.00, 'm','1999-05-29' ,'F')
 
+-----------------------------------------------
 
- --Task 8
+ --Task 8 Create Table Users
 
 CREATE TABLE Users
 (
