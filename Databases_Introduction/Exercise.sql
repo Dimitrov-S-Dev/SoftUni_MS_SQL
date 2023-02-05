@@ -21,12 +21,12 @@ Id INT PRIMARY KEY NOT NULL,
 
 ----------------------------------------------------
 
--- Task 3
+-- Task 3 Alter Minions Table
 
 ALTER TABLE [Minions]
 ADD TownId INT FOREIGN KEY REFERENCES Towns(Id)
 
--- Task 4
+-- Task 4 Insert Records in Both Tables
 
 INSERT INTO Towns(Id, [Name])
 VALUES
