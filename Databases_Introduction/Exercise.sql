@@ -143,7 +143,7 @@ DROP DATABASE Minions
 
 -----------------------------------------------
 
--- PROBLEM 13 Movie Database
+--Task 13 Movie Database
 
 CREATE DATABASE Movies
 
@@ -204,7 +204,7 @@ INSERT INTO MOVIES VALUES
 
 -----------------------------------------------
 
---PROBLEM 14 Car Rental Database
+--Task 14 Car Rental Database
 
 CREATE DATABASE CarRental
 
