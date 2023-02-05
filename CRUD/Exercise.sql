@@ -1,17 +1,17 @@
--- Task 2 Find All the Information About Departments
+--Task 2 Find All the Information About Departments
 
 SELECT *
 FROM Departments
 ----------------------------------------------------
 
--- Task 3 Find all Department Names
+--Task 3 Find all Department Names
 
 SELECT
 	[Name]
   FROM Departments
 ----------------------------------------------------
 
--- Task 4 Find Salary of Each Employee
+--Task 4 Find Salary of Each Employee
 
 SELECT [FirstName],
 	   [LastName],
@@ -20,7 +20,7 @@ SELECT [FirstName],
 
 -----------------------------------------------
 
--- Task 5 Find Full Name of Each Employee
+--Task 5 Find Full Name of Each Employee
 
 SELECT [FirstName],
 	   [MiddleName],
@@ -29,7 +29,7 @@ SELECT [FirstName],
 
 -----------------------------------------------
 
--- Task 6 Find Email Address of Each Employee
+--Task 6 Find Email Address of Each Employee
 
 SELECT CONCAT([FirstName], '.', [LastName], '@', 'softuni.bg')
 		AS [Full Email Address]
@@ -37,7 +37,7 @@ SELECT CONCAT([FirstName], '.', [LastName], '@', 'softuni.bg')
 
 -----------------------------------------------
 
--- Task 7 Find All Different Employees’ Salaries
+--Task 7 Find All Different Employees’ Salaries
 
 SELECT
 	DISTINCT Salary
@@ -45,7 +45,7 @@ SELECT
 
 -----------------------------------------------
 
--- Task 8 Find All Information About Employees
+--Task 8 Find All Information About Employees
 
 SELECT
 	*
@@ -54,7 +54,7 @@ SELECT
 
 -----------------------------------------------
 
--- Task 9 Find Names of All Employees by Salary in Range
+--Task 9 Find Names of All Employees by Salary in Range
 
 SELECT
 		FirstName,
@@ -65,7 +65,7 @@ SELECT
 
 -----------------------------------------------
 
--- Task 10 Find Names of All Employees
+--Task 10 Find Names of All Employees
 
 SELECT
 	CONCAT(FirstName, ' ', MiddleName, ' ', LastName)
@@ -75,7 +75,7 @@ SELECT
 
 -----------------------------------------------
 
--- Task 11 Find All Employees Without a Manager
+--Task 11 Find All Employees Without a Manager
 
 SELECT FirstName,
 	   LastName
@@ -84,7 +84,7 @@ SELECT FirstName,
 
 -----------------------------------------------
 
--- Task 12 Find All Employees with a Salary More Than 50000
+--Task 12 Find All Employees with a Salary More Than 50000
 
 SELECT FirstName,
 	   LastName,
@@ -95,7 +95,7 @@ SELECT FirstName,
 
 -----------------------------------------------
 
--- Task 13 Find 5 Best Paid Employees
+--Task 13 Find 5 Best Paid Employees
 
 SELECT TOP(5)
 	   FirstName,
@@ -105,7 +105,7 @@ SELECT TOP(5)
 
 -----------------------------------------------
 
--- Task 14 Find All Employees Except Marketing
+--Task 14 Find All Employees Except Marketing
 
 SELECT FirstName,
 	   LastName
@@ -114,7 +114,7 @@ SELECT FirstName,
 
 -----------------------------------------------
 
--- Task 15 Sort Employees Table
+--Task 15 Sort Employees Table
 
 SELECT *
 	FROM Employees
@@ -125,7 +125,7 @@ SELECT *
 
 -----------------------------------------------
 
--- Task 16 Create View Employees with Salaries
+--Task 16 Create View Employees with Salaries
 
 CREATE VIEW V_EmployeesSalaries AS
 	SELECT FirstName,
@@ -135,7 +135,7 @@ CREATE VIEW V_EmployeesSalaries AS
 
 -----------------------------------------------
 
--- Task 17 Create View Employees with Job Titles
+--Task 17 Create View Employees with Job Titles
 
 CREATE VIEW V_EmployeeNameJobTitle AS
 	SELECT CONCAT(FirstName,' ', MiddleName, ' ', LastName) AS [Full Name],
@@ -149,7 +149,7 @@ CREATE VIEW V_EmployeeNameJobTitle AS
 
 -----------------------------------------------
 
--- Task 18 Distinct Job Titles
+--Task 18 Distinct Job Titles
 
 SELECT
 	DISTINCT JobTitle
@@ -157,7 +157,7 @@ SELECT
 
 -----------------------------------------------
 
--- Task 19 Find First 10 Started Projects
+--Task 19 Find First 10 Started Projects
 
 SELECT
 	TOP(10) *
@@ -167,7 +167,7 @@ SELECT
 
 -----------------------------------------------
 
--- Task 20 Last 7 Hired Employees
+--Task 20 Last 7 Hired Employees
 
 SELECT TOP(7)
 		FirstName,
@@ -178,7 +178,7 @@ SELECT TOP(7)
 
 -----------------------------------------------
 
--- Task 21 Increase Salaries
+--Task 21 Increase Salaries
 
 UPDATE Employees
 	SET Salary *= 1.12
@@ -189,7 +189,7 @@ SELECT Salary
 
 -----------------------------------------------
 
--- Task 22 All Mountain Peaks
+--Task 22 All Mountain Peaks
 
 SELECT PeakName
 	FROM Peaks
@@ -197,7 +197,7 @@ SELECT PeakName
 
 -----------------------------------------------
 
--- Task 23 Biggest Countries by Population
+--Task 23 Biggest Countries by Population
 
 SELECT TOP(30)
 		CountryName,
@@ -209,7 +209,7 @@ SELECT TOP(30)
 
 -----------------------------------------------
 
--- Task 24 Countries and Currency (Euro / Not Euro)
+--Task 24 Countries and Currency (Euro / Not Euro)
 
 SELECT CountryName, CountryCode, Currency =
 CASE CurrencyCode
@@ -221,7 +221,7 @@ ORDER BY CountryName
 
 -----------------------------------------------
 
--- Task 25 All Diablo Characters
+--Task 25 All Diablo Characters
 
 USE Diablo
 
