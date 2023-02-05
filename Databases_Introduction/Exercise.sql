@@ -472,7 +472,9 @@ VALUES
 ('Georgi', 'Teziev', 'Ivanov', 'CEO', 2, '2007-12-09', 3000.00),
 ('Peter', 'Pan', 'Pan', 'Intern', 3, '2016-08-28', 599.88)
 
--- Problem 19
+-----------------------------------------------
+
+--Task 19 Basic Select All Fields
 
 SELECT * FROM Towns
 
@@ -480,7 +482,9 @@ SELECT * FROM Departments
 
 SELECT * FROM Employees
 
--- Problem 20
+-----------------------------------------------
+
+--Task 20 Basic Select All Fields and Order Them
 
 SELECT * FROM Towns
 ORDER BY [Name]
@@ -491,7 +495,9 @@ ORDER BY [Name]
 SELECT * FROM Employees
 ORDER BY Salary DESC
 
--- Problem 21
+-----------------------------------------------
+
+--Task 21 Basic Select Some Fields
 
 SELECT [Name] FROM Towns
 ORDER BY [Name]
