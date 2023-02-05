@@ -128,7 +128,7 @@ DEFAULT GETDATE() FOR LastLoginTime
 
 -----------------------------------------------
 
--- PROBLEM 12 Set Unique Field
+--Task 12 Set Unique Field
 
 ALTER TABLE Users
 DROP CONSTRAINT PK_IdUsers
