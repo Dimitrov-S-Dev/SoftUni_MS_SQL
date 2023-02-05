@@ -292,7 +292,9 @@ StartDate, EndDate, RateApplied, OrderStatus) VALUES
 (3, 2, 1, 50, 55524, 56984, '2009-09-06', '2009-09-28', 1500, 0),
 (2, 2, 1, 18, 36005, 38547, '2017-05-08', '2017-06-09', 850, 0)
 
---PROBLEM 15
+-----------------------------------------------
+
+--PROBLEM 15 Hotel Database
 
 CREATE DATABASE Hotel
 
