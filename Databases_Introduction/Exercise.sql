@@ -143,7 +143,7 @@ DROP DATABASE Minions
 
 -----------------------------------------------
 
--- PROBLEM 13
+-- PROBLEM 13 Movie Database
 
 CREATE DATABASE Movies
 
@@ -201,7 +201,10 @@ INSERT INTO MOVIES VALUES
 ('Naked', 2, 2099, '1:11:21', 3, 3, 5.3, 'WAS'),
 ('Joe', 4, 2019, '2:12:21', 4, 2, 5.8, 'Whiskey'),
 ('Carabas', 3, 2018, '1:30:01', 5, 1, 2.9, 'Rating')
---PROBLEM 14
+
+-----------------------------------------------
+
+--PROBLEM 14 Car Rental Database
 
 CREATE DATABASE CarRental
 
