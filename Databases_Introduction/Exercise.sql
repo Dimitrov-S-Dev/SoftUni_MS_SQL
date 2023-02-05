@@ -120,13 +120,15 @@ ADD CONSTRAINT PasswordCheck CHECK(LEN([Password]) >=5)
 
 -----------------------------------------------
 
--- PROBLEM 11
+-- PROBLEM 11 Set Default Value of a Field
 
 ALTER TABLE Users
 ADD CONSTRAINT DF_LastLoginTime
 DEFAULT GETDATE() FOR LastLoginTime
 
--- PROBLEM 12
+-----------------------------------------------
+
+-- PROBLEM 12 Set Unique Field
 
 ALTER TABLE Users
 DROP CONSTRAINT PK_IdUsers
@@ -138,6 +140,9 @@ ALTER TABLE Users
 ADD CONSTRAINT DF_UsernameLength CHECK(LEN(Username) >=3)
 
 DROP DATABASE Minions
+
+-----------------------------------------------
+
 -- PROBLEM 13
 
 CREATE DATABASE Movies
