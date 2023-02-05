@@ -6,7 +6,7 @@ USE [Minions]
 
 ----------------------------------------------------
 
--- Problem 2
+-- Problem 2 Create Tables
 
 CREATE TABLE [Minions] (
 Id INT PRIMARY KEY NOT NULL,
