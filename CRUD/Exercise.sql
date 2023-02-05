@@ -222,6 +222,7 @@ ORDER BY CountryName
 -----------------------------------------------
 
 -- Task 25 All Diablo Characters
+
 USE Diablo
 
 SELECT Name
