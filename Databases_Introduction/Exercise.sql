@@ -294,7 +294,7 @@ StartDate, EndDate, RateApplied, OrderStatus) VALUES
 
 -----------------------------------------------
 
---PROBLEM 15 Hotel Database
+--Task 15 Hotel Database
 
 CREATE DATABASE Hotel
 
@@ -408,7 +408,7 @@ INSERT INTO Occupancies(EmployeeId, DateOccupied, AccountNumber, RoomNumber, Rat
 
 -----------------------------------------------
 
--- PROBLEM 16 Create SoftUni Database
+--Task 16 Create SoftUni Database
 
 CREATE DATABASE SoftUni
 
@@ -442,13 +442,13 @@ AddressId INT FOREIGN KEY REFERENCES Addresses(Id)
 
 -----------------------------------------------
 
--- Problem 17 Backup Database
+--Task 17 Backup Database
 
 BACKUP DATABASE SoftUni TO DISK = 'C:\Users\q2kfo\OneDrive\Desktop\DB RESTORE\softuni-backup.bak'
 
 -----------------------------------------------
 
--- Problem 18 Basic Insert
+--Task 18 Basic Insert
 
 INSERT INTO Towns([Name])
 VALUES
