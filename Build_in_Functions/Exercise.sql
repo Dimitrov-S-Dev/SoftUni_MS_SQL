@@ -71,7 +71,7 @@ SELECT FirstName, LastName
 	--FROM v_EmployeesHiredAfter200
 ----------------------------------------------------
 
--- Task 9 Length of Last Name
+--Task 9 Length of Last Name
 
 SELECT FirstName, LastName
 	FROM Employees
@@ -79,7 +79,7 @@ SELECT FirstName, LastName
 
 ----------------------------------------------------
 
--- Task 10 Rank Employees by Salary
+--Task 10 Rank Employees by Salary
 
 SELECT   EmployeeID, FirstName, LastName, Salary,
 	     DENSE_RANK() OVER(PARTITION BY Salary ORDER BY EmployeeID)
@@ -90,7 +90,7 @@ SELECT   EmployeeID, FirstName, LastName, Salary,
 
 ----------------------------------------------------
 
--- Task 11 Find All Employees with Rank 2 *
+--Task 11 Find All Employees with Rank 2 *
 
 SELECT *
 	FROM (
@@ -105,7 +105,7 @@ SELECT *
 
 ----------------------------------------------------
 
--- Task 12 Countries Holding 'A' 3 or More Times
+--Task 12 Countries Holding 'A' 3 or More Times
 
 SELECT CountryName, IsoCode
 	FROM Countries
@@ -114,7 +114,7 @@ SELECT CountryName, IsoCode
 
 ----------------------------------------------------
 
--- Task 13 Mix of Peak and River Names
+--Task 13 Mix of Peak and River Names
 
 SELECT p.PeakName, r.RiverName,
 LOWER(PeakName + SUBSTRING(RiverName, 2, LEN(RiverName) - 1)) AS Mix
@@ -125,7 +125,7 @@ LOWER(PeakName + SUBSTRING(RiverName, 2, LEN(RiverName) - 1)) AS Mix
 
 ----------------------------------------------------
 
--- Task 14 Games from 2011 and 2012 year
+--Task 14 Games from 2011 and 2012 year
 
 SELECT TOP(50) [Name], FORMAT([Start],'yyyy-MM-dd') AS [Start]
 	FROM Games
@@ -134,7 +134,7 @@ SELECT TOP(50) [Name], FORMAT([Start],'yyyy-MM-dd') AS [Start]
 
 ----------------------------------------------------
 
--- Task 15 User Email Providers
+--Task 15 User Email Providers
 
 SELECT
 	Username,
@@ -145,7 +145,7 @@ SELECT
 
 ----------------------------------------------------
 
--- Task 16 Get Users with IPAdress Like Pattern
+--Task 16 Get Users with IPAdress Like Pattern
 
 SELECT Username, IpAddress FROM Users
 WHERE IpAddress LIKE '___.1%.%.___'
@@ -153,7 +153,7 @@ ORDER BY Username
 
 ----------------------------------------------------
 
--- Task 17 Show All Games with Duration and Part of the Da
+--Task 17 Show All Games with Duration and Part of the Da
 
 SELECT [Name] As Game,
 [Part of the Day] =
@@ -174,7 +174,7 @@ ORDER BY Game, Duration, [Part of the Day]
 
 ----------------------------------------------------
 
--- Task 18 Orders Table
+--Task 18 Orders Table
 
 Select
 	ProductName,
