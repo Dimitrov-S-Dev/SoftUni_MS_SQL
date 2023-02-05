@@ -406,8 +406,9 @@ INSERT INTO Occupancies(EmployeeId, DateOccupied, AccountNumber, RoomNumber, Rat
 (2, '2017-01-02', 3, 112, 40.0, 11.22),
 (3, '2018-01-03', 1, 132, 110.0, 10.05)
 
+-----------------------------------------------
 
--- PROBLEM 16
+-- PROBLEM 16 Create SoftUni Database
 
 CREATE DATABASE SoftUni
 
