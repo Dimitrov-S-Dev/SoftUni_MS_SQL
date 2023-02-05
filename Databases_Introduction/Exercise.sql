@@ -101,17 +101,24 @@ INSERT INTO Users(UserName, Password)
 ('D', 1234),
 ('E', 1234)
 
--- PROBLEM 9
+-----------------------------------------------
+
+-- PROBLEM 9 Change Primary Key
 
 ALTER TABLE Users
 DROP CONSTRAINT id
 
 ALTER TABLE Users
 ADD CONSTRAINT PK_IdUsers PRIMARY KEY (Id, Username)
--- PROBLEM 10
+
+------------------------------------------------
+
+-- PROBLEM 10 Add Check Constraint
 
 ALTER TABLE Users
 ADD CONSTRAINT PasswordCheck CHECK(LEN([Password]) >=5)
+
+-----------------------------------------------
 
 -- PROBLEM 11
 
