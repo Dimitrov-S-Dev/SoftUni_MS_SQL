@@ -147,7 +147,7 @@ DROP DATABASE Minions
 
 CREATE DATABASE Movies
 
-CCREATE TABLE [Directors] (
+CREATE TABLE [Directors] (
     [Id] INT PRIMARY KEY IDENTITY,
     [DirectorName] NVARCHAR(50) NOT NULL,
     [Notes] NVARCHAR(50)
@@ -530,4 +530,5 @@ SELECT TaxRate FROM Payments
 -----------------------------------------------
 
 --Task 24 Delete All Records
+
 TRUNCATE TABLE Occupancies
