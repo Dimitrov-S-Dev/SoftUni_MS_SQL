@@ -4,11 +4,15 @@ SELECT
 	COUNT(*) AS Count
 	FROM WizzardDeposits
 
+----------------------------------------------------
+
 --Task 2 Longest Magic Wand
 
 SELECT
 	MAX(MagicWandSize) AS LongestMagicWand
 	FROM WizzardDeposits
+
+----------------------------------------------------
 
 --Task 3 Longest Magic Wand Per Deposit Groups
 
@@ -17,6 +21,8 @@ SELECT
 	MAX(MagicWandSize) AS LongestMagicWand
 	FROM WizzardDeposits
 	GROUP BY DepositGroup
+
+----------------------------------------------------
 
 --Task 4 Smallest Deposit Group Per Magic Wand Size
 
@@ -27,6 +33,8 @@ SELECT
 	GROUP BY DepositGroup
 	ORDER BY AVG(MagicWandSize)
 
+----------------------------------------------------
+
 --Task 5 Deposit Sum
 
 SELECT
@@ -36,6 +44,8 @@ SELECT
 	FROM WizzardDeposits
 	GROUP BY DepositGroup
 
+----------------------------------------------------
+
 --Task 6 Deposit Sum for Ollivander Family
 
 SELECT
@@ -44,6 +54,8 @@ SELECT
 	FROM WizzardDeposits
 	WHERE MagicWandCreator = 'Ollivander family'
 	GROUP BY DepositGroup
+
+----------------------------------------------------
 
 --Task 7 Deposit Filter
 
@@ -56,7 +68,9 @@ SELECT
 	HAVING SUM(DepositAmount) < 150000
 	ORDER BY TotalSum DESC
 
---Task 8 Deposite Charge
+----------------------------------------------------
+
+--Task 8 Deposit Charge
 
 SELECT
 	DepositGroup,
@@ -66,6 +80,8 @@ SELECT
 	GROUP BY DepositGroup, MagicWandCreator
 	ORDER BY MagicWandCreator,
 	DepositGroup
+
+----------------------------------------------------
 
 --Task 9 Age Groups
 
@@ -84,6 +100,8 @@ SELECT a.AgeGroup, COUNT(*) AS WizardCount FROM
 	GROUP BY a.AgeGroup
 	ORDER BY a.AgeGroup
 
+----------------------------------------------------
+
 --Task 10 First Letter
 
 SELECT LEFT(FirstName,1) AS FirstLetter
@@ -91,6 +109,8 @@ SELECT LEFT(FirstName,1) AS FirstLetter
 	WHERE DepositGroup LIKE 'Troll%'
 	GROUP BY LEFT(FirstName, 1)
 	ORDER BY FirstLetter
+
+----------------------------------------------------
 
 --Task 11 Average Interest
 
@@ -104,11 +124,15 @@ SELECT
 	ORDER BY DepositGroup DESC,
 	IsDepositExpired
 
+----------------------------------------------------
 --Task 12 * Rich Wizard, Poor Wizard
+
 SELECT ABS(SUM(tt.DepositDifference)) AS SumDifference FROM
 	(SELECT wiz1.DepositAmount - wiz2.DepositAmount AS DepositDifference
 	 FROM WizzardDeposits AS wiz1
 	 JOIN WizzardDeposits AS wiz2 ON wiz1.Id = (wiz2.Id + 1)) AS tt
+
+----------------------------------------------------
 
 --Task 13 Departments Total Salaries
 
@@ -119,6 +143,8 @@ SELECT
 	GROUP BY DepartmentID
 	ORDER BY DepartmentID
 
+----------------------------------------------------
+
 --Task 14 Employees Minimum Salaries
 
 SELECT
@@ -128,6 +154,8 @@ SELECT
 	WHERE DepartmentID IN(2, 5, 7) AND HireDate > '2000-01-01'
 	GROUP BY DepartmentID
 	ORDER BY DepartmentID
+
+----------------------------------------------------
 
 --Task 15 Employees Average Salaries
 
@@ -149,6 +177,8 @@ SELECT
 	FROM NewT
 	GROUP BY DepartmentID
 
+----------------------------------------------------
+
 --Task 16 Employee Maximum Salaries
 
 SELECT
@@ -158,12 +188,16 @@ SELECT
 	GROUP BY DepartmentID
 	HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
 
+----------------------------------------------------
+
 --Task 17 Employees Count Salaries
 
 SELECT
 	COUNT(*) AS Count
 	FROM Employees
 	WHERE ManagerID IS NULL
+
+----------------------------------------------------
 
 --Task 18 3rd Highest Salary
 
@@ -176,7 +210,10 @@ SELECT tt.DepartmentID, tt.Salary AS ThirdHighestSalary
 	WHERE OrderedSalaries = 3
 	GROUP BY tt.DepartmentID, tt.Salary
 
+----------------------------------------------------
+
 --Task 19 **Salary Challenge
+
 SELECT TOP(10) FirstName, LastName, DepartmentID FROM Employees AS e1
 WHERE Salary >
 	(SELECT AVG(Salary) FROM Employees AS e2
