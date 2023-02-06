@@ -1,4 +1,4 @@
--- Task 1 Create Database
+--Task 1 Create Database
 
 CREATE DATABASE [Minions]
 
@@ -6,7 +6,7 @@ USE [Minions]
 
 ----------------------------------------------------
 
--- Problem 2 Create Tables
+--Task 2 Create Tables
 
 CREATE TABLE [Minions] (
 Id INT PRIMARY KEY NOT NULL,
@@ -21,14 +21,14 @@ Id INT PRIMARY KEY NOT NULL,
 
 ----------------------------------------------------
 
--- Task 3 Alter Minions Table
+--Task 3 Alter Minions Table
 
 ALTER TABLE [Minions]
 ADD TownId INT FOREIGN KEY REFERENCES Towns(Id)
 
 -----------------------------------------------
 
--- Task 4 Insert Records in Both Tables
+--Task 4 Insert Records in Both Tables
 
 INSERT INTO Towns(Id, [Name])
 VALUES
@@ -45,20 +45,20 @@ VALUES
 
 -----------------------------------------------
 
- -- Task 5 Truncate Table Minions
+--Task 5 Truncate Table Minions
 
  TRUNCATE TABLE [Minions]
 
 -----------------------------------------------
 
- -- Task 6 Drop All Tables
+--Task 6 Drop All Tables
 
  DROP TABLE [Minions]
  DROP TABLE [Towns]
 
 -----------------------------------------------
 
- --Task 7 Create Table People
+--Task 7 Create Table People
 
  CREATE TABLE People(
  Id INT PRIMARY KEY IDENTITY,
@@ -81,7 +81,7 @@ VALUES
 
 -----------------------------------------------
 
- --Task 8 Create Table Users
+--Task 8 Create Table Users
 
 CREATE TABLE Users
 (
