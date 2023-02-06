@@ -65,6 +65,8 @@ PRIMARY KEY(AccountId, TripId),
 CHECK(Luggage >= 0)
 )
 
+----------------------------------------------------
+
 --Task 2 Insert
 
 INSERT INTO Accounts(FirstName, MiddleName, LastName, CityId, BirthDate, Email)
@@ -83,17 +85,23 @@ INSERT INTO Trips(RoomId, BookDate, ArrivalDate, ReturnDate, CancelDate)
 (104, '2012-03-17', '2012-03-31', '2012-04-01', '2012-01-10'),
 (109, '2017-08-07', '2017-08-28', '2017-08-29', NULL)
 
+----------------------------------------------------
+
 --Task 3 Update
 
 UPDATE Rooms
 	SET Price *= 1.14
 	WHERE HotelId IN(5, 7, 9)
 
+----------------------------------------------------
+
 --Task 4 Delete
 
 DELETE
 	FROM AccountsTrips
 	WHERE AccountId = 47
+
+----------------------------------------------------
 
 --Task 5 EEE-Email
 
@@ -108,6 +116,8 @@ SELECT
 	WHERE a.Email LIKE 'e%'
 	ORDER BY c.Name
 
+----------------------------------------------------
+
 --Task 6 City Statistics
 
 SELECT
@@ -118,6 +128,8 @@ SELECT
 	GROUP BY c.Name
 	ORDER BY Hotels DESC,
 		City
+
+----------------------------------------------------
 
 --Task 7 Longest and Shortest Trips
 
@@ -134,6 +146,8 @@ SELECT
 	ORDER BY LongestTrip DESC,
 				ShortestTrip ASC
 
+----------------------------------------------------
+
 --Task 8 Metropolis
 
 SELECT
@@ -146,6 +160,8 @@ SELECT
 	JOIN Accounts AS a ON c.Id = a.CityId
 	GROUP BY c.Id, c.Name, c.CountryCode
 	ORDER BY Accounts DESC
+
+----------------------------------------------------
 
 --Task 9 Romantic Getaways
 
@@ -164,6 +180,8 @@ SELECT
 	GROUP BY a.Id, a.Email, c.Name
 	ORDER BY Trips DESC,
 	a.Id
+
+----------------------------------------------------
 
 --Task 10 GDPR Violation
 
@@ -187,6 +205,7 @@ SELECT
 	ORDER BY [Full Name],
 	at.TripId
 
+----------------------------------------------------
 
 --Task 12 Switch Room
 
@@ -214,6 +233,4 @@ BEGIN
 	UPDATE Trips
 	SET RoomId = @TargetRoomId WHERE Id = @TripId
 END
-
-
 
