@@ -159,6 +159,8 @@ SELECT
 	ORDER BY [Days going] DESC,
 	Client
 
+-----------------------------------------------
+
 --Task 7 Mechanic Performance
 
 SELECT
@@ -186,6 +188,8 @@ SELECT
 GROUP BY mId,Mechanic
 ORDER BY mId
 
+-----------------------------------------------
+
 --Task 8 Available Mechanics
 
 SELECT FirstName + ' ' + LastName AS Available
@@ -200,6 +204,8 @@ SELECT FirstName + ' ' + LastName AS Available
 	LEFT JOIN Jobs AS j ON m.MechanicId = j.MechanicId
 	WHERE J.Status != 'Finished'
 )
+-----------------------------------------------
+
 --Task 9 Past Expenses
 
 SELECT
