@@ -57,6 +57,8 @@ ParentId INT REFERENCES Files(Id),
 CommitId INT REFERENCES Commits(Id) NOT NULL
 )
 
+----------------------------------------------------
+
 --Task 2 Insert
 
 GO
@@ -83,14 +85,18 @@ INSERT INTO Issues(Title, IssueStatus, RepositoryId, AssigneeId)
 
 GO
 
+----------------------------------------------------
+
 --Task 3 Update
 
 Update Issues
 SET IssueStatus = 'closed'
 WHERE AssigneeId = 6
 
+----------------------------------------------------
+
 --Task 4 Delete
--- Check what is refering what befero start Delete
+-- Check what is referring what before start Delete
 
 DELETE  FROM RepositoriesContributors
 WHERE RepositoryId = (SELECT
@@ -140,6 +146,8 @@ WHERE RepositoryId = (
 					FROM Repositories
 					WHERE Name = 'Softuni-Teamwork')
 
+----------------------------------------------------
+
 --Task 5 Commits
 
 SELECT
@@ -153,6 +161,8 @@ SELECT
 	RepositoryId,
 	ContributorId
 
+----------------------------------------------------
+
 --Task 6 Front-end
 
 SELECT
@@ -165,6 +175,8 @@ SELECT
 	Id,
 	Name
 
+----------------------------------------------------
+
 --Task 7 Issue Assignment
 
 SELECT
@@ -175,6 +187,8 @@ SELECT
 	ORDER BY i.Id DESC,
 	i.AssigneeId
 
+----------------------------------------------------
+
 --Task 8 Single Files
 
 SELECT f.Id, f.[Name], CONCAT(f.Size, 'KB') AS Size
@@ -184,6 +198,8 @@ SELECT f.Id, f.[Name], CONCAT(f.Size, 'KB') AS Size
     FROM Files f1
     WHERE f1.ParentId IS NOT NULL)
 	ORDER BY f.Id, f.[Name], Size DESC
+
+----------------------------------------------------
 
 --Task 9 Commits in Repositories
 
@@ -200,6 +216,7 @@ LEFT JOIN RepositoriesContributors AS rc ON rc.RepositoryId = r.Id
 	r.Id,
 	r.[Name]
 
+----------------------------------------------------
 
 --Task 10 Average Size
 
@@ -212,6 +229,8 @@ SELECT
 	GROUP BY u.Username
 	ORDER BY Size DESC,
 		u.Username
+
+----------------------------------------------------
 
 --Task 11 All User Commits
 
@@ -233,6 +252,8 @@ BEGIN
 	RETURN @commitsCnt
 END
 GO
+
+----------------------------------------------------
 
 --Task 12 Search for Files
 
