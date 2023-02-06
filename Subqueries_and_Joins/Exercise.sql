@@ -1,4 +1,4 @@
--- Task 1 Employee Address
+--Task 1 Employee Address
 
 SELECT
 	TOP 5
@@ -11,7 +11,9 @@ SELECT
 	ON e.AddressID = a.AddressID
 	ORDER BY e.AddressID
 
--- Task 2 Addresses with Towns
+----------------------------------------------------
+
+--Task 2 Addresses with Towns
 
 SELECT
 	TOP 50
@@ -25,8 +27,9 @@ SELECT
 	ORDER BY e.FirstName,
 		e.LastName
 
+----------------------------------------------------
 
--- Task 3 Sales Employee
+--Task 3 Sales Employee
 
 SELECT
 	e.EmployeeID,
@@ -39,7 +42,9 @@ SELECT
 	WHERE d.Name = 'Sales'
 	ORDER BY e.EmployeeID
 
--- Task 4 Employee Departments
+----------------------------------------------------
+
+--Task 4 Employee Departments
 
 SELECT
 	TOP 5
@@ -53,6 +58,8 @@ SELECT
 	WHERE e.Salary > 15000
 	ORDER BY e.DepartmentID
 
+----------------------------------------------------
+
 --Task 5 Employees without Project
 
 SELECT
@@ -62,7 +69,8 @@ SELECT
 	WHERE ep.ProjectID IS NOT NULL
 	ORDER BY e.EmployeeID
 
--- Task 6 Employees Hired After
+----------------------------------------------------
+--Task 6 Employees Hired After
 
 SELECT
 	e.FirstName,
@@ -74,7 +82,9 @@ SELECT
 	WHERE e.HireDate > '1999-01-01' AND d.Name IN('Sales','Finance')
 	ORDER BY e.HireDate
 
--- Task 7 Employee with Project
+----------------------------------------------------
+
+--Task 7 Employee with Project
 
 SELECT
 	TOP 5
@@ -86,6 +96,8 @@ SELECT
 	JOIN Projects AS p ON ep.ProjectID = p.ProjectID
 	WHERE p.StartDate > '2002-01-13' AND p.EndDate IS NULL
 	ORDER BY e.EmployeeID
+
+----------------------------------------------------
 
 --Task 8 Employee 24
 
@@ -101,7 +113,9 @@ SELECT
 	JOIN Projects AS p ON ep.ProjectID = p.ProjectID
 	WHERE e.EmployeeID = 24
 
--- Task 9 Employee Manager
+----------------------------------------------------
+
+--Task 9 Employee Manager
 
 SELECT
 	e.EmployeeID,
@@ -111,6 +125,8 @@ SELECT
 	FROM Employees AS e
 	JOIN Employees AS e2 ON e.ManagerID = e2.EmployeeID
 	WHERE e.ManagerID IN(3,7)
+
+----------------------------------------------------
 
 --Task 10 Employee Summary
 
@@ -125,7 +141,7 @@ SELECT
 	JOIN Departments AS d ON e.DepartmentID = d.DepartmentID
 	ORDER BY e.EmployeeID
 
-
+----------------------------------------------------
 
 --Task 11 Min Average Salary
 
@@ -136,6 +152,7 @@ SELECT TOP 1 MinAverageSalary FROM
 	GROUP BY DepartmentID) AS AvgSalaries
 	ORDER BY MinAverageSalary
 
+----------------------------------------------------
 
 --Task 12 Highest Picks in Bulgaria
 
@@ -151,6 +168,7 @@ SELECT
 	WHERE p.Elevation > 2835 AND c.CountryCode = 'BG'
 	ORDER BY p.Elevation DESC
 
+----------------------------------------------------
 
 --Task 13 Count Mountain Ranges
 
@@ -160,6 +178,8 @@ SELECT
 	FROM MountainsCountries
 	WHERE CountryCode IN ('BG','RU','US')
 	GROUP BY CountryCode
+
+----------------------------------------------------
 
 --Task 14 Countries with Rivers
 
@@ -172,6 +192,8 @@ SELECT
 	LEFT JOIN Rivers AS r ON cr.RiverId = r.Id
 	WHERE c.ContinentCode = 'AF'
 	ORDER BY c.CountryName
+
+----------------------------------------------------
 
 --Task 15 Continents and Currencies
 
@@ -199,13 +221,17 @@ INNER JOIN CTE_Count cte
         ON (cmax.ContinentCode = cte.ContinentCode AND cmax.CurrancyUsage = cte.CurrancyUsage)
   ORDER BY cmax.ContinentCode
 
--- Task 16 Country without any Mountains
+----------------------------------------------------
+
+--Task 16 Country without any Mountains
 
 SELECT
 	COUNT(c.CountryCode) AS COUNT
 	FROM Countries AS c
 	LEFT JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
 	WHERE mc.MountainId IS NULL
+
+----------------------------------------------------
 
 --Task 17 Highest Peak and Longest River by Country
 SELECT TOP(5)
@@ -220,6 +246,8 @@ SELECT TOP(5)
         LEFT JOIN Peaks AS p ON mc.MountainId = p.MountainId
         GROUP BY c.CountryName
         ORDER BY HighestPeakElevation DESC, LongestRiverLength DESC, CountryName
+
+----------------------------------------------------
 
 --Task 18 Highest Peak Name and Elevation by Country
 
