@@ -125,6 +125,7 @@ SELECT
 	IsDepositExpired
 
 ----------------------------------------------------
+
 --Task 12 * Rich Wizard, Poor Wizard
 
 SELECT ABS(SUM(tt.DepositDifference)) AS SumDifference FROM
