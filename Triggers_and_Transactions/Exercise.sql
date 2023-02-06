@@ -330,7 +330,7 @@ END
 
 ----------------------------------------------------
 
--- Task 11 Future Value Function
+--Task 11 Future Value Function
 
 CREATE FUNCTION ufn_CalculateFutureValue (@Sum DECIMAL(20,2), @YearlyInterest FLOAT, @Years INT)
 RETURNS DECIMAL(20,4) AS
@@ -339,7 +339,7 @@ BEGIN
 	RETURN @Result
 END
 
------------------------------------------------
+----------------------------------------------------
 
 --Task 12 Calculating Interest
 
@@ -354,7 +354,7 @@ SELECT
 FROM AccountHolders AS ah
 JOIN Accounts AS a ON a.AccountHolderId=ah.Id AND a.Id = @AccID
 
------------------------------------------------
+----------------------------------------------------
 
 --Task 13 Cash in User Games Odd Rows
 
