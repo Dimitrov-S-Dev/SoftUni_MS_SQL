@@ -91,6 +91,7 @@ Quantity INT DEFAULT 1 CHECK(Quantity > 0),
 PRIMARY KEY(JobId, PartId)
 )
 
+-----------------------------------------------
 
 --Task 2  Insert
 
