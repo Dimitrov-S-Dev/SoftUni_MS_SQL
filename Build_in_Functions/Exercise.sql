@@ -145,7 +145,7 @@ SELECT
 
 ----------------------------------------------------
 
---Task 16 Get Users with IPAdress Like Pattern
+--Task 16 Get Users with IPAddress Like Pattern
 
 SELECT Username, IpAddress FROM Users
 WHERE IpAddress LIKE '___.1%.%.___'
