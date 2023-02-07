@@ -71,6 +71,7 @@ BonusPrizeId INT REFERENCES BonusPrizes(Id),
 PRIMARY KEY(TouristId, BonusPrizeId)
 )
 
+----------------------------------------------------
 
 --Task 2 Insert
 
@@ -92,12 +93,15 @@ INSERT INTO Sites([Name], LocationId,CategoryId,Establishment)
 ('St. Petka of Bulgaria – Rupite',	92,	6,	'1994')
 
 
+----------------------------------------------------
 
 --Task 3 Update
 
 UPDATE Sites
 SET Establishment = 'not defined'
 WHERE Establishment IS NULL
+
+----------------------------------------------------
 
 --Task 4 Delete
 
@@ -106,6 +110,8 @@ WHERE BonusPrizeId = 5
 
 DELETE FROM BonusPrizes
 WHERE Name = 'Sleeping bag'
+
+----------------------------------------------------
 
 --Task 5 Tourists
 
