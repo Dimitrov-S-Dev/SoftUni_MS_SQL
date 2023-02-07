@@ -117,6 +117,8 @@ SELECT
 	ORDER BY Reports.OpenDate,
 	Description
 
+-----------------------------------------------
+
 --Task 6 Reports & Categories
 
 SELECT
@@ -127,6 +129,7 @@ SELECT
 	ORDER BY Description,
 		CategoryName
 
+-----------------------------------------------
 
 --Task 7 Most Reported Category
 
@@ -139,6 +142,7 @@ SELECT TOP 5
 	ORDER BY ReportsNumber DESC,
 		CategoryName
 
+-----------------------------------------------
 
 --Task 8 Birthday Report
 
@@ -154,6 +158,7 @@ SELECT
 	ORDER BY u.Username,
 	CategoryName
 
+-----------------------------------------------
 
 --Task 9 Users per Employee
 
@@ -166,6 +171,7 @@ SELECT
 	ORDER BY UsersCount DESC,
 	FullName
 
+-----------------------------------------------
 
 --Task 10 Full Info
 
@@ -192,6 +198,8 @@ SELECT
 	s.Label,
 	u.Name
 
+-----------------------------------------------
+
 --Task 11 Hours to Complete
 
 GO
@@ -211,6 +219,8 @@ GO
 
 SELECT dbo.udf_HoursToComplete(OpenDate, CloseDate) AS TotalHours
    FROM Reports
+
+-----------------------------------------------
 
 --Task 12 Assign Employee
 GO
