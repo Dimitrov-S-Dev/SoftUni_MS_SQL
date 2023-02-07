@@ -125,7 +125,9 @@ SELECT
 	Age DESC,
 	Name
 
---Task 6 Sities with Their Location and Category
+-----------------------------------------------
+
+--Task 6 Sites with Their Location and Category
 
 SELECT
 	s.Name AS Site,
@@ -140,8 +142,9 @@ SELECT
 	Location,
 	Site
 
+-----------------------------------------------
 
---7 Count the Sites in Sofia Privince
+--7 Count the Sites in Sofia Province
 
 SELECT
 	l.Province,
@@ -154,6 +157,8 @@ SELECT
 	GROUP BY l.Province,l.Municipality,l.Name
 	ORDER BY CountOfSites DESC,
 	l.Name
+
+-----------------------------------------------
 
 --Task 8 Tourist Sites established BC
 
@@ -171,6 +176,7 @@ SELECT
 	s.Establishment LIKE '%BC'
 	ORDER BY s.Name
 
+-----------------------------------------------
 
 --Task 9 Tourists with their Bonus Prizes
 
@@ -188,8 +194,9 @@ SELECT
 	left JOIN BonusPrizes AS bp ON tbp.BonusPrizeId = bp.Id
 	ORDER BY t.Name
 
+-----------------------------------------------
 
---Task 10 Tourists visiting History and Archaelogy sites
+--Task 10 Tourists visiting History and Archeology sites
 
 SELECT
 	RIGHT(t.Name, CHARINDEX(' ', REVERSE(t.Name)) - 1) AS LastName,
@@ -206,6 +213,8 @@ SELECT
 
 SELECT * FROM Categories
 
+-----------------------------------------------
+
 --Task 11 Tourists Count on a Tourist Site
 GO
 
@@ -221,6 +230,8 @@ BEGIN
 		WHERE s.Name = 'Regional History Museum – Vratsa')
 
 END
+
+-----------------------------------------------
 
 --Task 12 Annual Reward Lottery
 GO
