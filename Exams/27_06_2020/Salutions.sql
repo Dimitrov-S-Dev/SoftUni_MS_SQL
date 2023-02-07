@@ -91,7 +91,7 @@ Quantity INT DEFAULT 1 CHECK(Quantity > 0),
 PRIMARY KEY(JobId, PartId)
 )
 
------------------------------------------------
+----------------------------------------------------
 
 --Task 2  Insert
 
@@ -112,7 +112,7 @@ INSERT INTO Parts(SerialNumber, [Description], Price, VendorId)
 ('W10841140','Silicone Adhesive', '6.77', 4),
 ('WPY055980', 'High Temperature Adhesive','13.94', 3)
 
------------------------------------------------
+----------------------------------------------------
 
 --Task 3 Update
 
@@ -121,7 +121,7 @@ UPDATE Jobs
 		Status = 'In Progress'
 	WHERE Status = 'Pending'
 
------------------------------------------------
+----------------------------------------------------
 
 --Task 4 Delete
 
@@ -131,7 +131,7 @@ DELETE FROM OrderParts
 DELETE FROM Orders
 	WHERE OrderId = 19
 
------------------------------------------------
+----------------------------------------------------
 
 --Task 5 Mechanic Assignments
 
@@ -145,7 +145,7 @@ SELECT
 	j.IssueDate,
 	j.JobId
 
------------------------------------------------
+----------------------------------------------------
 
 --Task 6 Current Clients
 
@@ -159,7 +159,7 @@ SELECT
 	ORDER BY [Days going] DESC,
 	Client
 
------------------------------------------------
+----------------------------------------------------
 
 --Task 7 Mechanic Performance
 
@@ -188,7 +188,7 @@ SELECT
 GROUP BY mId,Mechanic
 ORDER BY mId
 
------------------------------------------------
+----------------------------------------------------
 
 --Task 8 Available Mechanics
 
@@ -204,7 +204,7 @@ SELECT FirstName + ' ' + LastName AS Available
 	LEFT JOIN Jobs AS j ON m.MechanicId = j.MechanicId
 	WHERE J.Status != 'Finished'
 )
------------------------------------------------
+----------------------------------------------------
 
 --Task 9 Past Expenses
 
