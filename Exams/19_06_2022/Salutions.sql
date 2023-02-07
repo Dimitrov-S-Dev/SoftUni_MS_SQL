@@ -108,6 +108,7 @@ SELECT
 	AnimalId,
 	DepartmentId
 
+-----------------------------------------------
 
 --Task 6 Animals data
 
@@ -119,6 +120,8 @@ SELECT
 	JOIN AnimalTypes AS at ON a.AnimalTypeId = at.Id
 	ORDER BY a.Name
 
+-----------------------------------------------
+
 --Task 7 Owners and Their Animals
 
 SELECT TOP 5
@@ -129,6 +132,8 @@ SELECT TOP 5
 	GROUP BY o.Name
 	ORDER BY CountOfAimals DESC,
 	o.Name
+
+-----------------------------------------------
 
 --Task 8 Owners,Animals and Cages
 
@@ -145,6 +150,7 @@ SELECT
 	ORDER BY o.Name,
 	a.Name DESC
 
+-----------------------------------------------
 
 --Task 9 Volunteers in Sofia
 
@@ -158,6 +164,7 @@ SELECT
 	AND v.Address LIKE ('%Sofia%')
 	ORDER BY v.Name
 
+-----------------------------------------------
 
 --Task 10 Animals for Adoption
 
@@ -171,6 +178,8 @@ SELECT
 		AND at.Id !=3
 		AND DATEDIFF(YEAR, a.BirthDate, '2022-01-01') < 5
 	ORDER BY a.Name
+
+-----------------------------------------------
 
 --Task 11 All Volunteers an a Department
 
@@ -188,6 +197,7 @@ BEGIN
 
 END
 
+-----------------------------------------------
 
 --Task 12 Animals with Owner or Not
 
