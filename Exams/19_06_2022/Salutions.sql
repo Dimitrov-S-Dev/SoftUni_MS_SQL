@@ -58,6 +58,8 @@ AnimalId INT REFERENCES Animals(Id),
 DepartmentId INT REFERENCES VolunteersDepartments(Id) NOT NULL
 )
 
+----------------------------------------------------
+
 --Task 2 Insert
 
 INSERT INTO Volunteers(Name, PhoneNumber,Address,AnimalId,DepartmentId) VALUES
@@ -73,12 +75,15 @@ INSERT INTO Animals(Name, BirthDate, OwnerId, AnimalTypeId) VALUES
 ('Hamadryas Baboon', '2017-11-02',	NULL, 1),
 ('Tuatara'         , '2021-06-30',   2, 4)
 
+----------------------------------------------------
 
 --Task 3 Update
 
 UPDATE Animals
 SET OwnerId = 4
 WHERE OwnerId IS NULL
+
+----------------------------------------------------
 
 --Task 4 Delete
 
@@ -88,6 +93,7 @@ WHERE DepartmentId = 2
 DELETE FROM VolunteersDepartments
 WHERE Id = 2
 
+----------------------------------------------------
 
 --Task 5 Volunteers
 
