@@ -242,6 +242,3 @@ BEGIN
 	WHERE Id = @RReportId
 END
 GO
-
-
-
