@@ -233,4 +233,3 @@ BEGIN
 	UPDATE Trips
 	SET RoomId = @TargetRoomId WHERE Id = @TripId
 END
-
