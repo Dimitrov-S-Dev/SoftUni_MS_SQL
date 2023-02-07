@@ -70,6 +70,7 @@ UserId INT REFERENCES Users(Id) NOT NULL,
 EmployeeId INT REFERENCES Employees(Id)
 )
 
+-----------------------------------------------
 
 --Task 2 Insert
 
@@ -89,6 +90,7 @@ INSERT INTO Reports(CategoryId, StatusId, OpenDate, CloseDate,Description, UserI
 (14, 2,	'2015-09-07', NULL,	'Falling bricks on Str.58', 5, 2),
 (4,	3,	'2017-07-03', '2017-07-06', 'Cut off streetlight on Str.11', 1,	1)
 
+-----------------------------------------------
 
 --Task 3 Update
 
@@ -96,11 +98,14 @@ UPDATE Reports
 SET CloseDate = GETDATE()
 WHERE CloseDate IS NULL
 
+-----------------------------------------------
+
 --Task 4 Delete
 
 DELETE FROM Reports
 WHERE StatusId = 4
 
+-----------------------------------------------
 
 --Task 5 Unassigned Reports
 
