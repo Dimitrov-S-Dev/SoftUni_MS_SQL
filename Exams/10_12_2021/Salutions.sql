@@ -82,13 +82,14 @@ UPDATE Aircraft
 SET Condition = 'A'
 WHERE Condition IN('C','B') AND (FlightHours IS NULL OR FlightHours <= 100) AND
 																[Year] >= 2013
-
+-----------------------------------------------
 
 --Task 4 Delete
 
 DELETE FROM Passengers
 WHERE LEN(FullName) <= 10
 
+-----------------------------------------------
 
 --Task 5 Aircraft
 
@@ -99,6 +100,8 @@ SELECT
 	Condition
 	FROM Aircraft
 	ORDER BY FlightHours DESC
+
+-----------------------------------------------
 
 --Task 6 Pilots and Aircraft
 
@@ -115,6 +118,8 @@ SELECT
 	ORDER BY a.FlightHours DESC,
 	p.FirstName
 
+-----------------------------------------------
+
 --Task 7 Top 20 Flight Destinations
 
 SELECT TOP 20
@@ -129,6 +134,8 @@ SELECT TOP 20
 	WHERE DATEPART(DAY, fd.Start) % 2 = 0
 	ORDER BY fd.TicketPrice DESC,
 	a.AirportName
+
+-----------------------------------------------
 
 --Task 8 Number of Flights for Each Aircraft
 
@@ -145,6 +152,8 @@ SELECT
 	ORDER BY FlightDestinationsCount DESC,
 		fd.AircraftId
 
+-----------------------------------------------
+
 --Task 9 Regular Passengers
 
 SELECT
@@ -158,6 +167,8 @@ SELECT
 	GROUP BY p.FullName
 	HAVING COUNT(a.Id) > 1
 	ORDER BY p.FullName
+
+-----------------------------------------------
 
 --Task 10 Full info for Flight Destinations
 
