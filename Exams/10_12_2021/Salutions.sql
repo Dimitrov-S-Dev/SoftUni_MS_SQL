@@ -74,6 +74,8 @@ SELECT
 	FROM Pilots
 	WHERE Id >= 5 AND Id <= 15
 
+-----------------------------------------------
+
 --Task 3 Update
 
 UPDATE Aircraft
