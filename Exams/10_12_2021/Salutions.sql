@@ -186,3 +186,21 @@ SELECT
 	WHERE (DATEPART(HOUR, fd.Start) >= 6 AND  DATEPART(HOUR, fd.Start) <= 20) AND
 			fd.TicketPrice > 2500
 	ORDER BY ac.Model
+
+-----------------------------------------------
+
+--Task 11 Find all Destinations by Email Address
+
+GO
+CREATE FUNCTION udf_FlightDestinationsByEmail(@email VARCHAR(50))
+RETURNS INT
+AS
+BEGIN
+		RETURN (
+		SELECT
+			COUNT(fd.Id)
+			FROM FlightDestinations AS fd
+			JOIN Passengers AS p ON fd.PassengerId = p.Id
+			WHERE p.Email = @email
+		)
+END
