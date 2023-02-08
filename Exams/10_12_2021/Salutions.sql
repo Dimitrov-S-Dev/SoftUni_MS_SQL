@@ -63,6 +63,8 @@ PassengerId INT REFERENCES Passengers(Id) NOT NULL,
 TicketPrice DECIMAL(18, 2) DEFAULT(15) NOT NULL
 )
 
+----------------------------------------------------
+
 --Task 2 Insert
 
 INSERT INTO Passengers(FullName,Email)
