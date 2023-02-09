@@ -1,4 +1,5 @@
 --Task 1 DDL
+
 CREATE DATABASE Bakery
 
 GO
@@ -67,6 +68,8 @@ ProductId INT REFERENCES Products(Id),
 IngredientId INT REFERENCES Ingredients(Id),
 PRIMARY KEY(ProductId, IngredientId)
 )
+
+-----------------------------------------------
 
 --Task 2 Insert
 
