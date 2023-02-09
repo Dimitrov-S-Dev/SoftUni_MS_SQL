@@ -141,3 +141,17 @@ SELECT TOP 5
 
 
 -- 9
+
+SELECT
+	CONCAT_WS(' ',c.FirstName, c.LastName) AS FullName,
+	a.Country,
+	a.ZIP,
+	CONCAT('$',
+		(SELECT MAX(PriceForSingleCigar)
+		 FROM Cigars AS cg
+		 JOIN ClientsCigars AS cs ON cg.Id = cs.CigarId
+		 AND cs.CLientId = c.Id)) AS CigarPrice
+	FROM Clients AS c
+	JOIN Addresses AS a ON c.AddressId = a.Id
+	WHERE ISNUMERIC(a.ZIP) = 1
+	ORDER BY CigarPrice DESC
