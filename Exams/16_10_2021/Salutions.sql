@@ -190,6 +190,8 @@ SELECT
 	GROUP BY c.LastName
 	ORDER BY CiagrLength DESC
 
+----------------------------------------------
+
 --Task 11
 
 GO
