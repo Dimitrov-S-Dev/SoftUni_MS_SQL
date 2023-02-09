@@ -129,6 +129,8 @@ SELECT
 	WHERE t.TasteType IN('Earthy','Woody')
 	ORDER BY PriceForSingleCigar DESC
 
+----------------------------------------------
+
 -- 7
 
 SELECT
