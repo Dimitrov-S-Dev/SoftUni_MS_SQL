@@ -212,7 +212,7 @@ END
 
 ----------------------------------------------
 
---Task 12
+--Task 12 Search for Cigar with Specific Taste
 
 GO
 CREATE PROCEDURE usp_SearchByTaste @taste VARCHAR(20)
