@@ -78,8 +78,6 @@ INSERT INTO Addresses(Town,	Country, Streat,	ZIP) VALUES
 ('Athens',	'Greece',	'4342 McDonald Avenue',	10435),
 ('Zagreb',	'Croatia',	'4333 Lauren Drive',	10000)
 
-SELECT * FROM Tastes
-SELECT * FROM Cigars
 
 -- 3 Update
 
