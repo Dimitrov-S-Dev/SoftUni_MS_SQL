@@ -154,3 +154,15 @@ SELECT
 	WHERE ISNUMERIC(a.ZIP) = 1
 	GROUP BY c.FirstName,c.LastName,a.Country,a.ZIP
 	ORDER BY FullName
+
+--Task 10
+SELECT
+	c.LastName,
+	AVG(s.Length) AS CiagrLength,
+	CEILING(AVG(s.RingRange)) AS CiagrRingRange
+	FROM ClientsCigars AS cs
+	JOIN Clients AS c ON cs.ClientId = c.Id
+	JOIN Cigars AS cr ON cs.CigarId = cr.Id
+	JOIN Sizes AS s ON cr.SizeId = s.Id
+	GROUP BY c.LastName
+	ORDER BY CiagrLength DESC
