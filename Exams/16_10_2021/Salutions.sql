@@ -160,7 +160,7 @@ SELECT TOP 5
 
 ----------------------------------------------
 
--- 9
+--Task 9 Clients with ZIP Codes
 
 SELECT
 	CONCAT_WS(' ',c.FirstName, c.LastName) AS FullName,
