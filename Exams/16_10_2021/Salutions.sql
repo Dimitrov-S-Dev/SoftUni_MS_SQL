@@ -116,7 +116,7 @@ SELECT
 
 ----------------------------------------------
 
---Task 6
+--Task 6 Cigar by Taste
 
 SELECT
 	c.Id,
