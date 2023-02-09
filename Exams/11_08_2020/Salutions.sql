@@ -186,6 +186,8 @@ SELECT
 	i.Name,
 	p.Name
 
+-----------------------------------------------
+
 --Task 10 Country Representative
 
 SELECT CountryName,DisributorName from (
