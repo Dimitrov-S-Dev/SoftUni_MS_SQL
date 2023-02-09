@@ -158,6 +158,7 @@ SELECT TOP 5
 	ORDER BY c.CigarName,
 	c.PriceForSingleCigar
 
+----------------------------------------------
 
 -- 9
 
