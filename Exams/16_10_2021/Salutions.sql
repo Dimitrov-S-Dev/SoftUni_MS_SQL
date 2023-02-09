@@ -166,3 +166,21 @@ SELECT
 	JOIN Sizes AS s ON cr.SizeId = s.Id
 	GROUP BY c.LastName
 	ORDER BY CiagrLength DESC
+
+--Task 11
+
+GO
+
+CREATE FUNCTION udf_ClientWithCigars(@name NVARCHAR(30))
+RETURNS INT
+AS
+BEGIN
+	RETURN
+	(
+	SELECT COUNT(*)
+		FROM ClientsCigars AS cs
+	JOIN Clients AS c ON cs.ClientId = c.Id
+	JOIN Cigars AS cr ON cs.CigarId = cr.Id
+	WHERE c.FirstName = 'Betty'
+	)
+END
