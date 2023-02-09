@@ -124,6 +124,7 @@ SELECT
 	ORDER BY Price DESC,
 	Name
 
+-----------------------------------------------
 
 --Task 6 Negative Feedback
 
