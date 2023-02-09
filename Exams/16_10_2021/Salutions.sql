@@ -144,6 +144,7 @@ SELECT
 	WHERE cr.CigarName IS NULL
 	ORDER BY ClientName
 
+----------------------------------------------
 
 -- 8 First 5 Cigars
 
