@@ -64,6 +64,8 @@ CigarId INT REFERENCES Cigars(Id),
 PRIMARY KEY(ClientId, CigarId)
 )
 
+----------------------------------------------
+
 --2 Insert
 
 INSERT INTO Cigars(CigarName, BrandId, TastId, SizeId, PriceForSingleCigar, ImageURL) VALUES
