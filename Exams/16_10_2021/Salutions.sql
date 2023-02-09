@@ -92,7 +92,17 @@ UPDATE Brands
 SET BrandDescription = 'New description'
 WHERE BrandDescription IS NULL
 
+----------------------------------------------
+
 -- 4 Delete
+
+DELETE FROM Clients
+WHERE [AddressId] IN (SELECT Id FROM Addresses WHERE Country LIKE 'C%')
+
+DELETE FROM Addresses
+WHERE Country LIKE 'C%'
+
+----------------------------------------------
 
 -- 5
 SELECT
