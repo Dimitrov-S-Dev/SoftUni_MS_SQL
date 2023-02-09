@@ -181,7 +181,7 @@ BEGIN
 		FROM ClientsCigars AS cs
 	JOIN Clients AS c ON cs.ClientId = c.Id
 	JOIN Cigars AS cr ON cs.CigarId = cr.Id
-	WHERE c.FirstName = 'Betty'
+	WHERE c.FirstName = @name
 	)
 END
 
