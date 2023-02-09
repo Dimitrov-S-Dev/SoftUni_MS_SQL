@@ -92,6 +92,8 @@ INSERT INTO Customers(FirstName, LastName, Age, Gender, PhoneNumber, CountryId)
 	('Hiu', 'Portaro', 25, 'M', '0068277755', 16),
 	('Josefa', 'Opitz', 43, 'F', '0197887645', 17)
 
+-----------------------------------------------
+
 --Task 3 Update
 
 UPDATE Ingredients
