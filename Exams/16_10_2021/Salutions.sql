@@ -1,3 +1,5 @@
+--Task 1 DDL
+
 CREATE DATABASE CigarShop
 
 GO
