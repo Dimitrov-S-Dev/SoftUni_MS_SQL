@@ -104,7 +104,7 @@ WHERE Country LIKE 'C%'
 
 ----------------------------------------------
 
--- 5
+--Task 5
 SELECT
 	CigarName,
 	PriceForSingleCigar,
