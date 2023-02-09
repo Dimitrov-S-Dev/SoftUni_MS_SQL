@@ -178,6 +178,7 @@ SELECT
 ----------------------------------------------
 
 --Task 10
+
 SELECT
 	c.LastName,
 	AVG(s.Length) AS CiagrLength,
