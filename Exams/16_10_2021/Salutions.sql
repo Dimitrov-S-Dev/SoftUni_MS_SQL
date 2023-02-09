@@ -175,6 +175,8 @@ SELECT
 	GROUP BY c.FirstName,c.LastName,a.Country,a.ZIP
 	ORDER BY FullName
 
+----------------------------------------------
+
 --Task 10
 SELECT
 	c.LastName,
