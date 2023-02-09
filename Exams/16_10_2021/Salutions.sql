@@ -131,7 +131,7 @@ SELECT
 
 ----------------------------------------------
 
--- 7
+-- 7 Clients without Cigars
 
 SELECT
 	c.Id,
@@ -145,7 +145,7 @@ SELECT
 	ORDER BY ClientName
 
 
--- 8
+-- 8 First 5 Cigars
 
 SELECT TOP 5
 	c.CigarName,
