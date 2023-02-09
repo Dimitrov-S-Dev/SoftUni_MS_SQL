@@ -177,7 +177,7 @@ SELECT
 
 ----------------------------------------------
 
---Task 10
+--Task 10 Cigars by Size
 
 SELECT
 	c.LastName,
