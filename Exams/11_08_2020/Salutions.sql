@@ -153,6 +153,7 @@ SELECT
 	RIGHT JOIN Customers AS c ON f.CustomerId = c.Id
 	WHERE f.Id IS NULL
 
+------------------------------------------------
 
 --Task 8 Customers by Criteria
 
@@ -165,6 +166,7 @@ SELECT
 	ORDER BY FirstName,
 	Age DESC
 
+------------------------------------------------
 
 --Task 9 Middle Range Distributors
 
