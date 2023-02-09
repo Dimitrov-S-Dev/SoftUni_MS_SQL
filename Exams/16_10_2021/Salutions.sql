@@ -146,12 +146,11 @@ SELECT
 	CONCAT_WS(' ',c.FirstName, c.LastName) AS FullName,
 	a.Country,
 	a.ZIP,
-	CONCAT('$',
-		(SELECT MAX(PriceForSingleCigar)
-		 FROM Cigars AS cg
-		 JOIN ClientsCigars AS cs ON cg.Id = cs.CigarId
-		 AND cs.CLientId = c.Id)) AS CigarPrice
-	FROM Clients AS c
+	CONCAT('$', MAX(cr.PriceForSingleCigar)) AS CigarPrice
+	FROM ClientsCigars AS cs
+	JOIN Clients AS c ON cs.ClientId = c.Id
+	JOIN Cigars AS cr ON cs.CigarId = cr.Id
 	JOIN Addresses AS a ON c.AddressId = a.Id
 	WHERE ISNUMERIC(a.ZIP) = 1
-	ORDER BY CigarPrice DESC
+	GROUP BY c.FirstName,c.LastName,a.Country,a.ZIP
+	ORDER BY FullName
