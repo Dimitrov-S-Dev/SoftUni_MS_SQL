@@ -114,7 +114,9 @@ SELECT
 	ORDER BY PriceForSingleCigar,
 	CigarName DESC
 
--- 6
+----------------------------------------------
+
+--Task 6
 
 SELECT
 	c.Id,
