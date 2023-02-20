@@ -120,3 +120,27 @@ WHERE AddressId = 5
 DELETE FROM Addresses
 WHERE Town LIKE 'L%'
 
+
+--Task 5 Boardgames by Year of Publication
+
+
+SELECT
+	[Name],
+	Rating
+	FROM Boardgames
+	ORDER BY YearPublished,
+	Name DESC
+
+
+--Task 6 Boardgames by Category
+
+SELECT
+	b.Id,
+	b.Name,
+	b.YearPublished,
+	c.Name
+	FROM Boardgames AS b
+	JOIN Categories AS c ON b.CategoryId = c.Id
+	WHERE c.Name IN('Strategy Games', 'Wargames' )
+	ORDER BY b.YearPublished DESC
+
