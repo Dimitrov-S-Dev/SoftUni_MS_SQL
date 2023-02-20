@@ -200,3 +200,45 @@ SELECT
 	ORDER BY AverageRating DESC,
 	b.Rating DESC
 
+
+--Task 11 Creator with Boardgames
+
+CREATE FUNCTION udf_CreatorWithBoardgames(@name NVARCHAR(30))
+RETURNS INT
+AS
+BEGIN
+		RETURN
+		(
+		SELECT
+			COUNT(cb.BoardgameId)
+			FROM Creators AS c
+			JOIN CreatorsBoardgames AS cb ON c.Id = cb.CreatorId
+			WHERE c.FirstName = @name
+		)
+
+END
+
+
+
+--Task 12 Search for Boardgame with Specific Category
+
+CREATE PROCEDURE usp_SearchByCategory @category VARCHAR(50)
+AS
+BEGIN
+		SELECT
+			b.Name AS [Name],
+			b.YearPublished,
+			b.Rating,
+			c.Name AS CategoryName,
+			p.Name AS PublisherName,
+			CONVERT(VARCHAR,pr.PlayersMin) + ' people' AS MinPlayers,
+			CONVERT(VARCHAR,pr.PlayersMax) + ' people' AS MaxPlayers
+			FROM Boardgames AS b
+			JOIN Categories AS c ON b.CategoryId = c.Id
+			JOIN PlayersRanges AS pr ON b.PlayersRangeId = pr.Id
+			JOIN Publishers AS p ON b.PublisherId = p.Id
+			WHERE c.Name = @category
+			ORDER BY p.Name,
+			b.YearPublished DESC
+
+END
