@@ -169,3 +169,34 @@ SELECT TOP 5
 	ORDER BY b.Name,
 	b.Rating DESC
 
+
+--Task 9 Creators with Emails
+
+SELECT
+	c.FirstName + ' ' + c.LastName AS FullName,
+	c.Email,
+	MAX(b.Rating) AS Rating
+	FROM Creators AS c
+	JOIN CreatorsBoardgames AS cb ON c.Id = cb.CreatorId
+	JOIN Boardgames AS b ON cb.BoardgameId = b.Id
+	WHERE c.Email LIKE '%.com'
+	GROUP BY c.FirstName, c.LastName, c.Email
+	ORDER BY FullName
+
+
+--Task 10 Creators by Rating
+
+
+SELECT
+	c.LastName,
+	CEILING(AVG(b.Rating)) AS AverageRating,
+	p.Name
+	FROM Creators AS c
+	LEFT JOIN CreatorsBoardgames AS cb ON c.Id = cb.CreatorId
+	LEFT JOIN Boardgames AS b ON cb.BoardgameId = b.Id
+	LEFT JOIN Publishers AS p ON b.PublisherId = p.Id
+	WHERE p.Name = 'Stonemaier Games'
+	GROUP BY b.Rating,LastName,p.Name
+	ORDER BY AverageRating DESC,
+	b.Rating DESC
+
