@@ -95,3 +95,28 @@ INSERT INTO Publishers([Name], AddressId, Website, Phone)
 ('Amethyst Games',	7,	'www.amethystgames.com',	'+15558889992'),
 ('BattleBooks',	13,	'www.battlebooks.com',	'+12345678907')
 
+--Task 3 UPDATE
+
+UPDATE PlayersRanges
+SET PlayersMax += 1
+WHERE PlayersMin = 2 AND PlayersMax = 2
+
+UPDATE Boardgames
+SET [Name] += 'V2'
+WHERE YearPublished >= 2020
+
+
+--Task 4 DELETE
+
+DELETE FROM CreatorsBoardgames
+WHERE BoardgameId IN(1, 16, 31)
+
+DELETE FROM Boardgames
+WHERE PublisherId = 1
+
+DELETE  FROM Publishers
+WHERE AddressId = 5
+
+DELETE FROM Addresses
+WHERE Town LIKE 'L%'
+
