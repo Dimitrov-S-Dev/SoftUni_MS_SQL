@@ -144,3 +144,28 @@ SELECT
 	WHERE c.Name IN('Strategy Games', 'Wargames' )
 	ORDER BY b.YearPublished DESC
 
+
+--Task 7 Creators without Boardgames
+
+SELECT
+	c.Id,
+	CONCAT_WS(' ', c.FirstName, c.LastName) AS CreatorName,
+	c.Email
+	FROM Creators AS c
+	LEFT JOIN CreatorsBoardgames AS cb ON c.Id = cb.CreatorId
+	WHERE BoardgameId IS NULL
+
+
+--Task 8  First 5 Boardgames
+
+SELECT TOP 5
+	b.Name,
+	b.Rating,
+	c.Name
+	FROM Boardgames AS b
+	LEFT JOIN Categories AS c ON b.CategoryId = c.Id
+	LEFT JOIN PlayersRanges AS pr ON b.PlayersRangeId = pr.Id
+	WHERE (b.Rating > 7.00 AND b.Name LIKE '%a%') OR (b.Rating > 7.50 AND (pr.PlayersMin = 2 AND pr.PlayersMax = 5))
+	ORDER BY b.Name,
+	b.Rating DESC
+
