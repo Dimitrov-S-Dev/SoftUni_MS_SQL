@@ -73,7 +73,7 @@ VALUES
  Biography NVARCHAR(MAX)
  )
 
- INSERT INTO People ([Name],Height, [Weight], Gender, Birthdate, Biography)
+ INSERT INTO People ([Name], Picture, Height, [Weight], Gender, Birthdate, Biography)
  VALUES
  ('A', 'link', 1.24, 55.00, 'm','1999-05-25' ,'A'),
  ('B', 'link', 1.44, 55.00, 'm','1999-05-26' ,'B'),
