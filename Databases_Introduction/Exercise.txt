@@ -167,7 +167,7 @@ CREATE TABLE [Categories](
 CREATE TABLE [Movies] (
     [Id] INT PRIMARY KEY IDENTITY,
     [Title] NVARCHAR(50) NOT NULL,
-    [DirectorName] INT FOREIGN KEY REFERENCES Directors(Id),
+    [DirectorId] INT FOREIGN KEY REFERENCES Directors(Id),
     [CopyrightYear] INT NOT NULL,
     [Length] TIME,
     [GenreId] INT FOREIGN KEY REFERENCES Genres(Id),
