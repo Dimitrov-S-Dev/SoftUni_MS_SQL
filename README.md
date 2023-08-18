@@ -1,6 +1,6 @@
 # <p align="center"> ![alt text](https://github.com/Dimitrov-S-Dev-Python/SoftUni_MS_SQL/blob/master/SoftUni-Logo.png) <p>
 # MS SQL
-The Python Advanced will teach you to create linear data structures, solve algorithmic problems (problem-solving skills), work with stacks and queues (Stacks & Queues), tuples and sets (Tuples & Sets), matrices (Multidimensional Lists), as well as files and directories. Attention will be paid to the functional programming paradigm. It will take a deeper look at recursive functions and functions with multiple arguments. 
+ intensive course on the basics of databases will introduce students to one of the most widely used database management systems (DBMS) used in the development of modern information systems - Microsoft SQL Server. 
 ## Acquired skills
 - Working with databases
 - Transaction Management
