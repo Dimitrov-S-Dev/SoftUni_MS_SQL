@@ -44,8 +44,8 @@ VALUES
   (3, 'Varna')
 
 
-INSERT INTO
-    Minions(Id, [Name], Age, TownId)
+INSERT INTO Minions
+    (Id, [Name], Age, TownId)
 VALUES
   (1, 'Kevin', 22, 1),
   (2, 'Bob', 15, 3),
@@ -95,7 +95,7 @@ VALUES
 
 CREATE TABLE Users
 (
-    id INT PRIMARY KEY IDENTITY,
+    Id INT PRIMARY KEY IDENTITY,
     Username VARCHAR(30) NOT NULL UNIQUE,
     Password VARCHAR(26) NOT NULL CHECK(LEN(Password) <= 26),
     ProfilePicture VARBINARY(MAX) CHECK(DATA LENGTH(ProfilePicture) <= 900000),
