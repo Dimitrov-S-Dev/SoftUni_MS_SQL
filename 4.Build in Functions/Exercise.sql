@@ -1,18 +1,26 @@
 --Task 1 Find Names of All Employees by First Name
 
-SELECT FirstName, LastName
-	FROM Employees
+SELECT
+    FirstName,
+    LastName
+FROM
+    Employees
 	--WHERE FirstName LIKE 'Sa%'
-	WHERE LEFT(FirstName, 2) = 'Sa'
+WHERE
+    LEFT(FirstName, 2) = 'Sa'
 
 ----------------------------------------------------
 
 --Task 2 Find Names of All employees by Last Name
 
-SELECT FirstName, LastName
-	FROM Employees
+SELECT
+    FirstName,
+    LastName
+FROM
+    Employees
 	--WHERE LastName LIKE '%ei%'
-	WHERE CHARINDEX('ei', LastName) <> 0
+WHERE
+    CHARINDEX('ei', LastName) <> 0
 
 ----------------------------------------------------
 
