@@ -152,42 +152,42 @@ VALUES
 
 CREATE TABLE [Cities]
 (
-[CityID] INT PRIMARY KEY IDENTITY,
-[Name] VARCHAR(50) NOT NULL
+    [CityID] INT PRIMARY KEY IDENTITY,
+    [Name] VARCHAR(50) NOT NULL
 )
 
 CREATE TABLE [Customers]
 (
-[CustomerID] INT PRIMARY KEY IDENTITY,
-[Name] VARCHAR(50) NOT NULL,
-[Birthday] DATE,
-[CityID] INT REFERENCES [Cities]([CityID])
+    [CustomerID] INT PRIMARY KEY IDENTITY,
+    [Name] VARCHAR(50) NOT NULL,
+    [Birthday] DATE,
+    [CityID] INT REFERENCES [Cities]([CityID])
 )
 
 CREATE TABLE [Orders]
 (
-[OrderID] INT PRIMARY KEY IDENTITY,
-[CustomerID] INT REFERENCES [Customers]([CustomerID])
+    [OrderID] INT PRIMARY KEY IDENTITY,
+    [CustomerID] INT REFERENCES [Customers]([CustomerID])
 )
 
 CREATE TABLE [ItemTypes]
 (
-[ItemTypeID] INT PRIMARY KEY IDENTITY,
-[Name] VARCHAR(50) NOT NULL
+    [ItemTypeID] INT PRIMARY KEY IDENTITY,
+    [Name] VARCHAR(50) NOT NULL
 )
 
 CREATE TABLE [Items]
 (
-[ItemID] INT PRIMARY KEY IDENTITY,
-[Name] VARCHAR(50) NOT NULL,
-[ItemTypeID] INT REFERENCES [ItemTypes]([ItemTypeID])
+    [ItemID] INT PRIMARY KEY IDENTITY,
+    [Name] VARCHAR(50) NOT NULL,
+    [ItemTypeID] INT REFERENCES [ItemTypes]([ItemTypeID])
 )
 
 CREATE TABLE [OrderItems]
 (
-[OrderID] INT REFERENCES [Orders]([OrderID]),
-[ItemID] INT REFERENCES [Items]([ItemID])
-PRIMARY KEY ([OrderID],[ItemID])
+    [OrderID] INT REFERENCES [Orders]([OrderID]),
+    [ItemID] INT REFERENCES [Items]([ItemID])
+    PRIMARY KEY ([OrderID],[ItemID])
 )
 
 ----------------------------------------------------
