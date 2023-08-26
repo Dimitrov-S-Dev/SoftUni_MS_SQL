@@ -162,33 +162,45 @@ ORDER BY
 
 --Task 16 Create View Employees with Salaries
 
-CREATE VIEW V_EmployeesSalaries AS
-	SELECT FirstName,
-		   LastName,
-		   Salary
-		FROM Employees
+CREATE VIEW
+    V_EmployeesSalaries
+AS
+SELECT
+    FirstName,
+	LastName,
+	Salary
+FROM
+    Employees
 
 -----------------------------------------------
 
 --Task 17 Create View Employees with Job Titles
 
-CREATE VIEW V_EmployeeNameJobTitle AS
-	SELECT CONCAT(FirstName,' ', MiddleName, ' ', LastName) AS [Full Name],
-			JobTitle
-		FROM Employees
+CREATE VIEW
+    V_EmployeeNameJobTitle
+AS
+SELECT
+    CONCAT(FirstName,' ', MiddleName, ' ', LastName)
+AS
+    [Full Name],
+	JobTitle
+FROM
+    Employees
 
 --CREATE VIEW V_EmployeeNameJobTitle AS
 	--SELECT CONCAT_WS(' ',FirstName,MiddleName,LastName) AS [Full Name],
-			JobTitle
-		FROM Employees
+			--JobTitle
+		--FROM Employees
 
 -----------------------------------------------
 
 --Task 18 Distinct Job Titles
 
 SELECT
-	DISTINCT JobTitle
-	FROM Employees
+DISTINCT
+    JobTitle
+FROM
+    Employees
 
 -----------------------------------------------
 
@@ -196,9 +208,11 @@ SELECT
 
 SELECT
 	TOP(10) *
-	FROM Projects
-	ORDER BY StartDate,
-			 [Name]
+FROM
+    Projects
+ORDER BY
+    StartDate,
+	[Name]
 
 -----------------------------------------------
 
