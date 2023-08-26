@@ -93,34 +93,37 @@ CREATE TABLE [Exams]
 
 CREATE TABLE [StudentsExams]
 (
-[StudentID] INT REFERENCES [Students](StudentID),
-[ExamID] INT REFERENCES [Exams]([ExamID]),
-PRIMARY KEY ([StudentID], [ExamID])
+    [StudentID] INT REFERENCES [Students](StudentID),
+    [ExamID] INT REFERENCES [Exams]([ExamID]),
+    PRIMARY KEY ([StudentID], [ExamID])
 
 )
 
-INSERT INTO [Students] ([Name])
-	VALUES
-('Mila'),
-('Toni'),
-('Ron')
+INSERT INTO
+    [Students] ([Name])
+VALUES
+    ('Mila'),
+    ('Toni'),
+    ('Ron')
 
 
-INSERT INTO [Exams] ([Name])
-	VALUES
-('SpringMVC'),
-('Neo4j'),
-('Oracle 11g')
+INSERT INTO
+    [Exams] ([Name])
+VALUES
+    ('SpringMVC'),
+    ('Neo4j'),
+    ('Oracle 11g')
 
 
-INSERT INTO [StudentsExams] ([StudentID], [ExamID])
-	VALUES
-(1, 101),
-(1, 102),
-(2, 101),
-(3, 103),
-(2, 102),
-(2, 103)
+INSERT INTO
+    [StudentsExams] ([StudentID], [ExamID])
+VALUES
+    (1, 101),
+    (1, 102),
+    (2, 101),
+    (3, 103),
+    (2, 102),
+    (2, 103)
 
 ----------------------------------------------------
 
@@ -128,19 +131,20 @@ INSERT INTO [StudentsExams] ([StudentID], [ExamID])
 
 CREATE TABLE [Teachers]
 (
-[TeacherID] INT PRIMARY KEY IDENTITY(101,1),
-[Name] NVARCHAR(50) NOT NULL,
-[ManagerID] INT REFERENCES [Teachers](TeacherID)
+    [TeacherID] INT PRIMARY KEY IDENTITY(101,1),
+    [Name] NVARCHAR(50) NOT NULL,
+    [ManagerID] INT REFERENCES [Teachers](TeacherID)
 )
 
-INSERT INTO [Teachers]([Name], [ManagerID])
-	VALUES
-('John', NULL),
-('Maya', 106),
-('Silvia', 106),
-('Ted', 105),
-('Mark', 101),
-('Greta',101)
+INSERT INTO
+    [Teachers]([Name], [ManagerID])
+VALUES
+    ('John', NULL),
+    ('Maya', 106),
+    ('Silvia', 106),
+    ('Ted', 105),
+    ('Mark', 101),
+    ('Greta',101)
 
 ----------------------------------------------------
 
