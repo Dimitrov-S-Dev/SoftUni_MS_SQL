@@ -96,10 +96,13 @@ WHERE
 
 --Task 11 Find All Employees Without a Manager
 
-SELECT FirstName,
-	   LastName
-	FROM Employees
-	WHERE ManagerID IS NULL
+SELECT
+    FirstName,
+	LastName
+FROM
+    Employees
+WHERE
+    ManagerID IS NULL
 
 -----------------------------------------------
 
