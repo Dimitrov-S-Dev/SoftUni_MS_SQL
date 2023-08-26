@@ -89,7 +89,8 @@ AS
 FROM
     Employees
 WHERE
-    Salary = 25000 OR Salary = 14000 OR Salary = 12500 OR Salary = 23600
+    Salary IN(12500, 14000, 25000, 23600)
+    --Salary = 25000 OR Salary = 14000 OR Salary = 12500 OR Salary = 23600
 
 -----------------------------------------------
 
