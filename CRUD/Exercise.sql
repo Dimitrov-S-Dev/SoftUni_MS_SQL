@@ -218,20 +218,26 @@ ORDER BY
 
 --Task 20 Last 7 Hired Employees
 
-SELECT TOP(7)
-		FirstName,
-		LastName,
-		HireDate
-	FROM Employees
-	ORDER BY HireDate DESC
+SELECT
+    TOP(7)
+	FirstName,
+	LastName,
+	HireDate
+FROM
+    Employees
+ORDER BY
+    HireDate DESC
 
 -----------------------------------------------
 
 --Task 21 Increase Salaries
 
-UPDATE Employees
-	SET Salary *= 1.12
-	WHERE DepartmentID IN(1, 4, 2, 11)
+UPDATE
+    Employees
+SET
+    Salary *= 1.12
+WHERE
+    DepartmentID IN(1, 4, 2, 11)
 
 SELECT Salary
 	FROM Employees
@@ -240,33 +246,47 @@ SELECT Salary
 
 --Task 22 All Mountain Peaks
 
-SELECT PeakName
-	FROM Peaks
-	ORDER BY PeakName ASC
+SELECT
+    PeakName
+FROM
+    Peaks
+ORDER BY
+    PeakName ASC
 
 -----------------------------------------------
 
 --Task 23 Biggest Countries by Population
 
-SELECT TOP(30)
-		CountryName,
-		[Population]
-	FROM Countries
-	WHERE ContinentCode = 'EU'
-	ORDER BY [Population] DESC,
-			CountryName
+SELECT
+    TOP(30)
+	CountryName,
+	[Population]
+FROM
+    Countries
+WHERE
+    ContinentCode = 'EU'
+ORDER BY
+    [Population] DESC,
+	CountryName
 
 -----------------------------------------------
 
 --Task 24 Countries and Currency (Euro / Not Euro)
 
-SELECT CountryName, CountryCode, Currency =
+SELECT
+    CountryName,
+    CountryCode,
 CASE CurrencyCode
-WHEN 'EUR' THEN 'Euro'
-ELSE 'Not Euro'
+WHEN
+    'EUR' THEN 'Euro'
+ELSE
+    'Not Euro'
 END
-FROM Countries
-ORDER BY CountryName
+AS Currency
+FROM
+    Countries
+ORDER BY
+    CountryName
 
 -----------------------------------------------
 
@@ -274,6 +294,9 @@ ORDER BY CountryName
 
 USE Diablo
 
-SELECT Name
-	FROM Characters
-	ORDER BY [Name]
+SELECT
+    Name
+FROM
+    Characters
+ORDER BY
+    [Name]
