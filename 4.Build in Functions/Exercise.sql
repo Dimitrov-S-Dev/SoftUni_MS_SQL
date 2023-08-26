@@ -71,6 +71,7 @@ FROM
     Towns
 WHERE
     LEFT([Name], 1) IN ('M', 'K', 'B', 'E')
+    --[Name] LIKE '[MKBE]%'
 ORDER BY
     [Name]
 
