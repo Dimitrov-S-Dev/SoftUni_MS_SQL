@@ -27,11 +27,12 @@ VALUES
     ('ZE657QP2')
 
 
-INSERT INTO [Persons]([FirstName], [Salary], [PassportID])
-	VALUES
-('Roberto', 43300.00, 102),
-('Tom', 56100.00, 103),
-('Yana', 60200.00, 101)
+INSERT INTO
+    [Persons]([FirstName], [Salary], [PassportID])
+VALUES
+    ('Roberto', 43300.00, 102),
+    ('Tom', 56100.00, 103),
+    ('Yana', 60200.00, 101)
 
 ----------------------------------------------------
 
@@ -39,35 +40,37 @@ INSERT INTO [Persons]([FirstName], [Salary], [PassportID])
 
 CREATE TABLE [Manufacturers]
 (
-[ManufacturerID] INT PRIMARY KEY IDENTITY,
-[Name] VARCHAR(30) NOT NULL,
-[EstablishedOn] DATE NOT NULL
+    [ManufacturerID] INT PRIMARY KEY IDENTITY,
+    [Name] VARCHAR(30) NOT NULL,
+    [EstablishedOn] DATE NOT NULL
 )
 
 CREATE TABLE [Models]
 (
-[ModelID] INT PRIMARY KEY IDENTITY(101, 1),
-[Name] VARCHAR(30) NOT NULL,
-[ManufacturerID] INT REFERENCES [Manufacturers]([ManufacturerID]) NOT NULL
+    [ModelID] INT PRIMARY KEY IDENTITY(101, 1),
+    [Name] VARCHAR(30) NOT NULL,
+    [ManufacturerID] INT REFERENCES [Manufacturers]([ManufacturerID]) NOT NULL
 )
 
 
-INSERT INTO [Manufacturers]([Name], [EstablishedOn])
-	VALUES
-('BMW', '07/03/1916'),
-('Tesla', '01/01/2003'),
-('Lada', '01/05/1966')
+INSERT INTO
+    [Manufacturers]([Name], [EstablishedOn])
+VALUES
+    ('BMW', '07/03/1916'),
+    ('Tesla', '01/01/2003'),
+    ('Lada', '01/05/1966')
 
 GO
 
-INSERT INTO [Models] ([Name], [ManufacturerID])
-	VALUES
-('X1', 1),
-('i6', 1),
-('ModelS', 2),
-('ModelX', 2),
-('Model3', 2),
-('Nova', 3)
+INSERT INTO
+    [Models] ([Name], [ManufacturerID])
+VALUES
+    ('X1', 1),
+    ('i6', 1),
+    ('ModelS', 2),
+    ('ModelX', 2),
+    ('Model3', 2),
+    ('Nova', 3)
 
 ----------------------------------------------------
 
@@ -75,15 +78,15 @@ INSERT INTO [Models] ([Name], [ManufacturerID])
 
 CREATE TABLE [Students]
 (
-[StudentID] INT PRIMARY KEY IDENTITY,
-[Name] NVARCHAR(40) NOT NULL
+    [StudentID] INT PRIMARY KEY IDENTITY,
+    [Name] NVARCHAR(40) NOT NULL
 )
 
 
 CREATE TABLE [Exams]
 (
-[ExamID] INT PRIMARY KEY IDENTITY(101,1),
-[Name] NVARCHAR(70) NOT NULL
+    [ExamID] INT PRIMARY KEY IDENTITY(101,1),
+    [Name] NVARCHAR(70) NOT NULL
 )
 
 
