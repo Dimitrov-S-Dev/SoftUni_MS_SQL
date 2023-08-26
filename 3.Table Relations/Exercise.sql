@@ -202,41 +202,45 @@ CREATE TABLE [Majors]
 
 CREATE TABLE [Subjects]
 (
-[SubjectID] INT PRIMARY KEY IDENTITY,
-[SubjectName] VARCHAR(50) NOT NULL
+    [SubjectID] INT PRIMARY KEY IDENTITY,
+    [SubjectName] VARCHAR(50) NOT NULL
 )
 
 CREATE TABLE [Students]
 (
-[StudentID] INT PRIMARY KEY IDENTITY,
-[StudentNumber] INT NOT NULL,
-[StudentName] NVARCHAR(50) NOT NULL,
-[MajorID] INT REFERENCES Majors(MajorID)
+    [StudentID] INT PRIMARY KEY IDENTITY,
+    [StudentNumber] INT NOT NULL,
+    [StudentName] NVARCHAR(50) NOT NULL,
+    [MajorID] INT REFERENCES Majors(MajorID)
 )
 
 Create TABLE [Agenda]
 (
-[StudentID] INT REFERENCES [Students]([StudentID]),
-[SubjectID] INT REFERENCES Subjects([SubjectID])
-PRIMARY KEY ([StudentID], [SubjectID])
+    [StudentID] INT REFERENCES [Students]([StudentID]),
+    [SubjectID] INT REFERENCES Subjects([SubjectID])
+PRIMARY KEY
+    ([StudentID], [SubjectID])
 
 )
 
 CREATE TABLE [Payments]
 (
-[PaymentID] INT PRIMARY KEY IDENTITY,
-[PaymentDate] DATETIME2 NOT NULL,
-[PaymentAmount] DECIMAL(8,2),
-[StudentID] INT REFERENCES [Students]([StudentID]) NOT NULL
+    [PaymentID] INT PRIMARY KEY IDENTITY,
+    [PaymentDate] DATETIME2 NOT NULL,
+    [PaymentAmount] DECIMAL(8,2),
+    [StudentID] INT REFERENCES [Students]([StudentID]) NOT NULL
 )
 
 ----------------------------------------------------
 
 --Task 9 Peaks in Rila
 
-   SELECT [m].[MountainRange], [p].[PeakName], [p].[Elevation]
-	FROM  [Mountains] AS [m]
-LEFT JOIN [Peaks]    AS [p]
-	ON [p].[MountainId] = [m] .[ID]
-	WHERE [MountainRange] = 'Rila'
-	ORDER BY [p].[Elevation] DESC
+SELECT
+    [m].[MountainRange], [p].[PeakName], [p].[Elevation]
+FROM
+    [Mountains] AS [m]
+LEFT JOIN [Peaks]  AS  [p] ON  [p].[MountainId] = [m] .[ID]
+WHERE
+    [MountainRange] = 'Rila'
+ORDER BY
+    [p].[Elevation] DESC
