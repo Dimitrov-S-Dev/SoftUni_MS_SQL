@@ -20,15 +20,20 @@ FROM
     Employees
 	--WHERE LastName LIKE '%ei%'
 WHERE
-    CHARINDEX('ei', LastName) <> 0
+    CHARINDEX('ei', LastName) != 0
 
 ----------------------------------------------------
 
 --Task 3 Find First Names of All Employees
 
-SELECT FirstName
-	FROM Employees
-	WHERE DepartmentID IN (3, 10) AND DATEPART(YEAR,HireDate) BETWEEN 1995 AND 2005
+SELECT
+    FirstName
+FROM
+    Employees
+WHERE
+    DepartmentID IN (3, 10)
+AND
+    YEAR(HireDate) BETWEEN 1995 AND 2005
 
 ----------------------------------------------------
 
