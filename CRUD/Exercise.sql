@@ -1,46 +1,58 @@
 --Task 2 Find All the Information About Departments
 
 SELECT *
-FROM   departments
+FROM
+    Departments
 ----------------------------------------------------
 
 --Task 3 Find all Department Names
 
-SELECT [name]
-FROM   departments
+SELECT
+    [name]
+FROM
+    Departments
 ----------------------------------------------------
 
 --Task 4 Find Salary of Each Employee
 
-SELECT [FirstName],
-	   [LastName],
-	   [Salary]
-	FROM Employees
+SELECT
+    [FirstName],
+	[LastName],
+	[Salary]
+FROM
+    Employees
 
 -----------------------------------------------
 
 --Task 5 Find Full Name of Each Employee
 
-SELECT [FirstName],
-	   [MiddleName],
-	   [LastName]
-	FROM Employees
+SELECT
+    [FirstName],
+	[MiddleName],
+	[LastName]
+FROM
+    Employees
 
 -----------------------------------------------
 
 --Task 6 Find Email Address of Each Employee
 
-SELECT CONCAT([FirstName], '.', [LastName], '@', 'softuni.bg')
-		AS [Full Email Address]
-	FROM Employees
+SELECT
+    CONCAT([FirstName], '.', [LastName], '@', 'softuni.bg')
+AS
+    [Full Email Address]
+FROM
+    Employees
 
 -----------------------------------------------
 
 --Task 7 Find All Different Employees’ Salaries
 
 SELECT
-	DISTINCT Salary
-	FROM Employees
+DISTINCT
+    Salary
+FROM
+    Employees
 
 -----------------------------------------------
 
@@ -48,19 +60,23 @@ SELECT
 
 SELECT
 	*
-	FROM Employees
-	WHERE JobTitle = 'Sales Representative'
+FROM
+    Employees
+WHERE
+    JobTitle = 'Sales Representative'
 
 -----------------------------------------------
 
 --Task 9 Find Names of All Employees by Salary in Range
 
 SELECT
-		FirstName,
-		LastName,
-		JobTitle
-	FROM Employees
-	WHERE Salary BETWEEN 20000 AND 30000
+    FirstName,
+    LastName,
+    JobTitle
+FROM
+    Employees
+WHERE
+    Salary BETWEEN 20000 AND 30000
 
 -----------------------------------------------
 
@@ -68,9 +84,12 @@ SELECT
 
 SELECT
 	CONCAT(FirstName, ' ', MiddleName, ' ', LastName)
-	AS [Full Name]
-	FROM Employees
-	WHERE Salary = 25000 OR Salary = 14000 OR Salary = 12500 OR Salary = 23600
+AS
+    [Full Name]
+FROM
+    Employees
+WHERE
+    Salary = 25000 OR Salary = 14000 OR Salary = 12500 OR Salary = 23600
 
 -----------------------------------------------
 
