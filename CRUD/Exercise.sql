@@ -1,14 +1,13 @@
 --Task 2 Find All the Information About Departments
 
 SELECT *
-FROM Departments
+FROM   departments
 ----------------------------------------------------
 
 --Task 3 Find all Department Names
 
-SELECT
-	[Name]
-  FROM Departments
+SELECT [name]
+FROM   departments
 ----------------------------------------------------
 
 --Task 4 Find Salary of Each Employee

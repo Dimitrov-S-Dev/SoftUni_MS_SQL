@@ -1,10 +1,8 @@
 --Task 1 Create Database
 
-CREATE
-    DATABASE [Minions]
+CREATE DATABASE [Minions]
 
-USE
-    [Minions]
+USE [Minions]
 
 ----------------------------------------------------
 
@@ -28,9 +26,9 @@ CREATE TABLE [Towns]
 --Task 3 Alter Minions Table
 
 ALTER TABLE
-  [Minions]
+    [Minions]
 ADD
-  TownId INT FOREIGN KEY REFERENCES Towns(Id)
+    TownId INT FOREIGN KEY REFERENCES Towns(Id)
 
 -----------------------------------------------
 
@@ -39,17 +37,17 @@ ADD
 INSERT INTO
     Towns(Id, [Name])
 VALUES
-  (1, 'Sofia'),
-  (2, 'Plovdiv'),
-  (3, 'Varna')
+    (1, 'Sofia'),
+    (2, 'Plovdiv'),
+    (3, 'Varna')
 
 
-INSERT INTO Minions
-    (Id, [Name], Age, TownId)
+INSERT INTO
+    Minions(Id, [Name], Age, TownId)
 VALUES
-  (1, 'Kevin', 22, 1),
-  (2, 'Bob', 15, 3),
-  (3, 'Steward', NULL, 2)
+    (1, 'Kevin', 22, 1),
+    (2, 'Bob', 15, 3),
+    (3, 'Steward', NULL, 2)
 
 -----------------------------------------------
 
@@ -70,24 +68,24 @@ VALUES
 
  CREATE TABLE People
  (
-    Id INT PRIMARY KEY IDENTITY,
-    [Name] NVARCHAR(200) NOT NULL,
-    Picture VARBINARY(MAX) CHECK (DATA LENGTH(Picture) <= 2000000 ),
-    Height DECIMAL(3,2),
-    [Weight] DECIMAL (5,2),
-    Gender CHAR(1) CHECK(Gender ='m' OR Gender = 'f') NOT NULL,
-    Birthdate DATE NOT NULL,
-    Biography NVARCHAR(MAX)
+     Id INT PRIMARY KEY IDENTITY,
+     [Name] NVARCHAR(200) NOT NULL,
+     Picture VARBINARY(MAX) CHECK (DATA LENGTH(Picture) <= 2000000 ),
+     Height DECIMAL(3,2),
+     [Weight] DECIMAL (5,2),
+     Gender CHAR(1) CHECK(Gender ='m' OR Gender = 'f') NOT NULL,
+     Birthdate DATE NOT NULL,
+     Biography NVARCHAR(MAX)
  )
 
  INSERT INTO
      People([Name], Picture, Height, [Weight], Gender, Birthdate, Biography)
  VALUES
-    ('A', 'link', 1.24, 55.00, 'm','1999-05-25' ,'A'),
-    ('B', 'link', 1.44, 55.00, 'm','1999-05-26' ,'B'),
-    ('C', 'link', 1.54, 55.00, 'm','1999-05-27' ,'C'),
-    ('D', 'link', 1.64, 55.00, 'm','1999-05-28' ,'D'),
-    ('F', 'link', 1.74, 55.00, 'm','1999-05-29' ,'F')
+     ('A', 'link', 1.24, 55.00, 'm','1999-05-25' ,'A'),
+     ('B', 'link', 1.44, 55.00, 'm','1999-05-26' ,'B'),
+     ('C', 'link', 1.54, 55.00, 'm','1999-05-27' ,'C'),
+     ('D', 'link', 1.64, 55.00, 'm','1999-05-28' ,'D'),
+     ('F', 'link', 1.74, 55.00, 'm','1999-05-29' ,'F')
 
 -----------------------------------------------
 
@@ -118,7 +116,8 @@ VALUES
 
 ALTER TABLE
     Users
-DROP CONSTRAINT id
+DROP CONSTRAINT
+    Id
 
 ALTER TABLE
     Users
@@ -140,8 +139,8 @@ ADD CONSTRAINT
 
 ALTER TABLE
     Users
-ADD
-    CONSTRAINT DF_LastLoginTime
+ADD CONSTRAINT
+    DF_LastLoginTime
 DEFAULT
     GETDATE() FOR LastLoginTime
 
@@ -576,9 +575,9 @@ SELECT * FROM Employees
 SELECT
   *
 FROM
-  Towns
+    Towns
 ORDER BY
-  [Name]
+    [Name]
 
 
 SELECT
