@@ -136,10 +136,13 @@ ORDER BY
 
 --Task 14 Find All Employees Except Marketing
 
-SELECT FirstName,
-	   LastName
-	FROM Employees
-	WHERE DepartmentID != 4
+SELECT
+    FirstName,
+	LastName
+FROM
+    Employees
+WHERE
+    DepartmentID != 4
 
 -----------------------------------------------
 
