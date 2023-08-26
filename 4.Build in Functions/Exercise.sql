@@ -39,27 +39,40 @@ AND
 
 --Task 4 Find All Employees Except Engineers
 
-SELECT FirstName, LastName
-	FROM Employees
-	WHERE JobTitle NOT LIKE '%engineer%'
+SELECT
+    FirstName,
+    LastName
+FROM
+    Employees
+WHERE
+    JobTitle NOT LIKE '%engineer%'
 
 ----------------------------------------------------
 
 --Task 5 Find Towns with Name Length
 
-SELECT Name
-	FROM Towns
-	WHERE LEN(Name) IN (5, 6)
-	ORDER BY Name
+SELECT
+    [Name]
+FROM
+    Towns
+WHERE
+    LEN([Name]) IN (5, 6)
+ORDER BY
+    [Name]
 
 ----------------------------------------------------
 
 --Task 6 Find Towns Starting With
 
-SELECT TownID, Name
-	FROM Towns
-	WHERE LEFT(Name, 1) IN ('M', 'K', 'B', 'E')
-	ORDER BY Name
+SELECT
+    TownID,
+    [Name]
+FROM
+    Towns
+WHERE
+    LEFT([Name], 1) IN ('M', 'K', 'B', 'E')
+ORDER BY
+    [Name]
 
 ----------------------------------------------------
 
