@@ -180,7 +180,7 @@ ORDER BY
 SELECT
     p.PeakName,
     r.RiverName,
-    LOWER(PeakName + SUBSTRING(RiverName, 2, LEN(RiverName) - 1)) AS Mix
+    LOWER(PeakName + SUBSTRING(RiverName, 2, LEN(RiverName))) AS Mix
 FROM
     Peaks AS p
 JOIN
@@ -192,10 +192,17 @@ ORDER BY
 
 --Task 14 Games from 2011 and 2012 year
 
-SELECT TOP(50) [Name], FORMAT([Start],'yyyy-MM-dd') AS [Start]
-	FROM Games
-	WHERE DATEPART(YEAR, Start) IN (2011, 2012)
-	ORDER BY [Start], [Name]
+SELECT
+    TOP(50)
+    [Name],
+    FORMAT([Start],'yyyy-MM-dd') AS [Start]
+FROM
+    Games
+WHERE
+    YEAR(Start) IN (2011, 2012)
+ORDER BY
+    [Start],
+    [Name]
 
 ----------------------------------------------------
 
@@ -204,38 +211,55 @@ SELECT TOP(50) [Name], FORMAT([Start],'yyyy-MM-dd') AS [Start]
 SELECT
 	Username,
 	SUBSTRING(Email, CHARINDEX('@', Email) + 1, LEN(Email))
-	AS [Email Provider]
-	FROM Users
-	ORDER BY [Email Provider], Username
+AS
+    [Email Provider]
+FROM
+    Users
+ORDER BY
+    [Email Provider],
+    Username
 
 ----------------------------------------------------
 
 --Task 16 Get Users with IPAddress Like Pattern
 
-SELECT Username, IpAddress FROM Users
-WHERE IpAddress LIKE '___.1%.%.___'
-ORDER BY Username
+SELECT
+    Username,
+    IpAddress
+FROM
+    Users
+WHERE
+    IpAddress LIKE '___.1%.%.___'
+ORDER BY
+    Username
 
 ----------------------------------------------------
 
 --Task 17 Show All Games with Duration and Part of the Da
 
-SELECT [Name] As Game,
-[Part of the Day] =
+SELECT
+    [Name]
+As
+    Game,
+    [Part of the Day] =
 CASE
 	WHEN DATEPART(HOUR, [Start]) < 12 THEN 'Morning'
 	WHEN DATEPART(HOUR, [Start]) < 18 THEN 'Afternoon'
 	ELSE 'Evening'
 	END,
-Duration =
+    Duration =
 CASE
 	WHEN Duration <= 3 THEN 'Extra Short'
 	WHEN Duration <= 6 THEN 'Short'
 	WHEN Duration > 6 THEN 'Long'
 	ELSE 'Extra Long'
 	END
-FROM Games
-ORDER BY Game, Duration, [Part of the Day]
+FROM
+    Games
+ORDER BY
+    Game,
+    Duration,
+    [Part of the Day]
 
 ----------------------------------------------------
 
@@ -246,7 +270,8 @@ Select
 	OrderDate,
 	DATEADD(day, 3, OrderDate) AS [Pay Due],
 	DATEADD(Month, 1, OrderDate) AS [Deliver Due]
-FROM Orders
+FROM
+    Orders
 
 ----------------------------------------------------
 
@@ -258,16 +283,20 @@ CREATE TABLE People (
 	Birthdate DATETIME NOT NULL
 )
 
-INSERT INTO People VALUES
-('Viktor', '2000-12-07'),
-('Steven', '1992-09-10'),
-('Stephen', '1910-09-19'),
-('John', '2010-01-06')
+INSERT INTO
+    People
+VALUES
+    ('Viktor', '2000-12-07'),
+    ('Steven', '1992-09-10'),
+    ('Stephen', '1910-09-19'),
+    ('John', '2010-01-06')
 
-SELECT Name,
+SELECT
+    Name,
 	DATEDIFF(YEAR, Birthdate, GETDATE()) AS [Age in Years],
 	DATEDIFF(MONTH, Birthdate, GETDATE()) AS [Age in Months],
 	DATEDIFF(DAY, Birthdate, GETDATE()) AS [Age in Days],
 	DATEDIFF(MINUTE, Birthdate, GETDATE()) AS [Age in Minutes]
- FROM People
+FROM
+    People
 
