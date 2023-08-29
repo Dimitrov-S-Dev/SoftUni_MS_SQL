@@ -98,15 +98,18 @@ ORDER BY
 --Task 7 Employee with Project
 
 SELECT
-	TOP 5
-	e.EmployeeID,
-	e.FirstName,
-	p.Name AS ProjectName
-	FROM Employees AS e
-	JOIN EmployeesProjects AS ep ON e.EmployeeID = ep.EmployeeID
-	JOIN Projects AS p ON ep.ProjectID = p.ProjectID
-	WHERE p.StartDate > '2002-01-13' AND p.EndDate IS NULL
-	ORDER BY e.EmployeeID
+TOP 5
+	  e.EmployeeID,
+	  e.FirstName,
+	  p.Name
+FROM
+	EmployeesProjects AS ep
+JOIN Employees AS e ON e.EmployeeID = ep.EmployeeID
+JOIN Projects AS p ON ep.ProjectID = p.ProjectID
+WHERE
+	p.StartDate > '08-13-2002' AND p.EndDate IS NULL
+ORDER BY
+	e.EmployeeID
 
 ----------------------------------------------------
 
@@ -115,14 +118,15 @@ SELECT
 SELECT
 	e.EmployeeID,
 	e.FirstName,
-	CASE
-		WHEN p.StartDate >= '2005-01-01' THEN NULL
-		ELSE p.Name
+CASE
+	WHEN p.StartDate >= '2005-01-01' THEN NULL
+	ELSE p.Name
 	END AS ProjectName
-	FROM Employees AS e
-	JOIN EmployeesProjects AS ep ON e.EmployeeID = ep.EmployeeID
-	JOIN Projects AS p ON ep.ProjectID = p.ProjectID
-	WHERE e.EmployeeID = 24
+FROM Employees AS e
+JOIN EmployeesProjects AS ep ON e.EmployeeID = ep.EmployeeID
+JOIN Projects AS p ON ep.ProjectID = p.ProjectID
+WHERE
+    e.EmployeeID = 24
 
 ----------------------------------------------------
 
