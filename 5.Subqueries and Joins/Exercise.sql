@@ -1,14 +1,13 @@
 --Task 1 Employee Address
 
 SELECT
-TOP 5
+    TOP 5
     e.EmployeeID,
-	e.JobTitle,
-	e.AddressID,
-	a.AddressText
-FROM
-    Employees AS e
-JOIN Addresses AS a ON e.AddressID = a.AddressID
+    e.JobTitle,
+    e.AddressID,
+    a.AddressText
+FROM Employees AS e
+LEFT JOIN Addresses AS a ON e.AddressID = a.AddressID
 ORDER BY
     e.AddressID
 
@@ -89,7 +88,7 @@ SELECT
 FROM Employees AS e
 JOIN Departments AS d ON e.DepartmentID = d.DepartmentID
 WHERE
-    e.HireDate > '1999-01-01' AND d.Name IN('Sales','Finance')
+    e.HireDate > '01-01-1999' AND d.Name IN('Sales','Finance')
 ORDER BY
     e.HireDate
 
@@ -119,7 +118,7 @@ SELECT
 	e.EmployeeID,
 	e.FirstName,
 CASE
-	WHEN p.StartDate >= '2005-01-01' THEN NULL
+	WHEN p.StartDate >= '01-01-2005' THEN NULL
 	ELSE p.Name
 	END AS ProjectName
 FROM Employees AS e
