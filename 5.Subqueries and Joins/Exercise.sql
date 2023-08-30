@@ -167,27 +167,31 @@ TOP 1
 --Task 12 Highest Picks in Bulgaria
 
 SELECT
-	c.CountryCode,
-	m.MountainRange,
-	p.PeakName,
-	p.Elevation
-	FROM Countries AS c
-	JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
-	JOIN Mountains AS m ON mc.MountainId = m.Id
-	JOIN Peaks AS p ON m.Id = p.MountainId
-	WHERE p.Elevation > 2835 AND c.CountryCode = 'BG'
-	ORDER BY p.Elevation DESC
+       c.CountryCode,
+       m.MountainRange,
+       p.PeakName,
+       p.Elevation
+  FROM MountainsCountries AS mc
+  JOIN Countries AS c
+    ON mc.CountryCode = c.CountryCode
+  JOIN Mountains AS m
+    ON mc.MountainId  = m.Id
+  JOIN Peaks AS p
+    ON m.Id           = p.MountainId
+ WHERE c.CountryName = 'Bulgaria'
+   AND p.Elevation   > 2835
+ ORDER BY p.Elevation DESC
 
 ----------------------------------------------------
 
 --Task 13 Count Mountain Ranges
 
 SELECT
-	CountryCode,
-	COUNT(MountainId) AS MountainRanges
-	FROM MountainsCountries
-	WHERE CountryCode IN ('BG','RU','US')
-	GROUP BY CountryCode
+       CountryCode,
+       COUNT(MountainId) AS MountainRanges
+  FROM MountainsCountries
+ WHERE CountryCode IN ( 'USA', 'BG', 'RU' )
+ GROUP BY CountryCode
 
 ----------------------------------------------------
 
