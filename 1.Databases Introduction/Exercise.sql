@@ -8,14 +8,18 @@ USE Minions
 
 --Task 2 Create Tables
 
-CREATE TABLE Minions (
+CREATE TABLE Minions
+(
     [Id] INT PRIMARY KEY,
     [Name] NVARCHAR(50) NOT NULL,
-    [Age] TINYINT NOT NULL)
+    [Age] TINYINT NOT NULL
+)
 
-CREATE TABLE Towns (
+CREATE TABLE Towns
+(
     [Id] INT PRIMARY KEY,
-    [Name] NVARCHAR(50) NOT NULL)
+    [Name] NVARCHAR(50) NOT NULL
+)
 
 ----------------------------------------------------
 
@@ -60,7 +64,8 @@ VALUES
 
 --Task 7 Create Table People
 
-CREATE TABLE People (
+CREATE TABLE People
+(
     Id INT PRIMARY KEY IDENTITY,
     [Name] NVARCHAR(200) NOT NULL,
     Picture VARBINARY(MAX) CHECK (DATALENGTH(Picture) <= 2000000),
@@ -71,17 +76,14 @@ CREATE TABLE People (
     Birthdate DATE NOT NULL,
     Biography NVARCHAR(MAX))
 
-INSERT INTO People ([Name],
-                    Height,
-                    [Weight],
-                    Gender,
-                    Birthdate,
-                    Biography)
-VALUES ('A', 1.24, 55.00, 'm', '1999-05-25', 'A'),
-('B', 1.44, 55.00, 'm', '1999-05-26', 'B'),
-('C', 1.54, 55.00, 'm', '1999-05-27', 'C'),
-('D', 1.64, 55.00, 'm', '1999-05-28', 'D'),
-('F', 1.74, 55.00, 'm', '1999-05-29', 'F')
+INSERT INTO
+    People ([Name],Height, Weight, Gender, Birthdate, Biography)
+VALUES
+    ('A', 1.24, 55.00, 'm', '1999-05-25', 'A'),
+    ('B', 1.44, 55.00, 'm', '1999-05-26', 'B'),
+    ('C', 1.54, 55.00, 'm', '1999-05-27', 'C'),
+    ('D', 1.64, 55.00, 'm', '1999-05-28', 'D'),
+    ('F', 1.74, 55.00, 'm', '1999-05-29', 'F')
 
 -----------------------------------------------
 
@@ -92,7 +94,7 @@ CREATE TABLE Users
     Id INT PRIMARY KEY IDENTITY,
     Username VARCHAR(30) NOT NULL UNIQUE,
     Password VARCHAR(26) NOT NULL CHECK(LEN(Password) <= 26),
-    ProfilePicture VARBINARY(MAX) CHECK(DATA LENGTH(ProfilePicture) <= 900000),
+    ProfilePicture VARBINARY(MAX) CHECK(DATALENGTH(ProfilePicture) <= 900000),
     LastLoginTime DATETIME2,
     IsDeleted BIT
 )
