@@ -1,37 +1,30 @@
 --Task 2 Find All the Information About Departments
 
 SELECT *
-FROM
-    Departments
+  FROM Departments
 ----------------------------------------------------
 
 --Task 3 Find all Department Names
 
-SELECT
-    [name]
-FROM
-    Departments
+SELECT [Name]
+  FROM Departments
 ----------------------------------------------------
 
 --Task 4 Find Salary of Each Employee
 
-SELECT
-    [FirstName],
-	[LastName],
-	[Salary]
-FROM
-    Employees
+SELECT FirstName,
+       LastName,
+       Salary
+  FROM Employees
 
 -----------------------------------------------
 
 --Task 5 Find Full Name of Each Employee
 
-SELECT
-    [FirstName],
-	[MiddleName],
-	[LastName]
-FROM
-    Employees
+SELECT FirstName,
+       MiddleName,
+       LastName
+  FROM Employees
 
 -----------------------------------------------
 
