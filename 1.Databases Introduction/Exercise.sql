@@ -1,35 +1,29 @@
 --Task 1 Create Database
 
-CREATE DATABASE [Minions]
+CREATE DATABASE Minions
 
-USE [Minions]
+USE Minions
 
 ----------------------------------------------------
 
 --Task 2 Create Tables
 
-CREATE TABLE [Minions]
-(
-  [Id] INT PRIMARY KEY,
-  [Name] NVARCHAR(50) NOT NULL,
-  [Age] TINYINT NOT NULL
-)
+CREATE TABLE Minions (
+    [Id] INT PRIMARY KEY,
+    [Name] NVARCHAR(50) NOT NULL,
+    [Age] TINYINT NOT NULL)
 
-CREATE TABLE [Towns]
-(
-  [Id] INT PRIMARY KEY,
-  [Name] NVARCHAR(50) NOT NULL
-)
+CREATE TABLE Towns (
+    [Id] INT PRIMARY KEY,
+    [Name] NVARCHAR(50) NOT NULL)
 
 ----------------------------------------------------
 
 --Task 3 Alter Minions Table
 
-ALTER TABLE
-    [Minions]
-ADD
-    TownId INT FOREIGN KEY REFERENCES Towns(Id)
-
+ALTER TABLE Minions
+ADD TownId INT
+        FOREIGN KEY REFERENCES Towns (Id) NOT NULL
 -----------------------------------------------
 
 --Task 4 Insert Records in Both Tables
