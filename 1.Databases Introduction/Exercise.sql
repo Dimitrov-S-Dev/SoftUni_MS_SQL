@@ -135,12 +135,9 @@ ADD CONSTRAINT
 
 --Task 11 Set Default Value of a Field
 
-ALTER TABLE
-    Users
-ADD CONSTRAINT
-    DF_LastLoginTime
-DEFAULT
-    GETDATE() FOR LastLoginTime
+ALTER TABLE Users
+ADD CONSTRAINT DF_LastLoginTime
+DEFAULT GETDATE() FOR LastLoginTime
 
 -----------------------------------------------
 
@@ -570,82 +567,59 @@ SELECT * FROM Employees
 
 --Task 20 Basic Select All Fields and Order Them
 
-SELECT
-  *
-FROM
-    Towns
-ORDER BY
-    [Name]
+SELECT *
+  FROM Towns
+ ORDER BY [Name]
 
 
-SELECT
-    *
-FROM
-    Departments
-ORDER BY
-    [Name]
+SELECT *
+  FROM Departments
+ ORDER BY [Name]
 
-SELECT
-    *
-FROM
-    Employees
-ORDER BY
-    Salary DESC
+SELECT *
+  FROM Employees
+ ORDER BY Salary DESC
 
 -----------------------------------------------
 
 --Task 21 Basic Select Some Fields
 
-SELECT
-    [Name]
-FROM
-    Towns
-ORDER BY
-    [Name]
+SELECT [Name]
+  FROM Towns
+ ORDER BY [Name]
 
-SELECT
-    [Name]
-FROM
-    Departments
-ORDER BY
-    [Name]
+SELECT [Name]
+  FROM Departments
+ ORDER BY [Name]
 
-SELECT
-    FirstName,
-    LastName,
-    JobTitle,
-    Salary
-FROM
-    Employees
-ORDER BY
-    Salary DESC
+SELECT FirstName,
+       LastName,
+       JobTitle,
+       Salary
+  FROM Employees
+ ORDER BY Salary DESC
 
 -----------------------------------------------
 
 --Task 22 Increase Employees Salary
 
 UPDATE Employees
-SET
-    Salary *= 1.1
+   SET Salary *= 1.1
 
-SELECT
-    Salary
-FROM
-    Employees
+SELECT Salary
+  FROM Employees
 
 -----------------------------------------------
 
 --Task 23 Decrease Tax Rate
 
 USE Hotel
-UPDATE
-    Payments
-SET
-    TaxRate -= TaxRate*0.03
 
-SELECT
-    TaxRate
-FROM Payments
+UPDATE Payments
+   SET TaxRate -= TaxRate * 0.03
+
+SELECT TaxRate
+  FROM Payments
 
 -----------------------------------------------
 
