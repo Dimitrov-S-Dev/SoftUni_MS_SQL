@@ -139,26 +139,28 @@ SELECT e.EmployeeID,
 --Task 10 Employee Summary
 
 SELECT
-	TOP 50
-	e.EmployeeID,
-	CONCAT_WS(' ',e.Firstname,e.LastName) AS EmployeeName,
-	CONCAT_WS(' ', e2.FirstName, e2.LastName) AS ManagerName,
-	d.Name AS DepartmentName
-	FROM Employees AS e
-	JOIN Employees AS e2 ON e.ManagerID = e2.EmployeeID
-	JOIN Departments AS d ON e.DepartmentID = d.DepartmentID
-	ORDER BY e.EmployeeID
+TOP 50
+       e.EmployeeID,
+       CONCAT(e.FirstName, ' ', e.LastName) AS EmployeeName,
+       CONCAT(m.FirstName, ' ', m.LastName) AS ManagerName,
+       d.Name
+  FROM Employees AS e
+  JOIN Employees AS m
+    ON e.ManagerID    = m.EmployeeID
+  JOIN Departments AS d
+    ON d.DepartmentID = e.DepartmentID
+ ORDER BY e.EmployeeID
 
 ----------------------------------------------------
 
 --Task 11 Min Average Salary
 
-SELECT TOP 1 MinAverageSalary FROM
-	(SELECT
-	AVG(Salary) AS MinAverageSalary
-	FROM Employees
-	GROUP BY DepartmentID) AS AvgSalaries
-	ORDER BY MinAverageSalary
+SELECT
+TOP 1
+       AVG(Salary) AS MinAverageSalary
+  FROM Employees
+ GROUP BY DepartmentID
+ ORDER BY MinAverageSalary
 
 ----------------------------------------------------
 
