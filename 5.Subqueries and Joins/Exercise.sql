@@ -14,8 +14,7 @@ SELECT TOP 5
 
 --Task 2 Addresses with Towns
 
-SELECT
-TOP 50
+SELECT TOP 50
        e.FirstName,
        e.LastName,
        t.Name AS Town,
@@ -46,8 +45,7 @@ SELECT e.EmployeeID,
 
 --Task 4 Employee Departments
 
-SELECT
-TOP 5
+SELECT TOP 5
        e.EmployeeID,
        e.FirstName,
        e.Salary,
@@ -62,8 +60,7 @@ TOP 5
 
 --Task 5 Employees without Project
 
-SELECT
-TOP 3
+SELECT TOP 3
        e.EmployeeID,
        e.FirstName,
        ep.ProjectID
@@ -91,8 +88,7 @@ SELECT e.FirstName,
 
 --Task 7 Employee with Project
 
-SELECT
-TOP 5
+SELECT TOP 5
        e.EmployeeID,
        e.FirstName,
        p.Name
@@ -138,8 +134,7 @@ SELECT e.EmployeeID,
 
 --Task 10 Employee Summary
 
-SELECT
-TOP 50
+SELECT TOP 50
        e.EmployeeID,
        CONCAT(e.FirstName, ' ', e.LastName) AS EmployeeName,
        CONCAT(m.FirstName, ' ', m.LastName) AS ManagerName,
@@ -155,8 +150,7 @@ TOP 50
 
 --Task 11 Min Average Salary
 
-SELECT
-TOP 1
+SELECT TOP 1
        AVG(Salary) AS MinAverageSalary
   FROM Employees
  GROUP BY DepartmentID
@@ -166,8 +160,7 @@ TOP 1
 
 --Task 12 Highest Picks in Bulgaria
 
-SELECT
-       c.CountryCode,
+SELECT c.CountryCode,
        m.MountainRange,
        p.PeakName,
        p.Elevation
@@ -186,8 +179,7 @@ SELECT
 
 --Task 13 Count Mountain Ranges
 
-SELECT
-       CountryCode,
+SELECT CountryCode,
        COUNT(MountainId) AS MountainRanges
   FROM MountainsCountries
  WHERE CountryCode IN ( 'USA', 'BG', 'RU' )
@@ -197,8 +189,7 @@ SELECT
 
 --Task 14 Countries with Rivers
 
-SELECT
-TOP 5
+SELECT TOP 5
        c.CountryName,
        r.RiverName
   FROM Countries AS c
@@ -232,11 +223,11 @@ SELECT ContinentCode,
 
 --Task 16 Country without any Mountains
 
-SELECT
-	COUNT(c.CountryCode) AS COUNT
-	FROM Countries AS c
-	LEFT JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
-	WHERE mc.MountainId IS NULL
+SELECT COUNT(*) AS [Count]
+  FROM Countries AS c
+  LEFT JOIN MountainsCountries AS mc
+    ON c.CountryCode = mc.CountryCode
+ WHERE mc.MountainId IS NULL
 
 ----------------------------------------------------
 
