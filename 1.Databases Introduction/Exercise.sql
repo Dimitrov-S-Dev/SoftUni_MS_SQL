@@ -112,24 +112,18 @@ VALUES
 
 --Task 9 Change Primary Key
 
-ALTER TABLE
-    Users
-DROP CONSTRAINT
-    Id
+ALTER TABLE Users
+DROP CONSTRAINT Id
 
-ALTER TABLE
-    Users
-ADD CONSTRAINT
-    PK_IdUsers PRIMARY KEY (Id, Username)
+ALTER TABLE Users
+ADD CONSTRAINT PK_IdUsers PRIMARY KEY (Id, Username)
 
 ------------------------------------------------
 
 --Task 10 Add Check Constraint
 
-ALTER TABLE
-    Users
-ADD CONSTRAINT
-    PasswordCheck CHECK(LEN([Password]) >=5)
+ALTER TABLE Users
+ADD CONSTRAINT PasswordCheck CHECK (LEN([Password]) >= 5)
 
 -----------------------------------------------
 
@@ -143,20 +137,14 @@ DEFAULT GETDATE() FOR LastLoginTime
 
 --Task 12 Set Unique Field
 
-ALTER TABLE
-    Users
-DROP CONSTRAINT
-    PK_IdUsers
+ALTER TABLE Users
+DROP CONSTRAINT PK_IdUsers
 
-ALTER TABLE
-    Users
-ADD CONSTRAINT
-    PK_Id PRIMARY KEY (Id)
+ALTER TABLE Users
+ADD CONSTRAINT PK_Id PRIMARY KEY (Id)
 
-ALTER TABLE
-    Users
-ADD CONSTRAINT
-    DF_UsernameLength CHECK(LEN(Username) >=3)
+ALTER TABLE Users
+ADD CONSTRAINT DF_UsernameLength CHECK(LEN(Username) >=3)
 
 DROP DATABASE Minions
 
