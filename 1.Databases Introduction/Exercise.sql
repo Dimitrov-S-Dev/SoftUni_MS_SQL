@@ -23,13 +23,13 @@ CREATE TABLE Towns (
 
 ALTER TABLE Minions
 ADD TownId INT
-        FOREIGN KEY REFERENCES Towns (Id) NOT NULL
+        FOREIGN KEY REFERENCES Towns (Id)
 -----------------------------------------------
 
 --Task 4 Insert Records in Both Tables
 
 INSERT INTO
-    Towns(Id, [Name])
+    Towns([Id], [Name])
 VALUES
     (1, 'Sofia'),
     (2, 'Plovdiv'),
@@ -37,7 +37,7 @@ VALUES
 
 
 INSERT INTO
-    Minions(Id, [Name], Age, TownId)
+    Minions([Id], [Name], Age, TownId)
 VALUES
     (1, 'Kevin', 22, 1),
     (2, 'Bob', 15, 3),
@@ -47,39 +47,41 @@ VALUES
 
 --Task 5 Truncate Table Minions
 
- TRUNCATE TABLE [Minions]
+ TRUNCATE TABLE Minions
 
 -----------------------------------------------
 
 --Task 6 Drop All Tables
 
- DROP TABLE [Minions]
- DROP TABLE [Towns]
+ DROP TABLE Minions
+ DROP TABLE Towns
 
 -----------------------------------------------
 
 --Task 7 Create Table People
 
- CREATE TABLE People
- (
-     Id INT PRIMARY KEY IDENTITY,
-     [Name] NVARCHAR(200) NOT NULL,
-     Picture VARBINARY(MAX) CHECK (DATA LENGTH(Picture) <= 2000000 ),
-     Height DECIMAL(3,2),
-     [Weight] DECIMAL (5,2),
-     Gender CHAR(1) CHECK(Gender ='m' OR Gender = 'f') NOT NULL,
-     Birthdate DATE NOT NULL,
-     Biography NVARCHAR(MAX)
- )
+CREATE TABLE People (
+    Id INT PRIMARY KEY IDENTITY,
+    [Name] NVARCHAR(200) NOT NULL,
+    Picture VARBINARY(MAX) CHECK (DATALENGTH(Picture) <= 2000000),
+    Height DECIMAL(3, 2),
+    [Weight] DECIMAL(5, 2),
+    Gender CHAR(1) CHECK (Gender = 'm'
+                      OR  Gender = 'f') NOT NULL,
+    Birthdate DATE NOT NULL,
+    Biography NVARCHAR(MAX))
 
- INSERT INTO
-     People([Name], Picture, Height, [Weight], Gender, Birthdate, Biography)
- VALUES
-     ('A', 'link', 1.24, 55.00, 'm','1999-05-25' ,'A'),
-     ('B', 'link', 1.44, 55.00, 'm','1999-05-26' ,'B'),
-     ('C', 'link', 1.54, 55.00, 'm','1999-05-27' ,'C'),
-     ('D', 'link', 1.64, 55.00, 'm','1999-05-28' ,'D'),
-     ('F', 'link', 1.74, 55.00, 'm','1999-05-29' ,'F')
+INSERT INTO People ([Name],
+                    Height,
+                    [Weight],
+                    Gender,
+                    Birthdate,
+                    Biography)
+VALUES ('A', 1.24, 55.00, 'm', '1999-05-25', 'A'),
+('B', 1.44, 55.00, 'm', '1999-05-26', 'B'),
+('C', 1.54, 55.00, 'm', '1999-05-27', 'C'),
+('D', 1.64, 55.00, 'm', '1999-05-28', 'D'),
+('F', 1.74, 55.00, 'm', '1999-05-29', 'F')
 
 -----------------------------------------------
 
