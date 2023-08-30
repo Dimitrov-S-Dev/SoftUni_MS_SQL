@@ -198,42 +198,35 @@ SELECT
 --Task 14 Countries with Rivers
 
 SELECT
-	TOP 5
-	c.CountryName,
-	r.RiverName
-	FROM Countries AS c
-	LEFT JOIN CountriesRivers AS cr ON c.CountryCode = cr.CountryCode
-	LEFT JOIN Rivers AS r ON cr.RiverId = r.Id
-	WHERE c.ContinentCode = 'AF'
-	ORDER BY c.CountryName
+TOP 5
+       c.CountryName,
+       r.RiverName
+  FROM Countries AS c
+  LEFT JOIN CountriesRivers AS cr
+    ON c.CountryCode = cr.CountryCode
+  LEFT JOIN Rivers AS r
+    ON cr.RiverId    = r.Id
+ WHERE c.ContinentCode = 'AF'
+ ORDER BY c.CountryName
 
 ----------------------------------------------------
 
 --Task 15 Continents and Currencies
 
 
-WITH CTE_Count (ContinentCode, CurrancyCode, CurrancyUsage)
-AS
-(
-  SELECT c.ContinentCode,
-         c.CurrencyCode,
-         COUNT(c.CurrencyCode) AS [CurrancyUsage]
-    FROM Countries c
-GROUP BY c.ContinentCode,
-         c.CurrencyCode
-  HAVING COUNT(c.CountryCode) > 1
-)
-
-    SELECT cmax.ContinentCode,
-           cte.CurrancyCode,
-           cmax.CurrancyUsage
-      FROM (  SELECT ContinentCode,
-                       MAX(CurrancyUsage) AS [CurrancyUsage]
-                  FROM CTE_Count
-              GROUP BY ContinentCode) AS cmax
-INNER JOIN CTE_Count cte
-        ON (cmax.ContinentCode = cte.ContinentCode AND cmax.CurrancyUsage = cte.CurrancyUsage)
-  ORDER BY cmax.ContinentCode
+SELECT ContinentCode,
+       CurrencyCode,
+       CurrencyUsage
+  FROM (   SELECT *,
+                  DENSE_RANK() OVER (PARTITION BY ContinentCode ORDER BY CurrencyUsage DESC) AS CurrencyRank
+             FROM (   SELECT ContinentCode,
+                             CurrencyCode,
+                             COUNT(*) AS CurrencyUsage
+                        FROM Countries
+                       GROUP BY ContinentCode,
+                                CurrencyCode
+                      HAVING COUNT(*) > 1) AS CurrencyUsageSubquery ) As CurrenctRanking
+ WHERE CurrencyRank = 1
 
 ----------------------------------------------------
 
