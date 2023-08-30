@@ -232,31 +232,38 @@ SELECT COUNT(*) AS [Count]
 ----------------------------------------------------
 
 --Task 17 Highest Peak and Longest River by Country
-SELECT TOP(5)
-		 c.CountryName,
-		 MAX(p.Elevation) AS HighestPeakElevation,
-		 MAX(r.Length) AS LongestRiverLength
-         FROM Countries AS c
-        LEFT JOIN CountriesRivers AS cr ON c.CountryCode = cr.CountryCode
-        LEFT JOIN Rivers AS r ON cr.RiverId = r.Id
-        LEFT JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
-        LEFT JOIN Mountains AS m ON mc.MountainId = m.Id
-        LEFT JOIN Peaks AS p ON mc.MountainId = p.MountainId
-        GROUP BY c.CountryName
-        ORDER BY HighestPeakElevation DESC, LongestRiverLength DESC, CountryName
-
+SELECT TOP 5
+       c.CountryName,
+       MAX(p.Elevation) AS HighestPeakEvaluation,
+       MAX(r.Length) AS LongestRiverLength
+  FROM Countries AS c
+  LEFT JOIN CountriesRivers AS cr
+    ON c.CountryCode = cr.CountryCode
+  LEFT JOIN Rivers AS r
+    ON cr.RiverId    = r.Id
+  LEFT JOIN MountainsCountries AS mc
+    ON c.CountryCode = mc.CountryCode
+  LEFT JOIN Peaks AS p
+    ON mc.MountainId = p.MountainId
+ GROUP BY c.CountryName
+ ORDER BY HighestPeakEvaluation DESC,
+          LongestRiverLength DESC,
+          c.CountryName
 ----------------------------------------------------
 
 --Task 18 Highest Peak Name and Elevation by Country
 
 SELECT TOP 5
-           c.CountryName,
-           ISNULL(p.PeakName, '(no highest peak)') AS [Highest Peak Name],
-           ISNULL(P.Elevation, 0) AS [Highest Peak Elevation],
-           ISNULL(m.MountainRange, '(no mountain)') AS [Mountain]
-      FROM Countries c
-      LEFT JOIN MountainsCountries mc ON mc.CountryCode = c.CountryCode
-      LEFT JOIN Mountains m ON m.Id = mc.MountainId
-      LEFT JOIN Peaks p ON p.MountainId = mc.MountainId
-      ORDER BY c.CountryName,
-           P.PeakName
+       c.CountryName,
+       ISNULL(p.PeakName, '(no highest peak)') AS [Highest Peak Name],
+       ISNULL(P.Elevation, 0) AS [Highest Peak Elevation],
+       ISNULL(m.MountainRange, '(no mountain)') AS [Mountain]
+  FROM Countries c
+  LEFT JOIN MountainsCountries mc
+    ON mc.CountryCode = c.CountryCode
+  LEFT JOIN Mountains m
+    ON m.Id           = mc.MountainId
+  LEFT JOIN Peaks p
+    ON p.MountainId   = mc.MountainId
+ ORDER BY c.CountryName,
+          p.PeakName
