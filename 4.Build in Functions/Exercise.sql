@@ -91,57 +91,39 @@ SELECT FirstName,
 
 --Task 10 Rank Employees by Salary
 
-SELECT
-    EmployeeID,
-    FirstName,
-    LastName,
-    Salary,
-    DENSE_RANK() OVER(PARTITION BY Salary ORDER BY EmployeeID)
-    AS [RANK]
-FROM
-    Employees
-WHERE
-    Salary BETWEEN 10000 AND 50000
-ORDER BY
-    Salary DESC
+SELECT EmployeeID,
+       FirstName,
+       LastName,
+       Salary,
+       DENSE_RANK() OVER (PARTITION BY Salary ORDER BY EmployeeID) AS [RANK]
+  FROM Employees
+ WHERE Salary BETWEEN 10000 AND 50000
+ ORDER BY Salary DESC
 
 ----------------------------------------------------
 
 --Task 11 Find All Employees with Rank 2 *
 
-SELECT
-    *
-FROM(
-    SELECT
-        EmployeeID,
-        FirstName,
-        LastName,
-        Salary,
-	    DENSE_RANK() OVER(PARTITION BY Salary ORDER BY EmployeeID)
-	AS [RANK]
-    FROM
-    Employees
-    WHERE
-        Salary BETWEEN 10000 AND 50000
-    ) AS RankingSubquary
-WHERE
-    [Rank] = 2
-ORDER BY
-    Salary DESC
+SELECT *
+  FROM (   SELECT EmployeeID,
+                  FirstName,
+                  LastName,
+                  Salary,
+                  DENSE_RANK() OVER (PARTITION BY Salary ORDER BY EmployeeID) AS [RANK]
+             FROM Employees
+            WHERE Salary BETWEEN 10000 AND 50000) AS Manjorlak
+ WHERE [Rank] = 2
+ ORDER BY Salary DESC
 
 ----------------------------------------------------
 
 --Task 12 Countries Holding 'A' 3 or More Times
 
-SELECT
-    CountryName,
-    IsoCode
-FROM
-    Countries
-WHERE
-    LOWER(CountryName) LIKE '%a%a%a%'
-ORDER BY
-    IsoCode
+SELECT CountryName,
+       IsoCode
+  FROM Countries
+ WHERE LOWER(CountryName) LIKE '%a%a%a%'
+ ORDER BY IsoCode
 
 ----------------------------------------------------
 
