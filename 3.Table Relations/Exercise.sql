@@ -203,15 +203,15 @@ CREATE TABLE Majors
 CREATE TABLE Subjects
 (
     SubjectID INT PRIMARY KEY IDENTITY,
-    SubjectName VARCHAR(50) NOT NULL
+    SubjectName NVARCHAR(50) NOT NULL
 )
 
 CREATE TABLE Students
 (
     StudentID INT PRIMARY KEY IDENTITY,
-    StudentNumber INT NOT NULL,
+    StudentNumber VARCHAR(20) NOT NULL,
     StudentName NVARCHAR(50) NOT NULL,
-    MajorID INT REFERENCES Majors(MajorID)
+    MajorID INT REFERENCES Majors(MajorID) NOT NULL
 )
 
 Create TABLE Agenda
