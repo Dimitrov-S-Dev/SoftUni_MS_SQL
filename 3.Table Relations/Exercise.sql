@@ -237,8 +237,8 @@ CREATE TABLE Payment
 SELECT m.MountainRange,
        p.PeakName,
        p.Elevation
-  FROM Mountains AS m
-  LEFT JOIN Peaks AS p
+  FROM Peaks AS p
+  LEFT JOIN Mountains AS m
     ON p.MountainId = m.ID
  WHERE MountainRange = 'Rila'
  ORDER BY p.Elevation DESC
