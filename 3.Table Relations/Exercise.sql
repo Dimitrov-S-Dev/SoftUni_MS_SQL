@@ -1,26 +1,26 @@
 --Task 1 One-To-One Relationship
 
-CREATE DATABASE [One_To_One]
+CREATE DATABASE One_To_One
 
 USE One_To_One
 
 CREATE TABLE Passports
 (
-    [PassportID] INT PRIMARY KEY IDENTITY(101,1),
-    [PassportNumber] VARCHAR(10) NOT NULL
+    PassportID INT PRIMARY KEY IDENTITY(101,1),
+    PassportNumber VARCHAR(10) NOT NULL
 )
 
-CREATE TABLE [Persons]
+CREATE TABLE Persons
 (
-    [PersonID] INT PRIMARY KEY IDENTITY,
-    [FirstName] NVARCHAR(30) NOT NULL,
-    [Salary] DECIMAL(8,2) NOT NULL,
-    [PassportID] INT REFERENCES Passports([PassportID]) UNIQUE NOT NULL
+    PersonID INT PRIMARY KEY IDENTITY,
+    FirstName NVARCHAR(30) NOT NULL,
+    Salary DECIMAL(8,2) NOT NULL,
+    PassportID INT REFERENCES Passports(PassportID) UNIQUE NOT NULL
 )
 
 
 INSERT INTO
-    [Passports] ([PassportNumber])
+    Passports(PassportNumber)
 VALUES
     ('N34FG21B'),
     ('K65LO4R7'),
@@ -28,7 +28,7 @@ VALUES
 
 
 INSERT INTO
-    [Persons]([FirstName], [Salary], [PassportID])
+    Persons(FirstName, Salary, PassportID)
 VALUES
     ('Roberto', 43300.00, 102),
     ('Tom', 56100.00, 103),
@@ -38,23 +38,23 @@ VALUES
 
 --Task 2 One-To-Many Relationship
 
-CREATE TABLE [Manufacturers]
+CREATE TABLE Manufacturers
 (
-    [ManufacturerID] INT PRIMARY KEY IDENTITY,
+    ManufacturerID INT PRIMARY KEY IDENTITY,
     [Name] VARCHAR(30) NOT NULL,
-    [EstablishedOn] DATE NOT NULL
+    EstablishedOn DATE NOT NULL
 )
 
-CREATE TABLE [Models]
+CREATE TABLE Models
 (
-    [ModelID] INT PRIMARY KEY IDENTITY(101, 1),
+    ModelID INT PRIMARY KEY IDENTITY(101, 1),
     [Name] VARCHAR(30) NOT NULL,
-    [ManufacturerID] INT REFERENCES [Manufacturers]([ManufacturerID]) NOT NULL
+    ManufacturerID INT REFERENCES Manufacturers(ManufacturerID) NOT NULL
 )
 
 
 INSERT INTO
-    [Manufacturers]([Name], [EstablishedOn])
+    Manufacturers([Name], EstablishedOn)
 VALUES
     ('BMW', '07/03/1916'),
     ('Tesla', '01/01/2003'),
@@ -63,7 +63,7 @@ VALUES
 GO
 
 INSERT INTO
-    [Models] ([Name], [ManufacturerID])
+    Models ([Name], ManufacturerID)
 VALUES
     ('X1', 1),
     ('i6', 1),
@@ -76,31 +76,31 @@ VALUES
 
 --Task 3 Many-To-Many Relationship
 
-CREATE TABLE [Students]
+CREATE TABLE Students
 (
-    [StudentID] INT PRIMARY KEY IDENTITY,
+    StudentID INT PRIMARY KEY IDENTITY,
     [Name] NVARCHAR(40) NOT NULL
 )
 
 
-CREATE TABLE [Exams]
+CREATE TABLE Exams
 (
-    [ExamID] INT PRIMARY KEY IDENTITY(101,1),
+    ExamID INT PRIMARY KEY IDENTITY(101,1),
     [Name] NVARCHAR(70) NOT NULL
 )
 
 
 
-CREATE TABLE [StudentsExams]
+CREATE TABLE StudentsExams
 (
-    [StudentID] INT REFERENCES [Students](StudentID),
-    [ExamID] INT REFERENCES [Exams]([ExamID]),
-    PRIMARY KEY ([StudentID], [ExamID])
+    StudentID INT REFERENCES Students(StudentID),
+    ExamID INT REFERENCES Exams(ExamID),
+    PRIMARY KEY (StudentID, ExamID)
 
 )
 
 INSERT INTO
-    [Students] ([Name])
+    Students ([Name])
 VALUES
     ('Mila'),
     ('Toni'),
@@ -108,7 +108,7 @@ VALUES
 
 
 INSERT INTO
-    [Exams] ([Name])
+    Exams ([Name])
 VALUES
     ('SpringMVC'),
     ('Neo4j'),
@@ -116,7 +116,7 @@ VALUES
 
 
 INSERT INTO
-    [StudentsExams] ([StudentID], [ExamID])
+    StudentsExams (StudentID, ExamID)
 VALUES
     (1, 101),
     (1, 102),
@@ -129,15 +129,15 @@ VALUES
 
 --Task 4 Self-Referencing
 
-CREATE TABLE [Teachers]
+CREATE TABLE Teachers
 (
-    [TeacherID] INT PRIMARY KEY IDENTITY(101,1),
+    TeacherID INT PRIMARY KEY IDENTITY(101,1),
     [Name] NVARCHAR(50) NOT NULL,
-    [ManagerID] INT REFERENCES [Teachers](TeacherID)
+    ManagerID INT REFERENCES Teachers(TeacherID)
 )
 
 INSERT INTO
-    [Teachers]([Name], [ManagerID])
+    Teachers ([Name], ManagerID)
 VALUES
     ('John', NULL),
     ('Maya', 106),
@@ -150,97 +150,95 @@ VALUES
 
 --Task 5 Online Store Database
 
-CREATE TABLE [Cities]
+CREATE TABLE Cities
 (
-    [CityID] INT PRIMARY KEY IDENTITY,
+    CityID INT PRIMARY KEY IDENTITY,
     [Name] VARCHAR(50) NOT NULL
 )
 
-CREATE TABLE [Customers]
+CREATE TABLE Customers
 (
-    [CustomerID] INT PRIMARY KEY IDENTITY,
+    CustomerID INT PRIMARY KEY IDENTITY,
     [Name] VARCHAR(50) NOT NULL,
-    [Birthday] DATE,
-    [CityID] INT REFERENCES [Cities]([CityID])
+    Birthday DATE,
+    CityID INT REFERENCES Cities(CityID)
 )
 
-CREATE TABLE [Orders]
+CREATE TABLE Orders
 (
-    [OrderID] INT PRIMARY KEY IDENTITY,
-    [CustomerID] INT REFERENCES [Customers]([CustomerID])
+    OrderID INT PRIMARY KEY IDENTITY,
+    CustomerID INT REFERENCES Customers (CustomerID)
 )
 
-CREATE TABLE [ItemTypes]
+CREATE TABLE ItemTypes
 (
-    [ItemTypeID] INT PRIMARY KEY IDENTITY,
+    ItemTypeID INT PRIMARY KEY IDENTITY,
     [Name] VARCHAR(50) NOT NULL
 )
 
-CREATE TABLE [Items]
+CREATE TABLE Items
 (
-    [ItemID] INT PRIMARY KEY IDENTITY,
+    ItemID INT PRIMARY KEY IDENTITY,
     [Name] VARCHAR(50) NOT NULL,
-    [ItemTypeID] INT REFERENCES [ItemTypes]([ItemTypeID])
+    ItemTypeID INT REFERENCES ItemTypes(ItemTypeID)
 )
 
-CREATE TABLE [OrderItems]
+CREATE TABLE OrderItems
 (
-    [OrderID] INT REFERENCES [Orders]([OrderID]),
-    [ItemID] INT REFERENCES [Items]([ItemID])
-    PRIMARY KEY ([OrderID],[ItemID])
+    OrderID INT REFERENCES Orders(OrderID),
+    ItemID INT REFERENCES Items(ItemID)
+    PRIMARY KEY (OrderID,ItemID)
 )
 
 ----------------------------------------------------
 
 --Task 6 University Database
 
-CREATE TABLE [Majors]
+CREATE TABLE Majors
 (
-    [MajorID] INT PRIMARY KEY IDENTITY,
+    MajorID INT PRIMARY KEY IDENTITY,
     [Name] VARCHAR(50) NOT NULL
 )
 
-CREATE TABLE [Subjects]
+CREATE TABLE Subjects
 (
-    [SubjectID] INT PRIMARY KEY IDENTITY,
-    [SubjectName] VARCHAR(50) NOT NULL
+    SubjectID INT PRIMARY KEY IDENTITY,
+    SubjectName VARCHAR(50) NOT NULL
 )
 
-CREATE TABLE [Students]
+CREATE TABLE Students
 (
-    [StudentID] INT PRIMARY KEY IDENTITY,
-    [StudentNumber] INT NOT NULL,
-    [StudentName] NVARCHAR(50) NOT NULL,
-    [MajorID] INT REFERENCES Majors(MajorID)
+    StudentID INT PRIMARY KEY IDENTITY,
+    StudentNumber INT NOT NULL,
+    StudentName NVARCHAR(50) NOT NULL,
+    MajorID INT REFERENCES Majors(MajorID)
 )
 
-Create TABLE [Agenda]
+Create TABLE Agenda
 (
-    [StudentID] INT REFERENCES [Students]([StudentID]),
-    [SubjectID] INT REFERENCES Subjects([SubjectID])
-PRIMARY KEY
-    ([StudentID], [SubjectID])
+    StudentID INT REFERENCES Students(StudentID),
+    SubjectID INT REFERENCES Subjects(SubjectID)
+    PRIMARY KEY (StudentID, SubjectID)
 
 )
 
-CREATE TABLE [Payments]
+CREATE TABLE Payment
 (
-    [PaymentID] INT PRIMARY KEY IDENTITY,
-    [PaymentDate] DATETIME2 NOT NULL,
-    [PaymentAmount] DECIMAL(8,2),
-    [StudentID] INT REFERENCES [Students]([StudentID]) NOT NULL
+    PaymentID INT PRIMARY KEY IDENTITY,
+    PaymentDate DATETIME2 NOT NULL,
+    PaymentAmount DECIMAL(8,2),
+    StudentID INT REFERENCES Students(StudentID) NOT NULL
 )
 
 ----------------------------------------------------
 
 --Task 9 Peaks in Rila
 
-SELECT
-    [m].[MountainRange], [p].[PeakName], [p].[Elevation]
-FROM
-    [Mountains] AS [m]
-LEFT JOIN [Peaks]  AS  [p] ON  [p].[MountainId] = [m] .[ID]
-WHERE
-    [MountainRange] = 'Rila'
-ORDER BY
-    [p].[Elevation] DESC
+SELECT m.MountainRange,
+       p.PeakName,
+       p.Elevation
+  FROM Mountains AS m
+  LEFT JOIN Peaks AS p
+    ON p.MountainId = m.ID
+ WHERE MountainRange = 'Rila'
+ ORDER BY p.Elevation DESC
