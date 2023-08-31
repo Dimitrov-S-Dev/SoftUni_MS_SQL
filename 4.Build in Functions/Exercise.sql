@@ -59,15 +59,11 @@ SELECT TownID,
 
 --Task 7 Find Towns Not Starting With
 
-SELECT
-    TownID,
-    [Name]
-FROM
-    Towns
-WHERE
-    LEFT([Name], 1) NOT IN ('R', 'B', 'D')
-ORDER BY
-    [Name]
+SELECT TownID,
+       [Name]
+  FROM Towns
+ WHERE LEFT([Name], 1)NOT IN ( 'R', 'B', 'D' )
+ ORDER BY [Name]
 
 ----------------------------------------------------
 
@@ -75,13 +71,10 @@ ORDER BY
 
 CREATE VIEW V_EmployeesHiredAfter2000
 AS
-SELECT
-    FirstName,
-    LastName
-FROM
-    Employees
-WHERE
-    YEAR(HireDate) > 2000
+SELECT FirstName,
+       LastName
+  FROM Employees
+ WHERE YEAR(HireDate) > 2000
 
 -- SELECT *
 	--FROM v_EmployeesHiredAfter200
@@ -89,13 +82,10 @@ WHERE
 
 --Task 9 Length of Last Name
 
-SELECT
-    FirstName,
-    LastName
-FROM
-    Employees
-WHERE
-    LEN(LastName) = 5
+SELECT FirstName,
+       LastName
+  FROM Employees
+ WHERE LEN(LastName) = 5
 
 ----------------------------------------------------
 
