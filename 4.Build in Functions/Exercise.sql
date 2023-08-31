@@ -48,16 +48,12 @@ SELECT [Name]
 
 --Task 6 Find Towns Starting With
 
-SELECT
-    TownID,
-    [Name]
-FROM
-    Towns
-WHERE
-    LEFT([Name], 1) IN ('M', 'K', 'B', 'E')
-    --[Name] LIKE '[MKBE]%'
-ORDER BY
-    [Name]
+SELECT TownID,
+       [Name]
+  FROM Towns
+ WHERE LEFT([Name], 1) IN ( 'M', 'K', 'B', 'E' )
+ --[Name] LIKE '[MKBE]%'
+ ORDER BY [Name]
 
 ----------------------------------------------------
 
