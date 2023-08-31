@@ -216,8 +216,8 @@ CREATE TABLE Students
 
 Create TABLE Agenda
 (
-    StudentID INT REFERENCES Students(StudentID),
-    SubjectID INT REFERENCES Subjects(SubjectID)
+    StudentID INT FOREIGN KEY REFERENCES Students(StudentID),
+    SubjectID INT FOREIGN KEY REFERENCES Subjects(SubjectID)
     PRIMARY KEY (StudentID, SubjectID)
 
 )
@@ -226,8 +226,8 @@ CREATE TABLE Payment
 (
     PaymentID INT PRIMARY KEY IDENTITY,
     PaymentDate DATETIME2 NOT NULL,
-    PaymentAmount DECIMAL(8,2),
-    StudentID INT REFERENCES Students(StudentID) NOT NULL
+    PaymentAmount DECIMAL(8,2) NOT NULL,
+    StudentID INT FOREIGN KEY REFERENCES Students(StudentID) NOT NULL
 )
 
 ----------------------------------------------------
