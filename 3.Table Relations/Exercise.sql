@@ -1,19 +1,19 @@
 --Task 1 One-To-One Relationship
 
-CREATE DATABASE One_To_One
+CREATE DATABASE Relationship
 
-USE One_To_One
+USE Relationship
 
 CREATE TABLE Passports
 (
     PassportID INT PRIMARY KEY IDENTITY(101,1),
-    PassportNumber VARCHAR(10) NOT NULL
+    PassportNumber VARCHAR(8) NOT NULL
 )
 
 CREATE TABLE Persons
 (
     PersonID INT PRIMARY KEY IDENTITY,
-    FirstName NVARCHAR(30) NOT NULL,
+    FirstName VARCHAR(30) NOT NULL,
     Salary DECIMAL(8,2) NOT NULL,
     PassportID INT REFERENCES Passports(PassportID) UNIQUE NOT NULL
 )
