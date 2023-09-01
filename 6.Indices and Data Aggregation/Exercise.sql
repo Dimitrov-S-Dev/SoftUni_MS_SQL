@@ -98,25 +98,25 @@ SELECT a.AgeGroup,
 
 --Task 10 First Letter
 
-SELECT LEFT(FirstName,1) AS FirstLetter
-	FROM WizzardDeposits
-	WHERE DepositGroup LIKE 'Troll%'
-	GROUP BY LEFT(FirstName, 1)
-	ORDER BY FirstLetter
+SELECT LEFT(FirstName, 1) AS FirstLetter
+  FROM WizzardDeposits
+ WHERE DepositGroup LIKE 'Troll%'
+ GROUP BY LEFT(FirstName, 1)
+ ORDER BY FirstLetter
 
 ----------------------------------------------------
 
 --Task 11 Average Interest
 
-SELECT
-	DepositGroup,
-	IsDepositExpired,
-	AVG(DepositInterest)
-	FROM WizzardDeposits
-	WHERE DepositStartDate > '1985-01-01'
-	GROUP BY DepositGroup, IsDepositExpired
-	ORDER BY DepositGroup DESC,
-	IsDepositExpired
+SELECT DepositGroup,
+       IsDepositExpired,
+       AVG(DepositInterest)
+  FROM WizzardDeposits
+ WHERE DepositStartDate > '01-01-1985'
+ GROUP BY DepositGroup,
+          IsDepositExpired
+ ORDER BY DepositGroup DESC,
+          IsDepositExpired
 
 ----------------------------------------------------
 
