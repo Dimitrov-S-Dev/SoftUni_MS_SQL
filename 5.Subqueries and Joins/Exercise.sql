@@ -183,7 +183,9 @@ SELECT c.CountryCode,
 SELECT CountryCode,
        COUNT(MountainId) AS MountainRanges
   FROM MountainsCountries
- WHERE CountryCode IN ( 'USA', 'BG', 'RU' )
+ WHERE CountryCode IN (   SELECT CountryCode
+                            FROM Countries
+                           WHERE CountryName IN ( 'United States', 'Bulgaria', 'Russia' ))
  GROUP BY CountryCode
 
 ----------------------------------------------------
