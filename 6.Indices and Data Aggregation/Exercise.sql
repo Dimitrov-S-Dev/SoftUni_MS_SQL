@@ -122,11 +122,26 @@ SELECT DepositGroup,
 
 --Task 12 * Rich Wizard, Poor Wizard
 
-SELECT ABS(SUM(tt.DepositDifference)) AS SumDifference FROM
-	(SELECT wiz1.DepositAmount - wiz2.DepositAmount AS DepositDifference
-	 FROM WizzardDeposits AS wiz1
-	 JOIN WizzardDeposits AS wiz2 ON wiz1.Id = (wiz2.Id + 1)) AS tt
+SELECT ABS(SUM(tt.DepositDifference)) AS SumDifference
+  FROM (   SELECT wiz1.DepositAmount - wiz2.DepositAmount AS DepositDifference
+             FROM WizzardDeposits AS wiz1
+             JOIN WizzardDeposits AS wiz2
+               ON wiz1.Id = (wiz2.Id + 1)) AS tt
 
+--SELECT
+	--SUM([Difference]) AS SumDifference
+--FROM(
+
+	--SELECT
+		--FirstName AS [Host Wizard],
+		--DepositAmount AS [Host Wizard Deposit],
+		--LEAD(FirstName) OVER(ORDER BY [Id]) AS [Guest Wizard],
+		--LEAD(DepositAmount) OVER(ORDER BY [Id]) AS [Guest Wizard Depost],
+		--DepositAmount - LEAD(DepositAmount) OVER(ORDER BY [Id]) AS [Difference]
+
+	--FROM
+		--WizzardDeposits
+	--) AS q
 ----------------------------------------------------
 
 --Task 13 Departments Total Salaries
