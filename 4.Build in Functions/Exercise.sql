@@ -162,16 +162,11 @@ SELECT Username,
 
 --Task 16 Get Users with IPAddress Like Pattern
 
-SELECT
-    Username,
-    IpAddress
-FROM
-    Users
-WHERE
-    IpAddress LIKE '___.1%.%.___'
-ORDER BY
-    Username
-
+SELECT Username,
+       IpAddress
+  FROM Users
+ WHERE IpAddress LIKE '___.1%.%.___'
+ ORDER BY Username
 ----------------------------------------------------
 
 --Task 17 Show All Games with Duration and Part of the Da
