@@ -136,7 +136,7 @@ SELECT ABS(SUM(tt.DepositDifference)) AS SumDifference
 		--FirstName AS [Host Wizard],
 		--DepositAmount AS [Host Wizard Deposit],
 		--LEAD(FirstName) OVER(ORDER BY [Id]) AS [Guest Wizard],
-		--LEAD(DepositAmount) OVER(ORDER BY [Id]) AS [Guest Wizard Depost],
+		--LEAD(DepositAmount) OVER(ORDER BY [Id]) AS [Guest Wizard Deposit],
 		--DepositAmount - LEAD(DepositAmount) OVER(ORDER BY [Id]) AS [Difference]
 
 	--FROM
@@ -146,24 +146,23 @@ SELECT ABS(SUM(tt.DepositDifference)) AS SumDifference
 
 --Task 13 Departments Total Salaries
 
-SELECT
-	DepartmentID,
-	SUM(Salary) AS TotalSalary
-	FROM Employees
-	GROUP BY DepartmentID
-	ORDER BY DepartmentID
+SELECT DepartmentID,
+       SUM(Salary) AS TotalSalary
+  FROM Employees
+ GROUP BY DepartmentID
+ ORDER BY DepartmentID
 
 ----------------------------------------------------
 
 --Task 14 Employees Minimum Salaries
 
-SELECT
-	DepartmentID,
-	MIN(Salary) AS MinimumSalary
-	FROM Employees
-	WHERE DepartmentID IN(2, 5, 7) AND HireDate > '2000-01-01'
-	GROUP BY DepartmentID
-	ORDER BY DepartmentID
+SELECT DepartmentID,
+       MIN(Salary) AS MinimumSalary
+  FROM Employees
+ WHERE DepartmentID IN ( 2, 5, 7 )
+   AND HireDate > '2000-01-01'
+ GROUP BY DepartmentID
+ ORDER BY DepartmentID
 
 ----------------------------------------------------
 
@@ -191,41 +190,42 @@ SELECT
 
 --Task 16 Employee Maximum Salaries
 
-SELECT
-	DepartmentID,
-	MAX(Salary) AS MaxSalary
-	FROM Employees
-	GROUP BY DepartmentID
-	HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
+SELECT DepartmentID,
+       MAX(Salary) AS MaxSalary
+  FROM Employees
+ GROUP BY DepartmentID
+HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
 
 ----------------------------------------------------
 
 --Task 17 Employees Count Salaries
 
-SELECT
-	COUNT(*) AS Count
-	FROM Employees
-	WHERE ManagerID IS NULL
+SELECT COUNT(*) AS Count
+  FROM Employees
+ WHERE ManagerID IS NULL
 
 ----------------------------------------------------
 
 --Task 18 3rd Highest Salary
 
-SELECT tt.DepartmentID, tt.Salary AS ThirdHighestSalary
-	FROM
-		(SELECT DepartmentID, Salary,
-		DENSE_RANK() OVER
-		(PARTITION BY DepartmentID ORDER BY Salary DESC) AS OrderedSalaries
-		FROM Employees ) AS tt
-	WHERE OrderedSalaries = 3
-	GROUP BY tt.DepartmentID, tt.Salary
+SELECT DISTINCT DepartmentID,
+       Salary AS ThirdHighestSalary
+  FROM (   SELECT DepartmentID,
+                  Salary,
+                  DENSE_RANK() OVER (PARTITION BY DepartmentID ORDER BY Salary DESC) AS [SalaryRank]
+             FROM Employees) AS SubQ
+ WHERE [SalaryRank] = 3
+
 
 ----------------------------------------------------
 
 --Task 19 **Salary Challenge
 
-SELECT TOP(10) FirstName, LastName, DepartmentID FROM Employees AS e1
-WHERE Salary >
-	(SELECT AVG(Salary) FROM Employees AS e2
-	 WHERE e1.DepartmentID = e2.DepartmentID)
-ORDER BY DepartmentID
+SELECT TOP (10) FirstName,
+       LastName,
+       DepartmentID
+  FROM Employees AS e1
+ WHERE Salary > (   SELECT AVG(Salary)
+                      FROM Employees AS e2
+                     WHERE e1.DepartmentID = e2.DepartmentID)
+ ORDER BY DepartmentID
