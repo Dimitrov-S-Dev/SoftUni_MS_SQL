@@ -169,22 +169,21 @@ SELECT DepartmentID,
 --Task 15 Employees Average Salaries
 
 SELECT *
-	INTO NewT
-	FROM Employees
-	WHERE Salary > 3000
+INTO   NewT
+  FROM Employees
+ WHERE Salary > 3000
 
 DELETE FROM NewT
-WHERE ManagerID = 42
+ WHERE ManagerID = 42
 
 UPDATE NewT
-SET Salary += 5000
-WHERE DepartmentID = 1
+   SET Salary += 5000
+ WHERE DepartmentID = 1
 
-SELECT
-	DepartmentID,
-	AVG(Salary) AS AverageSalary
-	FROM NewT
-	GROUP BY DepartmentID
+SELECT DepartmentID,
+       AVG(Salary) AS AverageSalary
+  FROM NewT
+ GROUP BY DepartmentID
 
 ----------------------------------------------------
 
