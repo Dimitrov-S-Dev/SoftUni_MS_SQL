@@ -6,7 +6,6 @@ Intensive course on the basics of databases to one of the most widely used datab
 - Transaction Management
 - Using procedures and functions
 - Handling and storing data
-- Creation of basic Back-End architectures
 - Using the ACID model
 
 
