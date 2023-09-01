@@ -24,59 +24,57 @@ SELECT DepositGroup,
 --Task 4 Smallest Deposit Group Per Magic Wand Size
 
 SELECT
-	TOP 2
-	DepositGroup
-	FROM WizzardDeposits
-	GROUP BY DepositGroup
-	ORDER BY AVG(MagicWandSize)
+        TOP 2
+        DepositGroup
+  FROM WizzardDeposits
+ GROUP BY DepositGroup
+ ORDER BY AVG(MagicWandSize)
 
 ----------------------------------------------------
 
 --Task 5 Deposit Sum
 
 SELECT
-	TOP 5
-	DepositGroup,
-	SUM(DepositAmount)
-	FROM WizzardDeposits
-	GROUP BY DepositGroup
+        TOP 5
+        DepositGroup,
+       SUM(DepositAmount)
+  FROM WizzardDeposits
+ GROUP BY DepositGroup
 
 ----------------------------------------------------
 
 --Task 6 Deposit Sum for Ollivander Family
 
-SELECT
-	DepositGroup,
-	SUM(DepositAmount) AS TotalSum
-	FROM WizzardDeposits
-	WHERE MagicWandCreator = 'Ollivander family'
-	GROUP BY DepositGroup
+SELECT DepositGroup,
+       SUM(DepositAmount) AS TotalSum
+  FROM WizzardDeposits
+ WHERE MagicWandCreator = 'Ollivander family'
+ GROUP BY DepositGroup
 
 ----------------------------------------------------
 
 --Task 7 Deposit Filter
 
-SELECT
-	DepositGroup,
-	SUM(DepositAmount) AS TotalSum
-	FROM WizzardDeposits
-	WHERE MagicWandCreator = 'Ollivander family'
-	GROUP BY DepositGroup
-	HAVING SUM(DepositAmount) < 150000
-	ORDER BY TotalSum DESC
+SELECT DepositGroup,
+       SUM(DepositAmount) AS TotalSum
+  FROM WizzardDeposits
+ WHERE MagicWandCreator = 'Ollivander family'
+ GROUP BY DepositGroup
+HAVING SUM(DepositAmount) < 150000
+ ORDER BY TotalSum DESC
 
 ----------------------------------------------------
 
 --Task 8 Deposit Charge
 
-SELECT
-	DepositGroup,
-	MagicWandCreator,
-	MIN(DepositCharge) AS MinDepositCharge
-	FROM WizzardDeposits
-	GROUP BY DepositGroup, MagicWandCreator
-	ORDER BY MagicWandCreator,
-	DepositGroup
+SELECT DepositGroup,
+       MagicWandCreator,
+       MIN(DepositCharge) AS MinDepositCharge
+  FROM WizzardDeposits
+ GROUP BY DepositGroup,
+          MagicWandCreator
+ ORDER BY MagicWandCreator,
+          DepositGroup
 
 ----------------------------------------------------
 
