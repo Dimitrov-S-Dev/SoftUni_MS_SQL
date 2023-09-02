@@ -128,15 +128,15 @@ GO
 
 --Task 7 Define Function
 
-CREATE FUNCTION ufn_isWordComprised (@SetOfLetters NVARCHAR(50), @Word NVARCHAR(50))
+CREATE FUNCTION ufn_isWordComprised (@SetOfLetters VARCHAR(50), @Word VARCHAR(50))
 RETURNS BIT
 AS
 BEGIN
     DECLARE @Index INT = 1
     WHILE (@Index <= LEN(@Word))
     BEGIN
-        DECLARE @Symbol NVARCHAR(1) = SUBSTRING(@Word, @Index, 1)
-        IF (CHARINDEX(@Symbol, @SetOfLetters, 1) = 0)
+        DECLARE @SymbolChar CHAR = SUBSTRING(@Word, @Index, 1)
+        IF CHARINDEX(@SymbolChar, @SetOfLetters) = 0)
         BEGIN
             RETURN 0
         END
