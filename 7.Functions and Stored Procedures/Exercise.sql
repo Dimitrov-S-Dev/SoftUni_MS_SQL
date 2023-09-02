@@ -115,10 +115,12 @@ CREATE OR ALTER PROCEDURE usp_EmployeesBySalaryLevel @salaryLevel VARCHAR(8)
 AS
 BEGIN
 	SELECT
-	FirstName,
-	LastName
-	FROM Employees
-	WHERE dbo.GetSalaryLevel(Salary) = @salaryLevel
+	    FirstName,
+	    LastName
+	FROM
+	    Employees
+	WHERE
+	    dbo.GetSalaryLevel(Salary) = @salaryLevel
 END
 GO
 
