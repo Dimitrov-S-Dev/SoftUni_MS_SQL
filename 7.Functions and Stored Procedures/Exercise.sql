@@ -149,7 +149,7 @@ END
 
 --Task 8 Delete Employees and Departments
 
-CREATE PROC usp_DeleteEmployeesFromDepartment (@DepartmentId INT)
+CREATE OR ALTER PROCEDURE usp_DeleteEmployeesFromDepartment (@DepartmentId INT)
 AS
 BEGIN
     DECLARE @EmployeesIdToDelete TABLE (Id INT)
@@ -203,12 +203,14 @@ END
 CREATE OR ALTER PROCEDURE usp_GetHoldersWithBalanceHigherThan @amount DECIMAL(18, 4)
 AS
 BEGIN
-	SELECT
-	ah.FirstName,
-	ah.LastName
-	FROM AccountHolders AS ah
+	SELECT ah.FirstName,
+	       ah.LastName
+	FROM
+	        AccountHolders AS ah
 	JOIN Accounts AS a ON ah.ID = a.AccountHolderID
-	GROUP BY ah.FirstName, ah.LastName
-	HAVING SUM(a.Balance) > @amount
+	GROUP BY
+	        ah.FirstName, ah.LastName
+	HAVING
+	        SUM(a.Balance) > @amount
 	WHERE
 END
