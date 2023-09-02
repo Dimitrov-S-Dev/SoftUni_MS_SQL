@@ -7,12 +7,14 @@ BEGIN
 	SELECT
 		FirstName,
 		LastName
-		FROM Employees
-		WHERE Salary > 35000
+	FROM
+	    Employees
+	WHERE
+	    Salary > 35000
 END
 GO
 --Do not paste this in Judge. It's for testing purpose only.
-EXEC dbo.usp_GetEmployeesSalaryAbove35000
+--EXEC dbo.usp_GetEmployeesSalaryAbove35000
 
 ----------------------------------------------------
 
@@ -23,10 +25,12 @@ CREATE OR ALTER PROCEDURE usp_GetEmployeesSalaryAboveNumber @aboveSalary DECIMAL
 AS
 BEGIN
 	SELECT
-	FirstName,
-	LastName
-	FROM Employees
-	WHERE Salary >= @aboveSalary
+	    FirstName,
+	    LastName
+	FROM
+	    Employees
+	WHERE
+	    Salary >= @aboveSalary
 END
 GO
 --Do not paste this in Judge. It's for testing purpose only.
@@ -41,9 +45,11 @@ CREATE OR ALTER PROCEDURE usp_GetTownsStartingWit @word VARCHAR(20)
 AS
 BEGIN
 	SELECT
-	Name AS Town
-	FROM Towns as T
-	WHERE LEFT(T.Name,LEN(@word)) = @word
+	    [Name] AS Town
+	FROM
+	    Towns as t
+	WHERE
+	    LEFT(t.Name,LEN(@word)) = @word
 
 END
 GO
