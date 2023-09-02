@@ -65,12 +65,14 @@ CREATE OR ALTER PROCEDURE usp_GetEmployeesFromTown @townName VARCHAR(50)
 AS
 BEGIN
 	SELECT
-	FirstName,
-	LastName
-	FROM Employees AS E
-	JOIN Addresses AS A ON E.AddressID = A.AddressID
-	JOIN Towns AS T ON A.TownID = T.TownID
-	WHERE T.Name = @townName
+	    FirstName,
+	    LastName
+	FROM
+	    Employees AS e
+	JOIN Addresses AS a ON e.AddressID = a.AddressID
+	JOIN Towns AS t ON a.TownID = t.TownID
+	WHERE
+	    t.Name = @townName
 END
 GO
 
@@ -83,11 +85,17 @@ RETURNS VARCHAR(8)
 AS
 BEGIN
 	DECLARE @salaryLevel VARCHAR(8)
-	SET @salaryLevel =
-	CASE
-		WHEN @salary < 30000 THEN 'Low'
-		WHEN @salary < 50000 THEN 'Average'
-		ELSE 'High'
+	IF @salary < 30000
+	BEGIN
+		SET @salaryLevel = 'Low'
+	END
+	ELSE IF @salary BETWEEN 30000 AND 50000
+	BEGIN
+		SET @salaryLevel = 'Average'
+	END
+	ELSE IF @salary > 50000
+	BEGIN
+		SET @salaryLevel = 'High'
 	END
 
 	RETURN @salaryLevel
