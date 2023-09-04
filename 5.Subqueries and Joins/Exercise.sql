@@ -256,17 +256,28 @@ SELECT TOP 5
 
 --Task 18 Highest Peak Name and Elevation by Country
 
-SELECT TOP 5
+SELECT
+	TOP 5
+	CountryName AS Country,
+	ISNULL(PeakName, 'no highest peak') AS [Highest Peak Name],
+	ISNULL(Elevation, 0) AS [Highest Peak Elevation],
+	ISNULL(MountainRange, 'no mountain') AS Mountain
+FROM(
+	SELECT
        c.CountryName,
-       ISNULL(p.PeakName, '(no highest peak)') AS [Highest Peak Name],
-       ISNULL(P.Elevation, 0) AS [Highest Peak Elevation],
-       ISNULL(m.MountainRange, '(no mountain)') AS [Mountain]
+       p.PeakName,
+       p.Elevation,
+       m.MountainRange,
+	   DENSE_RANK() OVER(PARTITION BY c.CountryName ORDER BY p.Elevation DESC) AS RN
   FROM Countries c
   LEFT JOIN MountainsCountries mc
     ON mc.CountryCode = c.CountryCode
   LEFT JOIN Mountains m
     ON m.Id           = mc.MountainId
   LEFT JOIN Peaks p
-    ON p.MountainId   = mc.MountainId
- ORDER BY c.CountryName,
-          p.PeakName
+    ON p.MountainId   = m.Id
+	) AS SubQ
+WHERE
+	SubQ.RN = 1
+ ORDER BY Country,
+          [Highest Peak Name]
