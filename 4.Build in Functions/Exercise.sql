@@ -35,6 +35,13 @@ SELECT FirstName,
   FROM Employees
  WHERE JobTitle NOT LIKE '%engineer%'
 
+-- SELECT
+-- 	FirstName,
+-- 	LastName
+-- FROM
+-- 	Employees
+-- WHERE
+-- 	CHARINDEX('engineer', jobtitle) = 0
 ----------------------------------------------------
 
 --Task 5 Find Towns with Name Length
@@ -124,6 +131,16 @@ SELECT CountryName,
   FROM Countries
  WHERE LOWER(CountryName) LIKE '%a%a%a%'
  ORDER BY IsoCode
+
+-- SELECT
+-- 	CountryName,
+-- 	IsoCode
+-- FROM
+-- 	Countries
+-- WHERE
+-- 	LEN(CountryName) - LEN(REPLACE(LOWER(CountryName), 'a', '')) >= 3
+-- ORDER BY
+-- 	IsoCode
 
 ----------------------------------------------------
 
