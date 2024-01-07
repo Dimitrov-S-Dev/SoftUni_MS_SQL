@@ -35,9 +35,8 @@ SELECT
 --Task 5 Deposit Sum
 
 SELECT
-        TOP 5
         DepositGroup,
-       SUM(DepositAmount)
+       SUM(DepositAmount) AS TotalSum
   FROM WizzardDeposits
  GROUP BY DepositGroup
 
